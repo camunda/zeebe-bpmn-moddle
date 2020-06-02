@@ -1,0 +1,46 @@
+{
+  "name": "zeebe-bpmn-moddle",
+  "version": "0.1.0",
+  "description": "Zeebe moddle extensions for BPMN 2.0",
+  "scripts": {
+    "all": "run-s lint test",
+    "lint": "eslint .",
+    "dev": "npm test -- --watch",
+    "test": "mocha -r ./test/expect --reporter=spec --recursive test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zeebe-io/zeebe-bpmn-moddle"
+  },
+  "keywords": [
+    "bpmn",
+    "moddle",
+    "bpmn20",
+    "zeebe",
+    "meta-model"
+  ],
+  "author": {
+    "name": "Maciej Barelkowski",
+    "url": "https://github.com/barmac"
+  },
+  "contributors": [
+    {
+      "name": "bpmn.io contributors",
+      "url": "https://github.com/bpmn-io"
+    }
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "async": "^2.6.0",
+    "bpmn-moddle": "^6.0.6",
+    "chai": "^4.1.2",
+    "eslint": "^5.16.0",
+    "eslint-plugin-bpmn-io": "^0.8.2",
+    "glob": "^7.1.6",
+    "jsondiffpatch": "^0.2.5",
+    "min-dash": "^3.5.2",
+    "mocha": "^4.0.1",
+    "npm-run-all": "^4.1.2",
+    "xsd-schema-validator": "^0.5.0"
+  }
+}

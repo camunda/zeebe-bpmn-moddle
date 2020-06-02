@@ -1,0 +1,12 @@
+<bpmn:serviceTask
+  id="collect-money" name="Collect Money"
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
+>
+  <bpmn:extensionElements>
+    <zeebe:ioMapping>
+      <zeebe:input source="sourceValue" target="targetValue" />
+      <zeebe:output source="sourceValue" target="targetValue" />
+    </zeebe:ioMapping>
+  </bpmn:extensionElements>
+</bpmn:serviceTask>
