@@ -174,6 +174,36 @@ describe('read', function() {
           done(err);
         });
       });
+
+
+      it('on CallActivity with propagateAllChildVariables', function(done) {
+
+        // given
+        var xml = readFile('test/fixtures/xml/call-activity-zeebe-calledElement-propagateAllChildVariables.part.bpmn');
+
+        // when
+        moddle.fromXML(xml, 'bpmn:CallActivity', function(err, proc) {
+
+          // then
+          expect(proc).to.jsonEqual({
+            $type: 'bpmn:CallActivity',
+            id: 'task-A',
+            name: 'A',
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:CalledElement',
+                  processId: 'child-process-id',
+                  propagateAllChildVariables: true
+                }
+              ]
+            }
+          });
+
+          done(err);
+        });
+      });
     });
 
 

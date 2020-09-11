@@ -185,6 +185,11 @@
           "name": "processIdExpression",
           "type": "string",
           "isAttr": true
+        },
+        {
+          "name": "propagateAllChildVariables",
+          "isAttr": true,
+          "type": "Boolean"
         }
       ]
     }
