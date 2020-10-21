@@ -48,6 +48,49 @@ describe('write', function() {
       });
     });
 
+
+    it('CalledElement#propagateAllChildVariables - true', function(done) {
+
+      // given
+      var fieldElem = moddle.create('zeebe:CalledElement', {
+        propagateAllChildVariables: true
+      });
+
+      var expectedXML = '<zeebe:calledElement ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+        'propagateAllChildVariables="true" />';
+
+      // when
+      write(fieldElem, function(err, result) {
+
+        // then
+        expect(result).to.eql(expectedXML);
+
+        done(err);
+      });
+    });
+
+
+    it('CalledElement#propagateAllChildVariables - false', function(done) {
+
+      // given
+      var fieldElem = moddle.create('zeebe:CalledElement', {
+        propagateAllChildVariables: false
+      });
+
+      var expectedXML = '<zeebe:calledElement ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+        'propagateAllChildVariables="false" />';
+
+      // when
+      write(fieldElem, function(err, result) {
+
+        // then
+        expect(result).to.eql(expectedXML);
+
+        done(err);
+      });
+    });
   });
 
 });
