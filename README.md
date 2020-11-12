@@ -40,9 +40,13 @@ We include an extension that makes [bpmn-js](https://github.com/bpmn-io/bpmn-js)
 
 ```js
 var BpmnJS = require('bpmn-js/lib/Modeler'),
+    zeebeExtensionModule = require('zeebe-bpmn-moddle/lib'),
     zeebeModdle = require('zeebe-bpmn-moddle/resources/zeebe');
 
 var modeler = new BpmnJS({
+    additionalModules: [
+      zeebeExtensionModule
+    ],
     moddleExtensions: {
       zeebe: zeebeModdle
     }
