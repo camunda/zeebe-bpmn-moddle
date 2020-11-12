@@ -9,7 +9,9 @@
   "types": [
     {
       "name": "ZeebeServiceTask",
-      "extends": [ "bpmn:ServiceTask"],
+      "extends": [
+        "bpmn:ServiceTask"
+      ],
       "properties": [
         {
           "name": "retryCounter",
@@ -70,11 +72,31 @@
     },
     {
       "name": "Input",
-      "superClass": [ "InputOutputParameter" ]
+      "superClass": [
+        "InputOutputParameter"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:CallActivity",
+          "bpmn:ServiceTask",
+          "bpmn:SubProcess"
+        ]
+      }
     },
     {
       "name": "Output",
-      "superClass": [ "InputOutputParameter" ]
+      "superClass": [
+        "InputOutputParameter"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:CallActivity",
+          "bpmn:Event",
+          "bpmn:ReceiveTask",
+          "bpmn:ServiceTask",
+          "bpmn:SubProcess"
+        ]
+      }
     },
     {
       "name": "TaskHeaders",
