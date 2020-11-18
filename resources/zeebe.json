@@ -40,7 +40,16 @@
           "isMany": true,
           "type": "Output"
         }
-      ]
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:CallActivity",
+          "bpmn:Event",
+          "bpmn:ReceiveTask",
+          "bpmn:ServiceTask",
+          "bpmn:SubProcess"
+        ]
+      }
     },
     {
       "name": "InputOutputParameter",

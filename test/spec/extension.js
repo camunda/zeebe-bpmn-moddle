@@ -51,6 +51,7 @@ describe('extension - can copy', function() {
       // then
       expect(canCopyProperty).to.be.false;
     });
+
   });
 
 
@@ -122,6 +123,7 @@ describe('extension - can copy', function() {
       // then
       expect(canCopyProperty).to.be.false;
     });
+
   });
 
 
@@ -182,6 +184,7 @@ describe('extension - can copy', function() {
       // then
       expect(canCopyProperty).to.be.false;
     });
+
   });
 
 
@@ -261,6 +264,113 @@ describe('extension - can copy', function() {
       // then
       expect(canCopyProperty).to.be.false;
     });
+
+  });
+
+
+  describe('<zeebe:IoMapping>', function() {
+
+    it('should allow on ServiceTask', function() {
+
+      // given
+      var ioMapping = moddle.create('zeebe:IoMapping'),
+          serviceTask = moddle.create('bpmn:ServiceTask'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      extensionElements.$parent = serviceTask;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(ioMapping, extensionElements);
+
+      // then
+      expect(canCopyProperty).not.to.be.false;
+    });
+
+
+    it('should allow on ReceiveTask', function() {
+
+      // given
+      var ioMapping = moddle.create('zeebe:IoMapping'),
+          receiveTask = moddle.create('bpmn:ReceiveTask'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      extensionElements.$parent = receiveTask;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(ioMapping, extensionElements);
+
+      // then
+      expect(canCopyProperty).not.to.be.false;
+    });
+
+
+    it('should allow on EndEvent', function() {
+
+      // given
+      var ioMapping = moddle.create('zeebe:IoMapping'),
+          endEvent = moddle.create('bpmn:EndEvent'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      extensionElements.$parent = endEvent;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(ioMapping, extensionElements);
+
+      // then
+      expect(canCopyProperty).not.to.be.false;
+    });
+
+
+    it('should allow on CallActivity', function() {
+
+      // given
+      var ioMapping = moddle.create('zeebe:IoMapping'),
+          callActivity = moddle.create('bpmn:CallActivity'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      extensionElements.$parent = callActivity;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(ioMapping, extensionElements);
+
+      // then
+      expect(canCopyProperty).not.to.be.false;
+    });
+
+
+    it('should allow on SubProcess', function() {
+
+      // given
+      var ioMapping = moddle.create('zeebe:IoMapping'),
+          subProcess = moddle.create('bpmn:SubProcess'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      extensionElements.$parent = subProcess;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(ioMapping, extensionElements);
+
+      // then
+      expect(canCopyProperty).not.to.be.false;
+    });
+
+
+    it('should not allow on Task', function() {
+
+      // given
+      var ioMapping = moddle.create('zeebe:IoMapping'),
+          task = moddle.create('bpmn:Task'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      extensionElements.$parent = task;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(ioMapping, extensionElements);
+
+      // then
+      expect(canCopyProperty).to.be.false;
+    });
+
   });
 });
 
