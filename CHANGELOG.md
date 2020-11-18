@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/zeebe-io/zeebe-bpm
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.4.0
+
+* `FIX`: Add allowedIn for zeebe:IoMapping (https://github.com/zeebe-io/zeebe-bpmn-moddle/pull/5)
+
 ## 0.3.0
 
 * `FEAT`: Implement zeebe moddle extension and add canCopyProperty for initial set of elements (https://github.com/zeebe-io/zeebe-bpmn-moddle/pull/3)
