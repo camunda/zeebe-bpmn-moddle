@@ -1,6 +1,6 @@
 # zeebe-bpmn-moddle
 
-[![Build Status](https://travis-ci.com/zeebe-io/zeebe-bpmn-moddle.svg)](https://travis-ci.com/zeebe-io/zeebe-bpmn-moddle)
+[![CI](https://github.com/zeebe-io/zeebe-bpmn-moddle/workflows/CI/badge.svg)](https://github.com/zeebe-io/zeebe-bpmn-moddle/actions?query=workflow%3ACI)
 
 This project defines the [Zeebe](https://zeebe.io) namespace extensions for BPMN 2.0 as a [moddle](https://github.com/bpmn-io/moddle) descriptor.
 
