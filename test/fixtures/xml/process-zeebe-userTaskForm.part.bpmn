@@ -1,0 +1,9 @@
+<bpmn:process 
+  id="process-1"
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
+>
+  <bpmn:extensionElements>
+    <zeebe:userTaskForm id="userTaskForm-1">{ components: [ { label: "field", key: "field" } ] }</zeebe:userTaskForm>
+  </bpmn:extensionElements>
+</bpmn:process>

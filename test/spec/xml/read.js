@@ -289,5 +289,37 @@ describe('read', function() {
         });
       });
     });
+
+
+    describe('zeebe:userTaskForm', function() {
+
+      it('on Process', function(done) {
+
+        // given
+        var xml = readFile('test/fixtures/xml/process-zeebe-userTaskForm.part.bpmn');
+
+        // when
+        moddle.fromXML(xml, 'bpmn:Process', function(err, proc) {
+
+          // then
+          expect(proc).to.jsonEqual({
+            $type: 'bpmn:Process',
+            id: 'process-1',
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:UserTaskForm',
+                  id: 'userTaskForm-1',
+                  body: '{ components: [ { label: "field", key: "field" } ] }'
+                }
+              ]
+            }
+          });
+
+          done(err);
+        });
+      });
+    });
   });
 });
