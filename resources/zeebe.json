@@ -223,6 +223,29 @@
           "type": "Boolean"
         }
       ]
+    },
+    {
+      "name": "UserTaskForm",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:Process"
+        ]
+      },
+      "properties": [ 
+        {
+          "name": "id",
+          "type": "string",
+          "isAttr": true
+        },
+        {
+          "name": "body",
+          "type": "string",
+          "isBody": true
+        }
+      ]
     }
   ]
 }
