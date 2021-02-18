@@ -321,5 +321,36 @@ describe('read', function() {
         });
       });
     });
+
+
+    describe('zeebe:formDefinition', function() {
+
+      it('on UserTask', function(done) {
+
+        // given
+        var xml = readFile('test/fixtures/xml/userTask-zeebe-formDefinition.part.bpmn');
+
+        // when
+        moddle.fromXML(xml, 'bpmn:UserTask', function(err, proc) {
+
+          // then
+          expect(proc).to.jsonEqual({
+            $type: 'bpmn:UserTask',
+            id: 'user-task-1',
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:FormDefinition',
+                  formKey: 'form-1'
+                }
+              ]
+            }
+          });
+
+          done(err);
+        });
+      });
+    });
   });
 });

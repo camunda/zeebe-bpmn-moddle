@@ -246,6 +246,24 @@
           "isBody": true
         }
       ]
+    },
+    {
+      "name": "FormDefinition",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:UserTask"
+        ]
+      },
+      "properties": [ 
+        {
+          "name": "formKey",
+          "type": "string",
+          "isAttr": true
+        }
+      ]
     }
   ]
 }
