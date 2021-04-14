@@ -372,6 +372,77 @@ describe('extension - can copy', function() {
     });
 
   });
+
+
+  describe.only('<zeebe:TaskHeaders>', function() {
+
+    it('should allow on ServiceTask', function() {
+
+      // given
+      var taskHeaders = moddle.create('zeebe:TaskHeaders'),
+          serviceTask = moddle.create('bpmn:ServiceTask'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      extensionElements.$parent = serviceTask;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(taskHeaders, extensionElements);
+
+      // then
+      expect(canCopyProperty).not.to.be.false;
+    });
+
+
+    it('should NOT allow on ReceiveTask', function() {
+
+      // given
+      var taskHeaders = moddle.create('zeebe:TaskHeaders'),
+          receiveTask = moddle.create('bpmn:ReceiveTask'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      extensionElements.$parent = receiveTask;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(taskHeaders, extensionElements);
+
+      // then
+      expect(canCopyProperty).to.be.false;
+    });
+
+
+    it('should NOT allow on SubProcess', function() {
+
+      // given
+      var taskHeaders = moddle.create('zeebe:TaskHeaders'),
+          subProcess = moddle.create('bpmn:SubProcess'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      extensionElements.$parent = subProcess;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(taskHeaders, extensionElements);
+
+      // then
+      expect(canCopyProperty).to.be.false;
+    });
+
+
+    it('should NOT allow on Task', function() {
+
+      // given
+      var taskHeaders = moddle.create('zeebe:TaskHeaders'),
+          task = moddle.create('bpmn:Task'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      extensionElements.$parent = task;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(taskHeaders, extensionElements);
+
+      // then
+      expect(canCopyProperty).to.be.false;
+    });
+  });
 });
 
 

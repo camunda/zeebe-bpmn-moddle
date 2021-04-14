@@ -112,6 +112,11 @@
       "superClass": [
         "Element"
       ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:ServiceTask"
+        ]
+      },
       "properties": [
         {
           "name": "values",
@@ -234,7 +239,7 @@
           "bpmn:Process"
         ]
       },
-      "properties": [ 
+      "properties": [
         {
           "name": "id",
           "type": "string",
@@ -257,7 +262,7 @@
           "bpmn:UserTask"
         ]
       },
-      "properties": [ 
+      "properties": [
         {
           "name": "formKey",
           "type": "string",
