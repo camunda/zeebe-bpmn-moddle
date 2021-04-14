@@ -374,7 +374,7 @@ describe('extension - can copy', function() {
   });
 
 
-  describe.only('<zeebe:TaskHeaders>', function() {
+  describe('<zeebe:TaskHeaders>', function() {
 
     it('should allow on ServiceTask', function() {
 
@@ -442,7 +442,9 @@ describe('extension - can copy', function() {
       // then
       expect(canCopyProperty).to.be.false;
     });
+
   });
+
 });
 
 
