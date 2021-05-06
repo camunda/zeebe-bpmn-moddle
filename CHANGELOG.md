@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/zeebe-io/zeebe-bpm
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.6.0
+
+* `FEAT`: allow `zeebe:TaskHeaders` only in `bpmn:ServiceTask` ([#7](https://github.com/zeebe-io/zeebe-bpmn-moddle/issues/7))
+
 ## 0.5.0
 
 * `FEAT`: add support for zeebe:UserTaskForm and zeebe:FormDefinition ([#6](https://github.com/zeebe-io/zeebe-bpmn-moddle/pull/6))
