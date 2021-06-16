@@ -11,12 +11,17 @@ Use it together with [bpmn-moddle](https://github.com/bpmn-io/bpmn-moddle) to va
 ```javascript
 var BpmnModdle = require('bpmn-moddle');
 
-var zeebeModdle = require('zeebe-bpmn-moddle/resources/zeebe');
+var zeebeModdle = require('zeebe-bpmn-moddle/resources/zeebe.json');
 
 var moddle = new BpmnModdle({ zeebe: zeebeModdle });
 
+var taskDefinition = moddle.create('zeebe:TaskDefinition', {
+  type: 'payment-service',
+  retries: '5'
+});
+
 var serviceTask = moddle.create('bpmn:ServiceTask', {
-  'javaDelegate': 'my.company.SomeDelegate'
+  extensionElements: [ taskDefinition ]
 });
 ```
 
