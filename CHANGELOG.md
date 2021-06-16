@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/zeebe-io/zeebe-bpm
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.7.0
+
+* `FEAT`: extend ZeebeServiceTask type to support Zeebe 1.1 ([#9](https://github.com/zeebe-io/zeebe-bpmn-moddle/pull/9))
+
 ## 0.6.0
 
 * `FEAT`: allow `zeebe:TaskHeaders` only in `bpmn:ServiceTask` ([#7](https://github.com/zeebe-io/zeebe-bpmn-moddle/issues/7))
