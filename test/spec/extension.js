@@ -393,6 +393,57 @@ describe('extension - can copy', function() {
     });
 
 
+    it('should allow on SendTask', function() {
+
+      // given
+      var taskHeaders = moddle.create('zeebe:TaskHeaders'),
+          sendTask = moddle.create('bpmn:SendTask'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      extensionElements.$parent = sendTask;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(taskHeaders, extensionElements);
+
+      // then
+      expect(canCopyProperty).not.to.be.false;
+    });
+
+
+    it('should allow on ScriptTask', function() {
+
+      // given
+      var taskHeaders = moddle.create('zeebe:TaskHeaders'),
+          scriptTask = moddle.create('bpmn:ScriptTask'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      extensionElements.$parent = scriptTask;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(taskHeaders, extensionElements);
+
+      // then
+      expect(canCopyProperty).not.to.be.false;
+    });
+
+
+    it('should allow on BusinessRuleTask', function() {
+
+      // given
+      var taskHeaders = moddle.create('zeebe:TaskHeaders'),
+          businessRuleTask = moddle.create('bpmn:BusinessRuleTask'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      extensionElements.$parent = businessRuleTask;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(taskHeaders, extensionElements);
+
+      // then
+      expect(canCopyProperty).not.to.be.false;
+    });
+
+
     it('should NOT allow on ReceiveTask', function() {
 
       // given

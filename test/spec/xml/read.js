@@ -21,7 +21,7 @@ describe('read', function() {
       it('on ServiceTask', function(done) {
 
         // given
-        var xml = readFile('test/fixtures/xml/serviceTask-zeebe-extensions.part.bpmn');
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/serviceTask-zeebe-extensions.part.bpmn');
 
         // when
         moddle.fromXML(xml, 'bpmn:ServiceTask', function(err, proc) {
@@ -64,7 +64,7 @@ describe('read', function() {
       it('on ServiceTask', function(done) {
 
         // given
-        var xml = readFile('test/fixtures/xml/serviceTask-zeebe-retryCounter.part.bpmn');
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/serviceTask-zeebe-retryCounter.part.bpmn');
 
         // when
         moddle.fromXML(xml, 'bpmn:ServiceTask', function(err, proc) {
@@ -212,7 +212,7 @@ describe('read', function() {
       it('on CallActivity', function(done) {
 
         // given
-        var xml = readFile('test/fixtures/xml/serviceTask-zeebe-loopCharacteristics.part.bpmn');
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/serviceTask-zeebe-loopCharacteristics.part.bpmn');
 
         // when
         moddle.fromXML(xml, 'bpmn:ServiceTask', function(err, proc) {
@@ -251,7 +251,7 @@ describe('read', function() {
       it('on ServiceTask', function(done) {
 
         // given
-        var xml = readFile('test/fixtures/xml/serviceTask-zeebe-ioMapping.part.bpmn');
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/serviceTask-zeebe-ioMapping.part.bpmn');
 
         // when
         moddle.fromXML(xml, 'bpmn:ServiceTask', function(err, proc) {
@@ -259,6 +259,132 @@ describe('read', function() {
           // then
           expect(proc).to.jsonEqual({
             $type: 'bpmn:ServiceTask',
+            id: 'collect-money',
+            name: 'Collect Money',
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:IoMapping',
+                  inputParameters: [
+                    {
+                      $type: 'zeebe:Input',
+                      source: 'sourceValue',
+                      target: 'targetValue'
+                    }
+                  ],
+                  outputParameters: [
+                    {
+                      $type: 'zeebe:Output',
+                      source: 'sourceValue',
+                      target: 'targetValue'
+                    }
+                  ]
+                }
+              ]
+            }
+          });
+
+          done(err);
+        });
+      });
+
+
+      it('on SendTask', function(done) {
+
+        // given
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/sendTask-zeebe-ioMapping.part.bpmn');
+
+        // when
+        moddle.fromXML(xml, 'bpmn:SendTask', function(err, proc) {
+
+          // then
+          expect(proc).to.jsonEqual({
+            $type: 'bpmn:SendTask',
+            id: 'collect-money',
+            name: 'Collect Money',
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:IoMapping',
+                  inputParameters: [
+                    {
+                      $type: 'zeebe:Input',
+                      source: 'sourceValue',
+                      target: 'targetValue'
+                    }
+                  ],
+                  outputParameters: [
+                    {
+                      $type: 'zeebe:Output',
+                      source: 'sourceValue',
+                      target: 'targetValue'
+                    }
+                  ]
+                }
+              ]
+            }
+          });
+
+          done(err);
+        });
+      });
+
+
+      it('on ScriptTask', function(done) {
+
+        // given
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/scriptTask-zeebe-ioMapping.part.bpmn');
+
+        // when
+        moddle.fromXML(xml, 'bpmn:ScriptTask', function(err, proc) {
+
+          // then
+          expect(proc).to.jsonEqual({
+            $type: 'bpmn:ScriptTask',
+            id: 'collect-money',
+            name: 'Collect Money',
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:IoMapping',
+                  inputParameters: [
+                    {
+                      $type: 'zeebe:Input',
+                      source: 'sourceValue',
+                      target: 'targetValue'
+                    }
+                  ],
+                  outputParameters: [
+                    {
+                      $type: 'zeebe:Output',
+                      source: 'sourceValue',
+                      target: 'targetValue'
+                    }
+                  ]
+                }
+              ]
+            }
+          });
+
+          done(err);
+        });
+      });
+
+
+      it('on BusinessRuleTask', function(done) {
+
+        // given
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/businessRuleTask-zeebe-ioMapping.part.bpmn');
+
+        // when
+        moddle.fromXML(xml, 'bpmn:BusinessRuleTask', function(err, proc) {
+
+          // then
+          expect(proc).to.jsonEqual({
+            $type: 'bpmn:BusinessRuleTask',
             id: 'collect-money',
             name: 'Collect Money',
             extensionElements: {

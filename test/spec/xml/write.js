@@ -49,6 +49,75 @@ describe('write', function() {
     });
 
 
+    it('SendTask#retryCounter', function(done) {
+
+      // given
+      var fieldElem = moddle.create('bpmn:SendTask', {
+        retryCounter: 'text'
+      });
+
+      var expectedXML = '<bpmn:sendTask ' +
+        'xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+        'zeebe:retryCounter="text" />';
+
+      // when
+      write(fieldElem, function(err, result) {
+
+        // then
+        expect(result).to.eql(expectedXML);
+
+        done(err);
+      });
+    });
+
+
+    it('BusinessRuleTask#retryCounter', function(done) {
+
+      // given
+      var fieldElem = moddle.create('bpmn:BusinessRuleTask', {
+        retryCounter: 'text'
+      });
+
+      var expectedXML = '<bpmn:businessRuleTask ' +
+        'xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+        'zeebe:retryCounter="text" />';
+
+      // when
+      write(fieldElem, function(err, result) {
+
+        // then
+        expect(result).to.eql(expectedXML);
+
+        done(err);
+      });
+    });
+
+
+    it('ScriptTask#retryCounter', function(done) {
+
+      // given
+      var fieldElem = moddle.create('bpmn:ScriptTask', {
+        retryCounter: 'text'
+      });
+
+      var expectedXML = '<bpmn:scriptTask ' +
+        'xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+        'zeebe:retryCounter="text" />';
+
+      // when
+      write(fieldElem, function(err, result) {
+
+        // then
+        expect(result).to.eql(expectedXML);
+
+        done(err);
+      });
+    });
+
+
     it('CalledElement#propagateAllChildVariables - true', function(done) {
 
       // given
