@@ -159,12 +159,12 @@
       "properties": [
         {
           "name": "type",
-          "type": "string",
+          "type": "String",
           "isAttr": true
         },
         {
           "name": "retries",
-          "type": "string",
+          "type": "String",
           "isAttr": true
         }
       ]
@@ -184,22 +184,22 @@
       "properties": [
         {
           "name": "inputCollection",
-          "type": "string",
+          "type": "String",
           "isAttr": true
         },
         {
           "name": "inputElement",
-          "type": "string",
+          "type": "String",
           "isAttr": true
         },
         {
           "name": "outputCollection",
-          "type": "string",
+          "type": "String",
           "isAttr": true
         },
         {
           "name": "outputElement",
-          "type": "string",
+          "type": "String",
           "isAttr": true
         }
       ]
@@ -217,12 +217,12 @@
       "properties": [
         {
           "name": "processId",
-          "type": "string",
+          "type": "String",
           "isAttr": true
         },
         {
           "name": "processIdExpression",
-          "type": "string",
+          "type": "String",
           "isAttr": true
         },
         {
@@ -245,12 +245,12 @@
       "properties": [
         {
           "name": "id",
-          "type": "string",
+          "type": "String",
           "isAttr": true
         },
         {
           "name": "body",
-          "type": "string",
+          "type": "String",
           "isBody": true
         }
       ]
@@ -268,7 +268,7 @@
       "properties": [
         {
           "name": "formKey",
-          "type": "string",
+          "type": "String",
           "isAttr": true
         }
       ]
