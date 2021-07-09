@@ -16,30 +16,21 @@ describe('import -> export roundtrip', function() {
 
   function validateExport(file) {
 
-    return function(done) {
+    return async function() {
 
-      var xml = stripSpaces(readFile(file));
+      var xml = readFile(file);
 
       var moddle = createModdle();
 
-      moddle.fromXML(xml, 'bpmn:Definitions', function(err, definitions) {
-        if (err) {
-          return done(err);
-        }
+      const {
+        rootElement: definitions
+      } = await moddle.fromXML(xml, 'bpmn:Definitions');
 
-        moddle.toXML(definitions, function(err, savedXML) {
+      const {
+        xml: savedXML
+      } = await moddle.toXML(definitions);
 
-          if (err) {
-            return done(err);
-          }
-
-          savedXML = stripSpaces(savedXML);
-
-          expect(savedXML).to.eql(xml);
-
-          done();
-        });
-      });
+      expect(stripSpaces(savedXML)).to.eql(stripSpaces(xml));
     };
   }
 
