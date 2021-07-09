@@ -440,6 +440,11 @@ describe('read', function() {
                 $type: 'zeebe:UserTaskForm',
                 id: 'userTaskForm-1',
                 body: '{ components: [ { label: "field", key: "field" } ] }'
+              },
+              {
+                $type: 'zeebe:UserTaskForm',
+                id: 'userTaskForm-2',
+                body: '{ components: [ { label: "<field>", key: "field" } ] }'
               }
             ]
           }
