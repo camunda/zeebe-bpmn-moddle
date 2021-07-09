@@ -11,7 +11,7 @@ describe('write', function() {
   var moddle = Helper.createModdle();
 
 
-  function write(element, options, callback) {
+  async function write(element, options, callback) {
     if (isFunction(options)) {
       callback = options;
       options = {};
@@ -20,13 +20,15 @@ describe('write', function() {
     // skip preamble for tests
     options = assign({ preamble: false }, options);
 
-    moddle.toXML(element, options, callback);
+    const { xml } = await moddle.toXML(element, options);
+
+    return xml;
   }
 
 
   describe('should export properties', function() {
 
-    it('ServiceTask#retryCounter', function(done) {
+    it('ServiceTask#retryCounter', async function() {
 
       // given
       var fieldElem = moddle.create('bpmn:ServiceTask', {
@@ -39,17 +41,14 @@ describe('write', function() {
         'zeebe:retryCounter="text" />';
 
       // when
-      write(fieldElem, function(err, result) {
+      const xml = await write(fieldElem);
 
-        // then
-        expect(result).to.eql(expectedXML);
-
-        done(err);
-      });
+      // then
+      expect(xml).to.eql(expectedXML);
     });
 
 
-    it('SendTask#retryCounter', function(done) {
+    it('SendTask#retryCounter', async function() {
 
       // given
       var fieldElem = moddle.create('bpmn:SendTask', {
@@ -62,17 +61,14 @@ describe('write', function() {
         'zeebe:retryCounter="text" />';
 
       // when
-      write(fieldElem, function(err, result) {
+      const xml = await write(fieldElem);
 
-        // then
-        expect(result).to.eql(expectedXML);
-
-        done(err);
-      });
+      // then
+      expect(xml).to.eql(expectedXML);
     });
 
 
-    it('BusinessRuleTask#retryCounter', function(done) {
+    it('BusinessRuleTask#retryCounter', async function() {
 
       // given
       var fieldElem = moddle.create('bpmn:BusinessRuleTask', {
@@ -85,17 +81,14 @@ describe('write', function() {
         'zeebe:retryCounter="text" />';
 
       // when
-      write(fieldElem, function(err, result) {
+      const xml = await write(fieldElem);
 
-        // then
-        expect(result).to.eql(expectedXML);
-
-        done(err);
-      });
+      // then
+      expect(xml).to.eql(expectedXML);
     });
 
 
-    it('ScriptTask#retryCounter', function(done) {
+    it('ScriptTask#retryCounter', async function() {
 
       // given
       var fieldElem = moddle.create('bpmn:ScriptTask', {
@@ -108,17 +101,14 @@ describe('write', function() {
         'zeebe:retryCounter="text" />';
 
       // when
-      write(fieldElem, function(err, result) {
+      const xml = await write(fieldElem);
 
-        // then
-        expect(result).to.eql(expectedXML);
-
-        done(err);
-      });
+      // then
+      expect(xml).to.eql(expectedXML);
     });
 
 
-    it('CalledElement#propagateAllChildVariables - true', function(done) {
+    it('CalledElement#propagateAllChildVariables - true', async function() {
 
       // given
       var fieldElem = moddle.create('zeebe:CalledElement', {
@@ -130,17 +120,14 @@ describe('write', function() {
         'propagateAllChildVariables="true" />';
 
       // when
-      write(fieldElem, function(err, result) {
+      const xml = await write(fieldElem);
 
-        // then
-        expect(result).to.eql(expectedXML);
-
-        done(err);
-      });
+      // then
+      expect(xml).to.eql(expectedXML);
     });
 
 
-    it('CalledElement#propagateAllChildVariables - false', function(done) {
+    it('CalledElement#propagateAllChildVariables - false', async function() {
 
       // given
       var fieldElem = moddle.create('zeebe:CalledElement', {
@@ -152,14 +139,12 @@ describe('write', function() {
         'propagateAllChildVariables="false" />';
 
       // when
-      write(fieldElem, function(err, result) {
+      const xml = await write(fieldElem);
 
-        // then
-        expect(result).to.eql(expectedXML);
-
-        done(err);
-      });
+      // then
+      expect(xml).to.eql(expectedXML);
     });
+
   });
 
 });
