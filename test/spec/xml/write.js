@@ -145,6 +145,45 @@ describe('write', function() {
       expect(xml).to.eql(expectedXML);
     });
 
+
+    it('zeebe:userTaskForm', async function() {
+
+      // given
+      var proc = moddle.create('bpmn:Process', {
+        extensionElements: moddle.create('bpmn:ExtensionElements', {
+          values: [
+            moddle.create('zeebe:UserTaskForm', {
+              id: 'userTaskForm-1',
+              body: '{ components: [ { label: "field", key: "field" } ] }'
+            }),
+            moddle.create('zeebe:UserTaskForm', {
+              id: 'userTaskForm-2',
+              body: '{ components: [ { label: "<field>", key: "field" } ] }'
+            })
+          ]
+        })
+      });
+
+      var expectedXML =
+        '<bpmn:process xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
+                      'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">' +
+          '<bpmn:extensionElements>' +
+            '<zeebe:userTaskForm id="userTaskForm-1">' +
+              '{ components: [ { label: "field", key: "field" } ] }' +
+            '</zeebe:userTaskForm>' +
+            '<zeebe:userTaskForm id="userTaskForm-2">' +
+              '{ components: [ { label: "&lt;field&gt;", key: "field" } ] }' +
+            '</zeebe:userTaskForm>' +
+          '</bpmn:extensionElements>' +
+        '</bpmn:process>';
+
+      // when
+      const xml = await write(proc);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
   });
 
 });
