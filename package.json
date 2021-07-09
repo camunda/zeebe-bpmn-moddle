@@ -33,14 +33,14 @@
   "devDependencies": {
     "async": "^2.6.0",
     "bpmn-moddle": "^6.0.6",
-    "chai": "^4.1.2",
+    "chai": "^4.3.4",
     "eslint": "^5.16.0",
     "eslint-plugin-bpmn-io": "^0.8.2",
     "glob": "^7.1.6",
     "jsondiffpatch": "^0.2.5",
     "min-dash": "^3.5.2",
-    "mocha": "^4.0.1",
+    "mocha": "^9.0.2",
     "npm-run-all": "^4.1.2",
-    "xsd-schema-validator": "^0.5.0"
+    "xsd-schema-validator": "^0.7.0"
   }
 }
