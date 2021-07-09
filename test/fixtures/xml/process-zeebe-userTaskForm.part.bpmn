@@ -5,5 +5,6 @@
 >
   <bpmn:extensionElements>
     <zeebe:userTaskForm id="userTaskForm-1">{ components: [ { label: "field", key: "field" } ] }</zeebe:userTaskForm>
+    <zeebe:userTaskForm id="userTaskForm-2">{ components: [ { label: "&lt;field&gt;", key: "field" } ] }</zeebe:userTaskForm>
   </bpmn:extensionElements>
 </bpmn:process>
