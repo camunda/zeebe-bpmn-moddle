@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/zeebe-io/zeebe-bpm
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.7.1
+
+* `FIX`: correctly encode HTML entities in extension properties ([#12](https://github.com/zeebe-io/zeebe-bpmn-moddle/pull/12))
+
 ## 0.7.0
 
 * `FEAT`: extend ZeebeServiceTask type to support Zeebe 1.1 ([#9](https://github.com/zeebe-io/zeebe-bpmn-moddle/pull/9))
