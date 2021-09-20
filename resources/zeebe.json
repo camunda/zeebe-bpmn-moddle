@@ -156,6 +156,11 @@
       "superClass": [
         "Element"
       ],
+      "meta": {
+        "allowedIn": [
+          "zeebe:ZeebeServiceTask"
+        ]
+      },
       "properties": [
         {
           "name": "type",

@@ -496,6 +496,64 @@ describe('extension - can copy', function() {
 
   });
 
+
+  describe('<zeebe:TaskDefinition>', function() {
+
+    it('should allow on ServiceTask', function() {
+
+      // given
+      var taskDefinition = moddle.create('zeebe:TaskDefinition'),
+          serviceTask = moddle.create('bpmn:ServiceTask'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      taskDefinition.$parent = extensionElements;
+      extensionElements.$parent = serviceTask;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(taskDefinition, extensionElements);
+
+      // then
+      expect(canCopyProperty).not.to.be.false;
+    });
+
+
+    it('should not allow on Task', function() {
+
+      // given
+      var taskDefinition = moddle.create('zeebe:TaskDefinition'),
+          task = moddle.create('bpmn:Task'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      taskDefinition.$parent = extensionElements;
+      extensionElements.$parent = task;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(taskDefinition, extensionElements);
+
+      // then
+      expect(canCopyProperty).to.be.false;
+    });
+
+
+    it('should not allow on StartEvent', function() {
+
+      // given
+      var taskDefinition = moddle.create('zeebe:TaskDefinition'),
+          startEvent = moddle.create('bpmn:StartEvent'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      taskDefinition.$parent = extensionElements;
+      extensionElements.$parent = startEvent;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(taskDefinition, extensionElements);
+
+      // then
+      expect(canCopyProperty).to.be.false;
+    });
+
+  });
+
 });
 
 
