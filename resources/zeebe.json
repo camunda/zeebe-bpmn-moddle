@@ -13,7 +13,9 @@
         "bpmn:ServiceTask",
         "bpmn:BusinessRuleTask",
         "bpmn:ScriptTask",
-        "bpmn:SendTask"
+        "bpmn:SendTask",
+        "bpmn:EndEvent",
+        "bpmn:IntermediateThrowEvent"
       ],
       "properties": [
         {

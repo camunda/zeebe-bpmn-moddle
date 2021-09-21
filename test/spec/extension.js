@@ -124,6 +124,46 @@ describe('extension - can copy', function() {
       expect(canCopyProperty).to.be.false;
     });
 
+
+    it('should allow on intermediateThrowEvent with messageDefinition', function() {
+
+      // given
+      var loopCharacteristics = moddle.create('zeebe:LoopCharacteristics'),
+          extensionElements = moddle.create('bpmn:ExtensionElements'),
+          messageEventDefinition = moddle.create('bpmn:MessageEventDefinition'),
+          messageIntermediateThrowEvent = moddle.create('bpmn:IntermediateThrowEvent');
+
+      extensionElements.$parent = messageIntermediateThrowEvent;
+      messageEventDefinition.$parent = messageIntermediateThrowEvent;
+      messageIntermediateThrowEvent.eventDefinitions = [messageEventDefinition];
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(loopCharacteristics, extensionElements);
+
+      // then
+      expect(canCopyProperty).not.to.be.false;
+    });
+
+
+    it('should not allow on errorEndEvent', function() {
+
+      // given
+      var loopCharacteristics = moddle.create('zeebe:LoopCharacteristics'),
+          extensionElements = moddle.create('bpmn:ExtensionElements'),
+          errorEventDefinition = moddle.create('bpmn:ErrorEventDefinition'),
+          endEvent = moddle.create('bpmn:EndEvent');
+
+      extensionElements.$parent = endEvent;
+      errorEventDefinition.$parent = endEvent;
+      endEvent.eventDefinitions = [errorEventDefinition];
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(loopCharacteristics, extensionElements);
+
+      // then
+      expect(canCopyProperty).to.be.false;
+    });
+
   });
 
 
@@ -183,6 +223,45 @@ describe('extension - can copy', function() {
 
       // then
       expect(canCopyProperty).to.be.false;
+    });
+
+    it('should not allow on NoneEndEvents', function() {
+
+      // given
+      var ioMapping = moddle.create('zeebe:IoMapping'),
+          input = moddle.create('zeebe:Input'),
+          endEvent = moddle.create('bpmn:EndEvent'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      ioMapping.$parent = extensionElements;
+      extensionElements.$parent = endEvent;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(input, extensionElements);
+
+      // then
+      expect(canCopyProperty).to.be.false;
+    });
+
+    it('should allow on MessageEndEvents', function() {
+
+      // given
+      var ioMapping = moddle.create('zeebe:IoMapping'),
+          input = moddle.create('zeebe:Input'),
+          messageEndEvent = moddle.create('bpmn:EndEvent'),
+          messageEventDefinition = moddle.create('bpmn:MessageEventDefinition'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      ioMapping.$parent = extensionElements;
+      extensionElements.$parent = messageEndEvent;
+      messageEventDefinition.$parent = messageEndEvent;
+      messageEndEvent.eventDefinitions = [messageEventDefinition];
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(input, extensionElements);
+
+      // then
+      expect(canCopyProperty).to.not.be.false;
     });
 
   });
@@ -263,6 +342,45 @@ describe('extension - can copy', function() {
 
       // then
       expect(canCopyProperty).to.be.false;
+    });
+
+    it('should allow on NoneEndEvents', function() {
+
+      // given
+      var ioMapping = moddle.create('zeebe:IoMapping'),
+          output = moddle.create('zeebe:Output'),
+          endEvent = moddle.create('bpmn:EndEvent'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      ioMapping.$parent = extensionElements;
+      extensionElements.$parent = endEvent;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(output, extensionElements);
+
+      // then
+      expect(canCopyProperty).to.not.be.false;
+    });
+
+    it('should allow on MessageEndEvents', function() {
+
+      // given
+      var ioMapping = moddle.create('zeebe:IoMapping'),
+          output = moddle.create('zeebe:Output'),
+          messageEndEvent = moddle.create('bpmn:EndEvent'),
+          messageEventDefinition = moddle.create('bpmn:MessageEventDefinition'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      ioMapping.$parent = extensionElements;
+      extensionElements.$parent = messageEndEvent;
+      messageEventDefinition.$parent = messageEndEvent;
+      messageEndEvent.eventDefinitions = [messageEventDefinition];
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(output, extensionElements);
+
+      // then
+      expect(canCopyProperty).to.not.be.false;
     });
 
   });
@@ -544,6 +662,43 @@ describe('extension - can copy', function() {
 
       taskDefinition.$parent = extensionElements;
       extensionElements.$parent = startEvent;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(taskDefinition, extensionElements);
+
+      // then
+      expect(canCopyProperty).to.be.false;
+    });
+
+
+    it('should allow on endEvent with messageDefinition', function() {
+
+      // given
+      var taskDefinition = moddle.create('zeebe:TaskDefinition'),
+          extensionElements = moddle.create('bpmn:ExtensionElements'),
+          messageEventDefinition = moddle.create('bpmn:MessageEventDefinition'),
+          messageEndEvent = moddle.create('bpmn:EndEvent');
+
+      extensionElements.$parent = messageEndEvent;
+      messageEventDefinition.$parent = messageEndEvent;
+      messageEndEvent.eventDefinitions = [messageEventDefinition];
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(taskDefinition, extensionElements);
+
+      // then
+      expect(canCopyProperty).not.to.be.false;
+    });
+
+
+    it('should not allow on endEvent without messageDefinition', function() {
+
+      // given
+      var taskDefinition = moddle.create('zeebe:TaskDefinition'),
+          extensionElements = moddle.create('bpmn:ExtensionElements'),
+          endEvent = moddle.create('bpmn:EndEvent');
+
+      extensionElements.$parent = endEvent;
 
       // when
       var canCopyProperty = zeebeModdleExtension.canCopyProperty(taskDefinition, extensionElements);
