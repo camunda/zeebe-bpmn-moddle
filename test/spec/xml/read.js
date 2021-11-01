@@ -484,6 +484,38 @@ describe('read', function() {
 
     });
 
+
+    describe('zeebe:calledDecision', function() {
+
+      it('on BusinessRuleTask', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/businessRuleTask-zeebe-calledDecision.part.bpmn');
+
+        // when
+        const {
+          rootElement: task
+        } = await moddle.fromXML(xml, 'bpmn:BusinessRuleTask');
+
+        // then
+        expect(task).to.jsonEqual({
+          $type: 'bpmn:BusinessRuleTask',
+          id: 'business-rule-task-1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:CalledDecision',
+                decisionId: 'dishId',
+                resultVariable: 'dishVariable'
+              }
+            ]
+          }
+        });
+      });
+
+    });
+
   });
 
 });
