@@ -6,7 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/zeebe-io/zeebe-bpm
 
 ___Note:__ Yet to be released changes appear here._
 
+* `FEAT`: support `zeebe:calledDecision` for `bpmn:BusinessRuleTask`
+
 ## 0.8.0
+
 * `FEAT`: make Message Intermediate Throw Event and Message End Event Zeebe Service Tasks to support Zeebe 1.2 ([#15](https://github.com/zeebe-io/zeebe-bpmn-moddle/pull/15))
 * `FIX`: restrict `taskDefinition` property for Zeebe Service Tasks only ([#14](https://github.com/zeebe-io/zeebe-bpmn-moddle/pull/14))
 

@@ -279,6 +279,29 @@
           "isAttr": true
         }
       ]
+    },
+    {
+      "name": "CalledDecision",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:BusinessRuleTask"
+        ]
+      },
+      "properties": [
+        {
+          "name": "decisionId",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "resultVariable",
+          "type": "String",
+          "isAttr": true
+        }
+      ]
     }
   ]
 }

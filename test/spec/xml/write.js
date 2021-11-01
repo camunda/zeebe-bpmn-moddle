@@ -184,6 +184,27 @@ describe('write', function() {
       expect(xml).to.eql(expectedXML);
     });
 
+
+    it('zeebe:calledDecision', async function() {
+
+      // given
+      var calledDecision = moddle.create('zeebe:CalledDecision', {
+        decisionId: 'dishDecision',
+        resultVariable: 'dishVariable'
+      });
+
+      var expectedXML = '<zeebe:calledDecision ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+        'decisionId="dishDecision" ' +
+        'resultVariable="dishVariable" />';
+
+      // when
+      const xml = await write(calledDecision);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
   });
 
 });
