@@ -6,7 +6,9 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/zeebe-io/zeebe-bpm
 
 ___Note:__ Yet to be released changes appear here._
 
-* `FEAT`: support `zeebe:calledDecision` for `bpmn:BusinessRuleTask`
+## 0.9.0
+
+* `FEAT`: support `zeebe:calledDecision` for `bpmn:BusinessRuleTask`call ([ee9b59a](https://github.com/zeebe-io/zeebe-bpmn-moddle/commit/ee9b59a00145542a4de9c3193f5e5c13d42a2cfc))
 
 ## 0.8.0
 
