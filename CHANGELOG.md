@@ -6,7 +6,9 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/zeebe-io/zeebe-bpm
 
 ___Note:__ Yet to be released changes appear here._
 
-* `FEAT`: support `zeebe:assignmentDefinition` for `bpmn:UserTask`
+## 0.10.0
+
+* `FEAT`: support `zeebe:assignmentDefinition` for `bpmn:UserTask` ([b5f368](https://github.com/zeebe-io/zeebe-bpmn-moddle/commit/b5f368ce8daae65f8266b430df3cbd1bedd9232c))
 
 ## 0.9.0
 
