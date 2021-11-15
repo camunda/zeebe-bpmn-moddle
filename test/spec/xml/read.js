@@ -516,6 +516,38 @@ describe('read', function() {
 
     });
 
+
+    describe('zeebe:assignmentDefinition', function() {
+
+      it('on UserTask', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/userTask-zeebe-assignmentDefinition.part.bpmn');
+
+        // when
+        const {
+          rootElement: task
+        } = await moddle.fromXML(xml, 'bpmn:UserTask');
+
+        // then
+        expect(task).to.jsonEqual({
+          $type: 'bpmn:UserTask',
+          id: 'user-task-1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:AssignmentDefinition',
+                assignee: '= ring.bearer',
+                candidateGroups: 'elves, men, dwarfs, hobbits'
+              }
+            ]
+          }
+        });
+      });
+
+    });
+
   });
 
 });

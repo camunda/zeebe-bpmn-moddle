@@ -302,6 +302,29 @@
           "isAttr": true
         }
       ]
+    },
+    {
+      "name": "AssignmentDefinition",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:UserTask"
+        ]
+      },
+      "properties": [
+        {
+          "name": "assignee",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "candidateGroups",
+          "type": "String",
+          "isAttr": true
+        }
+      ]
     }
   ]
 }
