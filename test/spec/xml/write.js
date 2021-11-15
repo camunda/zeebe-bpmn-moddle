@@ -205,6 +205,27 @@ describe('write', function() {
       expect(xml).to.eql(expectedXML);
     });
 
+
+    it('zeebe:assignmentDefinition', async function() {
+
+      // given
+      var assignmentDefinition = moddle.create('zeebe:AssignmentDefinition', {
+        assignee: 'myAssignee',
+        candidateGroups: 'myCandidateGroup'
+      });
+
+      var expectedXML = '<zeebe:assignmentDefinition ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+        'assignee="myAssignee" ' +
+        'candidateGroups="myCandidateGroup" />';
+
+      // when
+      const xml = await write(assignmentDefinition);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
   });
 
 });
