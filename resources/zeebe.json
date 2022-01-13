@@ -325,6 +325,27 @@
           "isAttr": true
         }
       ]
+    },
+    {
+      "name": "TemplateSupported",
+      "isAbstract": true,
+      "extends": [
+        "bpmn:Collaboration",
+        "bpmn:Process",
+        "bpmn:FlowElement"
+      ],
+      "properties": [
+        {
+          "name": "modelerTemplate",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "modelerTemplateVersion",
+          "isAttr": true,
+          "type": "Integer"
+        }
+      ]
     }
   ]
 }

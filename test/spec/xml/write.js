@@ -226,6 +226,44 @@ describe('write', function() {
       expect(xml).to.eql(expectedXML);
     });
 
+
+    it('zeebe:modelerTemplate', async function() {
+
+      // given
+      const moddleElement = moddle.create('zeebe:ZeebeServiceTask', {
+        modelerTemplate: 'foo'
+      });
+
+      const expectedXML = '<zeebe:zeebeServiceTask ' +
+      'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+      'modelerTemplate="foo" />';
+
+      // when
+      const xml = await write(moddleElement);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
+
+    it('zeebe:modelerTemplateVersion', async function() {
+
+      // given
+      const moddleElement = moddle.create('zeebe:ZeebeServiceTask', {
+        modelerTemplateVersion: '12'
+      });
+
+      const expectedXML = '<zeebe:zeebeServiceTask ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+        'modelerTemplateVersion="12" />';
+
+      // when
+      const xml = await write(moddleElement);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
   });
 
 });
