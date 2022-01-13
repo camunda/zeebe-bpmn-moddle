@@ -1,0 +1,4 @@
+<Task xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+          xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
+          zeebe:modelerTemplate="foo"
+          zeebe:modelerTemplateVersion="1" />
