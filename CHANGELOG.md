@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/zeebe-io/zeebe-bpm
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.11.0
+
+* `FEAT`: support `zeebe:modelerTemplate` and `zeebe:modelerTemplateVersion` ([#20](https://github.com/camunda-cloud/zeebe-bpmn-moddle/pull/20))
+
 ## 0.10.0
 
 * `FEAT`: support `zeebe:assignmentDefinition` for `bpmn:UserTask` ([b5f368](https://github.com/zeebe-io/zeebe-bpmn-moddle/commit/b5f368ce8daae65f8266b430df3cbd1bedd9232c))
