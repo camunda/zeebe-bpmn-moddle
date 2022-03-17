@@ -264,6 +264,26 @@ describe('write', function() {
       expect(xml).to.eql(expectedXML);
     });
 
+
+    it('zeebe:modelerTemplateIcon', async function() {
+
+      // given
+      const moddleElement = moddle.create('zeebe:ModelerTemplateIcon', {
+        body: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3C/svg%3E",
+      });
+
+      const expectedXML = '<zeebe:modelerTemplateIcon ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">' +
+          "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3C/svg%3E" +
+        '</zeebe:modelerTemplateIcon>';
+
+      // when
+      const xml = await write(moddleElement);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
   });
 
 });
