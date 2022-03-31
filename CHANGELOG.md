@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/zeebe-io/zeebe-bpm
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.12.0
+
+* `FEAT`: support `zeebe:modelerTemplateIcon` ([#23](https://github.com/camunda-cloud/zeebe-bpmn-moddle/pull/23))
+
 ## 0.11.0
 
 * `FEAT`: support `zeebe:modelerTemplate` and `zeebe:modelerTemplateVersion` ([#20](https://github.com/camunda-cloud/zeebe-bpmn-moddle/pull/20))
