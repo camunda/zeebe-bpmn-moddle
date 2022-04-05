@@ -268,14 +268,13 @@ describe('write', function() {
     it('zeebe:modelerTemplateIcon', async function() {
 
       // given
-      const moddleElement = moddle.create('zeebe:ModelerTemplateIcon', {
-        body: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3C/svg%3E",
+      const moddleElement = moddle.create('zeebe:ZeebeServiceTask', {
+        modelerTemplateIcon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3C/svg%3E",
       });
 
-      const expectedXML = '<zeebe:modelerTemplateIcon ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">' +
-          "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3C/svg%3E" +
-        '</zeebe:modelerTemplateIcon>';
+      const expectedXML = '<zeebe:zeebeServiceTask ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+        'modelerTemplateIcon="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;16&#39; height=&#39;16&#39;%3E%3C/svg%3E" />';
 
       // when
       const xml = await write(moddleElement);

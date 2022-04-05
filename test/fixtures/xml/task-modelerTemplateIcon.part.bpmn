@@ -1,8 +1,6 @@
 <Task xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
           xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
           zeebe:modelerTemplate="foo"
-          zeebe:modelerTemplateVersion="1">
-  <extensionElements>
-    <zeebe:modelerTemplateIcon>data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3C/svg%3E</zeebe:modelerTemplateIcon>
-  </extensionElements>
+          zeebe:modelerTemplateVersion="1"
+          zeebe:modelerTemplateIcon="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;16&#39; height=&#39;16&#39;%3E%3C/svg%3E">
 </Task>
