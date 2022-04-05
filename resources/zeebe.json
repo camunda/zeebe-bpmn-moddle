@@ -344,24 +344,11 @@
           "name": "modelerTemplateVersion",
           "isAttr": true,
           "type": "Integer"
-        }
-      ]
-    },
-    {
-      "name": "ModelerTemplateIcon",
-      "superClass": [
-        "Element"
-      ],
-      "meta": {
-        "allowedIn": [
-          "zeebe:TemplateSupported"
-        ]
-      },
-      "properties": [
+        },
         {
-          "name": "body",
-          "type": "String",
-          "isBody": true
+          "name": "modelerTemplateIcon",
+          "isAttr": true,
+          "type": "String"
         }
       ]
     }
