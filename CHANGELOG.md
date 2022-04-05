@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/zeebe-io/zeebe-bpm
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.12.1
+
+* `FIX`: serialize `zeebe:modelerTemplateIcon` as property ([#25](https://github.com/camunda-cloud/zeebe-bpmn-moddle/pull/25))
+
 ## 0.12.0
 
 * `FEAT`: support `zeebe:modelerTemplateIcon` ([#23](https://github.com/camunda-cloud/zeebe-bpmn-moddle/pull/23))
