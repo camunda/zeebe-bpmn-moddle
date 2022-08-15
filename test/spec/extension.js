@@ -188,6 +188,25 @@ describe('extension - can copy', function() {
     });
 
 
+    it('should allow on UserTask', function() {
+
+      // given
+      var ioMapping = moddle.create('zeebe:IoMapping'),
+          input = moddle.create('zeebe:Input'),
+          userTask = moddle.create('bpmn:UserTask'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      ioMapping.$parent = extensionElements;
+      extensionElements.$parent = userTask;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(input, extensionElements);
+
+      // then
+      expect(canCopyProperty).not.to.be.false;
+    });
+
+
     it('should not allow on ReceiveTask', function() {
 
       // given
@@ -326,6 +345,25 @@ describe('extension - can copy', function() {
     });
 
 
+    it('should allow on UserTask', function() {
+
+      // given
+      var ioMapping = moddle.create('zeebe:IoMapping'),
+          output = moddle.create('zeebe:Output'),
+          userTask = moddle.create('bpmn:UserTask'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      ioMapping.$parent = extensionElements;
+      extensionElements.$parent = userTask;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(output, extensionElements);
+
+      // then
+      expect(canCopyProperty).not.to.be.false;
+    });
+
+
     it('should not allow on Task', function() {
 
       // given
@@ -344,6 +382,7 @@ describe('extension - can copy', function() {
       expect(canCopyProperty).to.be.false;
     });
 
+
     it('should allow on NoneEndEvents', function() {
 
       // given
@@ -361,6 +400,7 @@ describe('extension - can copy', function() {
       // then
       expect(canCopyProperty).to.not.be.false;
     });
+
 
     it('should allow on MessageEndEvents', function() {
 
@@ -413,6 +453,23 @@ describe('extension - can copy', function() {
           extensionElements = moddle.create('bpmn:ExtensionElements');
 
       extensionElements.$parent = receiveTask;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(ioMapping, extensionElements);
+
+      // then
+      expect(canCopyProperty).not.to.be.false;
+    });
+
+
+    it('should allow on UserTask', function() {
+
+      // given
+      var ioMapping = moddle.create('zeebe:IoMapping'),
+          userTask = moddle.create('bpmn:UserTask'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      extensionElements.$parent = userTask;
 
       // when
       var canCopyProperty = zeebeModdleExtension.canCopyProperty(ioMapping, extensionElements);
@@ -553,6 +610,23 @@ describe('extension - can copy', function() {
           extensionElements = moddle.create('bpmn:ExtensionElements');
 
       extensionElements.$parent = businessRuleTask;
+
+      // when
+      var canCopyProperty = zeebeModdleExtension.canCopyProperty(taskHeaders, extensionElements);
+
+      // then
+      expect(canCopyProperty).not.to.be.false;
+    });
+
+
+    it('should allow on UserTask', function() {
+
+      // given
+      var taskHeaders = moddle.create('zeebe:TaskHeaders'),
+          userTask = moddle.create('bpmn:UserTask'),
+          extensionElements = moddle.create('bpmn:ExtensionElements');
+
+      extensionElements.$parent = userTask;
 
       // when
       var canCopyProperty = zeebeModdleExtension.canCopyProperty(taskHeaders, extensionElements);
