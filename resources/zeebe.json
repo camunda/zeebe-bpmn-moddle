@@ -52,7 +52,8 @@
           "bpmn:Event",
           "bpmn:ReceiveTask",
           "zeebe:ZeebeServiceTask",
-          "bpmn:SubProcess"
+          "bpmn:SubProcess",
+          "bpmn:UserTask"
         ]
       }
     },
@@ -93,7 +94,8 @@
         "allowedIn": [
           "bpmn:CallActivity",
           "zeebe:ZeebeServiceTask",
-          "bpmn:SubProcess"
+          "bpmn:SubProcess",
+          "bpmn:UserTask"
         ]
       }
     },
@@ -108,7 +110,8 @@
           "bpmn:Event",
           "bpmn:ReceiveTask",
           "zeebe:ZeebeServiceTask",
-          "bpmn:SubProcess"
+          "bpmn:SubProcess",
+          "bpmn:UserTask"
         ]
       }
     },
@@ -119,7 +122,8 @@
       ],
       "meta": {
         "allowedIn": [
-          "zeebe:ZeebeServiceTask"
+          "zeebe:ZeebeServiceTask",
+          "bpmn:UserTask"
         ]
       },
       "properties": [
