@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/zeebe-io/zeebe-bpm
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.12.2
+
+* `FIX`: allow copy extensions to user task ([#28](https://github.com/camunda-cloud/zeebe-bpmn-moddle/pull/28))
+
 ## 0.12.1
 
 * `FIX`: serialize `zeebe:modelerTemplateIcon` as property ([#25](https://github.com/camunda-cloud/zeebe-bpmn-moddle/pull/25))
