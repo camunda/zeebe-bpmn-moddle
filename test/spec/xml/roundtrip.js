@@ -18,18 +18,26 @@ describe('import -> export roundtrip', function() {
 
     return async function() {
 
+      // given
       var xml = readFile(file);
 
       var moddle = createModdle();
 
+      // when
       const {
-        rootElement: definitions
+        rootElement: definitions,
+        warnings
       } = await moddle.fromXML(xml, 'bpmn:Definitions');
 
+      // then
+      expect(warnings).to.be.empty;
+
+      // but when
       const {
         xml: savedXML
       } = await moddle.toXML(definitions);
 
+      // then
       expect(stripSpaces(savedXML)).to.eql(stripSpaces(xml));
     };
   }
