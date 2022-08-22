@@ -331,6 +331,51 @@
       ]
     },
     {
+      "name": "Properties",
+      "superClass": [
+        "Element"
+      ],
+      "properties": [
+        {
+          "name": "properties",
+          "type": "Property",
+          "isMany": true
+        }
+      ],
+      "meta": {
+        "allowedIn": [
+          "zeebe:PropertiesHolder"
+        ]
+      }
+    },
+    {
+      "name": "Property",
+      "properties": [
+        {
+          "name": "name",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "value",
+          "type": "String",
+          "isAttr": true
+        }
+      ],
+      "meta": {
+        "allowedIn": [
+          "zeebe:PropertiesHolder"
+        ]
+      }
+    },
+    {
+      "name": "PropertiesHolder",
+      "isAbstract": true,
+      "extends": [
+        "bpmn:FlowNode"
+      ]
+    },
+    {
       "name": "TemplateSupported",
       "isAbstract": true,
       "extends": [

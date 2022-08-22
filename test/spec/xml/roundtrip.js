@@ -41,4 +41,7 @@ describe('import -> export roundtrip', function() {
 
   });
 
+
+  it('should keep zeebe:properties', validateExport('test/fixtures/xml/zeebe-properties.bpmn'));
+
 });
