@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/zeebe-io/zeebe-bpm
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.14.0
+
+_Unintentional re-publish of `v0.13.0`._
+
 ## 0.13.0
 
 * `FEAT`: support `zeebe:properties` ([#30](https://github.com/camunda-cloud/zeebe-bpmn-moddle/issues/30))
