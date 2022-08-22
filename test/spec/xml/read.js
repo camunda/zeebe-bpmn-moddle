@@ -113,38 +113,6 @@ describe('read', function() {
     });
 
 
-    describe('zeebe:Subscription', function() {
-
-      it('on Message', async function() {
-
-        // given
-        var xml = readFile('test/fixtures/xml/message-zeebe-subscription.part.bpmn');
-
-        // when
-        const {
-          rootElement: proc
-        } = await moddle.fromXML(xml, 'bpmn:Message');
-
-        // then
-        expect(proc).to.jsonEqual({
-          $type: 'bpmn:Message',
-          id: 'Message',
-          name: 'Money collected',
-          extensionElements: {
-            $type: 'bpmn:ExtensionElements',
-            values: [
-              {
-                $type: 'zeebe:Subscription',
-                correlationKey: 'orderId'
-              }
-            ]
-          }
-        });
-      });
-
-    });
-
-
     describe('zeebe:calledElement', function() {
 
       it('on CallActivity', async function() {
