@@ -81,6 +81,48 @@ describe('read', function() {
     });
 
 
+    describe('zeebe:Properties', function() {
+
+      it('on StartEvent', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/startEvent-zeebe-properties.part.bpmn');
+
+        // when
+        const {
+          rootElement: event
+        } = await moddle.fromXML(xml, 'bpmn:StartEvent');
+
+        // then
+        expect(event).to.jsonEqual({
+          $type: 'bpmn:StartEvent',
+          id: 'start',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:Properties',
+                properties: [
+                  {
+                    $type: 'zeebe:Property',
+                    name: 'id',
+                    value: 'start'
+                  },
+                  {
+                    $type: 'zeebe:Property',
+                    name: 'type',
+                    value: 'event'
+                  }
+                ]
+              }
+            ]
+          }
+        });
+      });
+
+    });
+
+
     describe('zeebe:Subscription', function() {
 
       it('on Message', async function() {

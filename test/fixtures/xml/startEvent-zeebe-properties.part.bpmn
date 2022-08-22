@@ -1,0 +1,8 @@
+<bpmn:startEvent xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" id="start">
+  <bpmn:extensionElements>
+    <zeebe:properties>
+      <zeebe:property name="id" value="start" />
+      <zeebe:property name="type" value="event" />
+    </zeebe:properties>
+  </bpmn:extensionElements>
+</bpmn:startEvent>
