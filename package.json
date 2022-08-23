@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/camunda-cloud/zeebe-bpmn-moddle"
+    "url": "https://github.com/camunda/zeebe-bpmn-moddle"
   },
   "keywords": [
     "bpmn",
