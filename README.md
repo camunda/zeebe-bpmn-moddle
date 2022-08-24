@@ -9,18 +9,18 @@ This project defines the [Zeebe](https://zeebe.io) namespace extensions for BPMN
 Use it together with [bpmn-moddle](https://github.com/bpmn-io/bpmn-moddle) to validate Zeebe BPMN 2.0 extensions.
 
 ```javascript
-var BpmnModdle = require('bpmn-moddle');
+const BpmnModdle = require('bpmn-moddle');
 
-var zeebeModdle = require('zeebe-bpmn-moddle/resources/zeebe.json');
+const zeebeModdle = require('zeebe-bpmn-moddle/resources/zeebe.json');
 
-var moddle = new BpmnModdle({ zeebe: zeebeModdle });
+const moddle = new BpmnModdle({ zeebe: zeebeModdle });
 
-var taskDefinition = moddle.create('zeebe:TaskDefinition', {
+const taskDefinition = moddle.create('zeebe:TaskDefinition', {
   type: 'payment-service',
   retries: '5'
 });
 
-var serviceTask = moddle.create('bpmn:ServiceTask', {
+const serviceTask = moddle.create('bpmn:ServiceTask', {
   extensionElements: [ taskDefinition ]
 });
 ```
@@ -39,26 +39,9 @@ Perform a complete build of the application via
 npm run all
 ```
 
-## [bpmn-js](https://github.com/bpmn-io/bpmn-js) Extension
+# Behaviors
 
-We include an extension that makes [bpmn-js](https://github.com/bpmn-io/bpmn-js) copy and replace mechanisms aware of Zeebe properties.
-
-```js
-var BpmnJS = require('bpmn-js/lib/Modeler'),
-    zeebeExtensionModule = require('zeebe-bpmn-moddle/lib'),
-    zeebeModdle = require('zeebe-bpmn-moddle/resources/zeebe');
-
-var modeler = new BpmnJS({
-    additionalModules: [
-      zeebeExtensionModule
-    ],
-    moddleExtensions: {
-      zeebe: zeebeModdle
-    }
-  });
-```
-
-This extension hooks into the copy mechanism provided by the BPMN editor and ensures Zeebe properties are kept and or dropped on copy and element replace.
+This extension should be used with [camunda-bpmn-js-behaviors](https://github.com/camunda/camunda-bpmn-js-behaviors#camunda-platform-8) to ensure Camunda properties are created, updated and deleted as expected.
 
 ## License
 
