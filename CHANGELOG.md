@@ -6,6 +6,14 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.15.0
+
+* `CHORE`: remove behaviors ([#33](https://github.com/camunda/zeebe-bpmn-moddle/pull/33))
+
+### Breaking Changes
+
+* behaviors moved to https://github.com/camunda/camunda-bpmn-js-behaviors
+
 ## 0.14.0
 
 _Unintentional re-publish of `v0.13.0`._
