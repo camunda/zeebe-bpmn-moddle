@@ -41,7 +41,7 @@ npm run all
 
 # Behaviors
 
-This extension should be used with [camunda-bpmn-js-behaviors](https://github.com/camunda/camunda-bpmn-js-behaviors#camunda-platform-8) to ensure Camunda properties are created, updated and deleted as expected.
+Inside a [bpmn-js editor](https://github.com/bpmn-io/bpmn-js) pair this extension with [camunda-bpmn-js-behaviors](https://github.com/camunda/camunda-bpmn-js-behaviors#camunda-platform-8) to ensure Camunda properties are created, updated and deleted as expected.
 
 ## License
 
