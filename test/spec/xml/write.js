@@ -211,13 +211,15 @@ describe('write', function() {
       // given
       var assignmentDefinition = moddle.create('zeebe:AssignmentDefinition', {
         assignee: 'myAssignee',
-        candidateGroups: 'myCandidateGroup'
+        candidateGroups: 'myCandidateGroup',
+        candidateUsers: 'myCandidateUser'
       });
 
       var expectedXML = '<zeebe:assignmentDefinition ' +
         'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
         'assignee="myAssignee" ' +
-        'candidateGroups="myCandidateGroup" />';
+        'candidateGroups="myCandidateGroup" ' +
+        'candidateUsers="myCandidateUser" />';
 
       // when
       const xml = await write(assignmentDefinition);

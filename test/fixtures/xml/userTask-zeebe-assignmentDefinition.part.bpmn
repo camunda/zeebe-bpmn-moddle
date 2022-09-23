@@ -6,6 +6,7 @@
   <bpmn:extensionElements>
     <zeebe:assignmentDefinition
       assignee="= ring.bearer"
-      candidateGroups="elves, men, dwarfs, hobbits" />
+      candidateGroups="elves, men, dwarfs, hobbits"
+      candidateUsers="saruman, gandalf" />
   </bpmn:extensionElements>
 </bpmn:userTask>

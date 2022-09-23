@@ -549,7 +549,8 @@ describe('read', function() {
               {
                 $type: 'zeebe:AssignmentDefinition',
                 assignee: '= ring.bearer',
-                candidateGroups: 'elves, men, dwarfs, hobbits'
+                candidateGroups: 'elves, men, dwarfs, hobbits',
+                candidateUsers: 'saruman, gandalf'
               }
             ]
           }
