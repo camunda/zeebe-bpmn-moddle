@@ -327,6 +327,11 @@
           "name": "candidateGroups",
           "type": "String",
           "isAttr": true
+        },
+        {
+          "name": "candidateUsers",
+          "type": "String",
+          "isAttr": true
         }
       ]
     },
