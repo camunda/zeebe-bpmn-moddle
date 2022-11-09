@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.16.0
+
+`FEAT`: support `zeebe:candidateUsers` ([#38](https://github.com/camunda/zeebe-bpmn-moddle/pull/38))
+
 ## 0.15.0
 
 * `CHORE`: remove behaviors ([#33](https://github.com/camunda/zeebe-bpmn-moddle/pull/33))
