@@ -405,6 +405,29 @@
           "type": "String"
         }
       ]
+    },
+    {
+      "name": "Script",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:ScriptTask"
+        ]
+      },
+      "properties": [
+        {
+          "name": "expression",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "resultVariable",
+          "type": "String",
+          "isAttr": true
+        }
+      ]
     }
   ]
 }

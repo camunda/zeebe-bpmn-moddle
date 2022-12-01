@@ -285,6 +285,26 @@ describe('write', function() {
       expect(xml).to.eql(expectedXML);
     });
 
+
+    it('zeebe:script', async function() {
+
+      // given
+      const moddleElement = moddle.create('zeebe:Script', {
+        expression: '=today()',
+        resultVariable: 'result'
+      });
+
+      const expectedXML = '<zeebe:script ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+        'expression="=today()" resultVariable="result" />';
+
+      // when
+      const xml = await write(moddleElement);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
   });
 
 });
