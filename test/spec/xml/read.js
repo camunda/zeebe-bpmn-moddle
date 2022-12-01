@@ -632,6 +632,38 @@ describe('read', function() {
 
     });
 
+
+    describe('zeebe:script', function() {
+
+      it('on ScriptTask', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/scriptTask-zeebe-script.part.bpmn');
+
+        // when
+        const {
+          rootElement: task
+        } = await moddle.fromXML(xml, 'bpmn:ScriptTask');
+
+        // then
+        expect(task).to.jsonEqual({
+          $type: 'bpmn:ScriptTask',
+          id: 'script-task-1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:Script',
+                expression: '=today()',
+                resultVariable: 'result'
+              }
+            ]
+          }
+        });
+      });
+
+    });
+
   });
 
 });
