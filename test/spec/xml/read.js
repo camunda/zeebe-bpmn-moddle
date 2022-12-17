@@ -74,7 +74,7 @@ describe('read', function() {
         // then
         expect(proc).to.jsonEqual({
           $type: 'bpmn:ServiceTask',
-          retryCounter: 'text'
+          'zeebe:retryCounter': 'text'
         });
       });
 
@@ -577,7 +577,7 @@ describe('read', function() {
           // then
           expect(task).to.jsonEqual({
             $type: 'bpmn:Task',
-            modelerTemplate: 'foo'
+            'zeebe:modelerTemplate': 'foo'
           });
         });
 
@@ -599,8 +599,8 @@ describe('read', function() {
           // then
           expect(task).to.jsonEqual({
             $type: 'bpmn:Task',
-            modelerTemplate: 'foo',
-            modelerTemplateVersion: 1
+            'zeebe:modelerTemplate': 'foo',
+            'zeebe:modelerTemplateVersion': 1
           });
         });
 
@@ -622,9 +622,9 @@ describe('read', function() {
           // then
           expect(task).to.jsonEqual({
             $type: 'bpmn:Task',
-            modelerTemplate: 'foo',
-            modelerTemplateVersion: 1,
-            modelerTemplateIcon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3C/svg%3E"
+            'zeebe:modelerTemplate': 'foo',
+            'zeebe:modelerTemplateVersion': 1,
+            'zeebe:modelerTemplateIcon': "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3C/svg%3E"
           });
         });
 

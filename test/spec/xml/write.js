@@ -32,7 +32,7 @@ describe('write', function() {
 
       // given
       var fieldElem = moddle.create('bpmn:ServiceTask', {
-        retryCounter: 'text'
+        'zeebe:retryCounter': 'text'
       });
 
       var expectedXML = '<bpmn:serviceTask ' +
@@ -52,7 +52,7 @@ describe('write', function() {
 
       // given
       var fieldElem = moddle.create('bpmn:SendTask', {
-        retryCounter: 'text'
+        'zeebe:retryCounter': 'text'
       });
 
       var expectedXML = '<bpmn:sendTask ' +
@@ -72,7 +72,7 @@ describe('write', function() {
 
       // given
       var fieldElem = moddle.create('bpmn:BusinessRuleTask', {
-        retryCounter: 'text'
+        'zeebe:retryCounter': 'text'
       });
 
       var expectedXML = '<bpmn:businessRuleTask ' +
@@ -92,7 +92,7 @@ describe('write', function() {
 
       // given
       var fieldElem = moddle.create('bpmn:ScriptTask', {
-        retryCounter: 'text'
+        'zeebe:retryCounter': 'text'
       });
 
       var expectedXML = '<bpmn:scriptTask ' +
@@ -232,13 +232,14 @@ describe('write', function() {
     it('zeebe:modelerTemplate', async function() {
 
       // given
-      const moddleElement = moddle.create('zeebe:ZeebeServiceTask', {
-        modelerTemplate: 'foo'
+      const moddleElement = moddle.create('bpmn:ServiceTask', {
+        'zeebe:modelerTemplate': 'foo'
       });
 
-      const expectedXML = '<zeebe:zeebeServiceTask ' +
-      'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-      'modelerTemplate="foo" />';
+      const expectedXML = '<bpmn:serviceTask ' +
+        'xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+        'zeebe:modelerTemplate="foo" />';
 
       // when
       const xml = await write(moddleElement);
@@ -251,13 +252,14 @@ describe('write', function() {
     it('zeebe:modelerTemplateVersion', async function() {
 
       // given
-      const moddleElement = moddle.create('zeebe:ZeebeServiceTask', {
-        modelerTemplateVersion: '12'
+      const moddleElement = moddle.create('bpmn:ServiceTask', {
+        'zeebe:modelerTemplateVersion': '12'
       });
 
-      const expectedXML = '<zeebe:zeebeServiceTask ' +
+      const expectedXML = '<bpmn:serviceTask ' +
+        'xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
         'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'modelerTemplateVersion="12" />';
+        'zeebe:modelerTemplateVersion="12" />';
 
       // when
       const xml = await write(moddleElement);
@@ -270,13 +272,14 @@ describe('write', function() {
     it('zeebe:modelerTemplateIcon', async function() {
 
       // given
-      const moddleElement = moddle.create('zeebe:ZeebeServiceTask', {
-        modelerTemplateIcon: "data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" width='16' height='16'%3E%3C/svg%3E",
+      const moddleElement = moddle.create('bpmn:ServiceTask', {
+        'zeebe:modelerTemplateIcon': "data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" width='16' height='16'%3E%3C/svg%3E",
       });
 
-      const expectedXML = '<zeebe:zeebeServiceTask ' +
+      const expectedXML = '<bpmn:serviceTask ' +
+        'xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
         'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'modelerTemplateIcon="data:image/svg+xml,%3Csvg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#39;16&#39; height=&#39;16&#39;%3E%3C/svg%3E" />';
+        'zeebe:modelerTemplateIcon="data:image/svg+xml,%3Csvg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#39;16&#39; height=&#39;16&#39;%3E%3C/svg%3E" />';
 
       // when
       const xml = await write(moddleElement);
