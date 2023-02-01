@@ -346,12 +346,7 @@
           "type": "Property",
           "isMany": true
         }
-      ],
-      "meta": {
-        "allowedIn": [
-          "zeebe:PropertiesHolder"
-        ]
-      }
+      ]
     },
     {
       "name": "Property",
@@ -366,18 +361,6 @@
           "type": "String",
           "isAttr": true
         }
-      ],
-      "meta": {
-        "allowedIn": [
-          "zeebe:PropertiesHolder"
-        ]
-      }
-    },
-    {
-      "name": "PropertiesHolder",
-      "isAbstract": true,
-      "extends": [
-        "bpmn:FlowNode"
       ]
     },
     {

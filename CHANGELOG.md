@@ -6,6 +6,14 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.18.0
+
+* `CHORE`: remove `zeebe:PropertiesHolder` type ([#44](https://github.com/camunda/zeebe-bpmn-moddle/pull/44))
+
+### Breaking Changes
+
+* `zeebe:PropertiesHolder` type removed without replacement as `zeebe:Properties` extension elements are generally allowed
+
 ## 0.17.0
 
 * `FEAT`: support `zeebe:script` ([#39](https://github.com/camunda/zeebe-bpmn-moddle/pull/39))
