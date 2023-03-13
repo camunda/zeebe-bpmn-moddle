@@ -1,6 +1,6 @@
 {
   "name": "zeebe-bpmn-moddle",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "description": "Zeebe moddle extensions for BPMN 2.0",
   "scripts": {
     "all": "run-s lint test",
