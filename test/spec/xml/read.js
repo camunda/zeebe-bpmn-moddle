@@ -527,7 +527,7 @@ describe('read', function() {
     });
 
 
-    describe('zeebe:assignmentDefinition', function() {
+    describe('zeebe:AssignmentDefinition', function() {
 
       it('on UserTask', async function() {
 
@@ -551,6 +551,38 @@ describe('read', function() {
                 assignee: '= ring.bearer',
                 candidateGroups: 'elves, men, dwarfs, hobbits',
                 candidateUsers: 'saruman, gandalf'
+              }
+            ]
+          }
+        });
+      });
+
+    });
+
+
+    describe('zeebe:TaskSchedule', function() {
+
+      it('on UserTask', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/userTask-zeebe-taskSchedule.part.bpmn');
+
+        // when
+        const {
+          rootElement: task
+        } = await moddle.fromXML(xml, 'bpmn:UserTask');
+
+        // then
+        expect(task).to.jsonEqual({
+          $type: 'bpmn:UserTask',
+          id: 'user-task-1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:TaskSchedule',
+                dueDate: '2023-04-20T04:20:00Z',
+                followUpDate: '=followUpDate'
               }
             ]
           }

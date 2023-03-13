@@ -206,7 +206,7 @@ describe('write', function() {
     });
 
 
-    it('zeebe:assignmentDefinition', async function() {
+    it('zeebe:AssignmentDefinition', async function() {
 
       // given
       var assignmentDefinition = moddle.create('zeebe:AssignmentDefinition', {
@@ -223,6 +223,27 @@ describe('write', function() {
 
       // when
       const xml = await write(assignmentDefinition);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
+
+    it('zeebe:TaskSchedule', async function() {
+
+      // given
+      var taskSchedule = moddle.create('zeebe:TaskSchedule', {
+        dueDate: '2023-04-20T04:20:00Z',
+        followUpDate: '=followUpDate'
+      });
+
+      var expectedXML = '<zeebe:taskSchedule ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+        'dueDate="2023-04-20T04:20:00Z" ' +
+        'followUpDate="=followUpDate" />';
+
+      // when
+      const xml = await write(taskSchedule);
 
       // then
       expect(xml).to.eql(expectedXML);
