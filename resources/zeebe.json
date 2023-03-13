@@ -336,6 +336,29 @@
       ]
     },
     {
+      "name": "TaskSchedule",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:UserTask"
+        ]
+      },
+      "properties": [
+        {
+          "name": "dueDate",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "followUpDate",
+          "type": "String",
+          "isAttr": true
+        }
+      ]
+    },
+    {
       "name": "Properties",
       "superClass": [
         "Element"

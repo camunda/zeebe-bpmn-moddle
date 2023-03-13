@@ -1,0 +1,11 @@
+<bpmn:userTask
+  id="user-task-1"
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
+>
+  <bpmn:extensionElements>
+    <zeebe:taskSchedule
+      dueDate="2023-04-20T04:20:00Z"
+      followUpDate="=followUpDate" />
+  </bpmn:extensionElements>
+</bpmn:userTask>
