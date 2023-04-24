@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.19.0
+
+* `FEAT`: add `zeebe:modelerTemplate` for root elements
+
 ## 0.18.0
 
 * `FEAT`: add `zeebe:TaskSchedule` extension element ([#45](https://github.com/camunda/zeebe-bpmn-moddle/pull/45))

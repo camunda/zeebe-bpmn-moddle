@@ -665,6 +665,49 @@ describe('read', function() {
     });
 
 
+    describe('zeebe:TemplatedRootElement', function() {
+
+      describe('zeebe:modelerTemplate', function() {
+
+        it('on root elements', async function() {
+
+          // given
+          var xml = readFile('test/fixtures/xml/rootElement.bpmn');
+
+          // when
+          const {
+            rootElement: definitions
+          } = await moddle.fromXML(xml, 'bpmn:Definitions');
+
+          // then
+          expect(definitions).to.jsonEqual({
+            $type: 'bpmn:Definitions',
+            targetNamespace: 'http://bpmn.io/schema/bpmn',
+            rootElements: [
+              {
+                $type: 'bpmn:Message',
+                modelerTemplate: 'templateId'
+              },
+              {
+                $type: 'bpmn:Error',
+                modelerTemplate: 'templateId'
+              },
+              {
+                $type: 'bpmn:Signal',
+                modelerTemplate: 'templateId'
+              },
+              {
+                $type: 'bpmn:Escalation',
+                modelerTemplate: 'templateId'
+              }
+            ]
+          });
+        });
+
+      });
+    });
+
+
     describe('zeebe:script', function() {
 
       it('on ScriptTask', async function() {
