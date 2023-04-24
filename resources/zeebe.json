@@ -413,6 +413,23 @@
       ]
     },
     {
+      "name": "TemplatedRootElement",
+      "isAbstract": true,
+      "extends": [
+        "bpmn:Error",
+        "bpmn:Escalation",
+        "bpmn:Message",
+        "bpmn:Signal"
+      ],
+      "properties": [
+        {
+          "name": "modelerTemplate",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
       "name": "Script",
       "superClass": [
         "Element"

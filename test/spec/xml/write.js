@@ -269,6 +269,26 @@ describe('write', function() {
     });
 
 
+    it('zeebe:modelerTemplate on root element', async function() {
+
+      // given
+      const moddleElement = moddle.create('bpmn:Message', {
+        modelerTemplate: 'foo'
+      });
+
+      const expectedXML = '<bpmn:message ' +
+      'xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
+      'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+      'zeebe:modelerTemplate="foo" />';
+
+      // when
+      const xml = await write(moddleElement);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
+
     it('zeebe:modelerTemplateVersion', async function() {
 
       // given

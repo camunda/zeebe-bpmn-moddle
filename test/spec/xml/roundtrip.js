@@ -52,4 +52,6 @@ describe('import -> export roundtrip', function() {
 
   it('should keep zeebe:properties', validateExport('test/fixtures/xml/zeebe-properties.bpmn'));
 
+
+  it('should keep zeebe:modelerTemplate', validateExport('test/fixtures/xml/rootElement.bpmn'));
 });
