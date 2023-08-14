@@ -281,6 +281,11 @@
           "name": "formKey",
           "type": "String",
           "isAttr": true
+        },
+        {
+          "name": "formId",
+          "type": "String",
+          "isAttr": true
         }
       ]
     },
