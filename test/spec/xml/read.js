@@ -466,30 +466,61 @@ describe('read', function() {
 
     describe('zeebe:formDefinition', function() {
 
-      it('on UserTask', async function() {
+      describe('on UserTask', function() {
 
-        // given
-        var xml = readFile('test/fixtures/xml/userTask-zeebe-formDefinition.part.bpmn');
+        it('zeebe:formKey', async function() {
 
-        // when
-        const {
-          rootElement: proc
-        } = await moddle.fromXML(xml, 'bpmn:UserTask');
+          // given
+          var xml = readFile('test/fixtures/xml/userTask-zeebe-formDefinition-formKey.part.bpmn');
 
-        // then
-        expect(proc).to.jsonEqual({
-          $type: 'bpmn:UserTask',
-          id: 'user-task-1',
-          extensionElements: {
-            $type: 'bpmn:ExtensionElements',
-            values: [
-              {
-                $type: 'zeebe:FormDefinition',
-                formKey: 'form-1'
-              }
-            ]
-          }
+          // when
+          const {
+            rootElement: proc
+          } = await moddle.fromXML(xml, 'bpmn:UserTask');
+
+          // then
+          expect(proc).to.jsonEqual({
+            $type: 'bpmn:UserTask',
+            id: 'user-task-1',
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:FormDefinition',
+                  formKey: 'form-1'
+                }
+              ]
+            }
+          });
         });
+
+
+        it('zeebe:formId', async function() {
+
+          // given
+          var xml = readFile('test/fixtures/xml/userTask-zeebe-formDefinition-formId.part.bpmn');
+
+          // when
+          const {
+            rootElement: proc
+          } = await moddle.fromXML(xml, 'bpmn:UserTask');
+
+          // then
+          expect(proc).to.jsonEqual({
+            $type: 'bpmn:UserTask',
+            id: 'user-task-1',
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:FormDefinition',
+                  formId: 'form-1'
+                }
+              ]
+            }
+          });
+        });
+
       });
 
     });
