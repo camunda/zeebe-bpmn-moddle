@@ -146,6 +146,44 @@ describe('write', function() {
     });
 
 
+    it('CalledElement#propagateAllParentVariables - true', async function() {
+
+      // given
+      var fieldElem = moddle.create('zeebe:CalledElement', {
+        propagateAllParentVariables: true
+      });
+
+      var expectedXML = '<zeebe:calledElement ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+        'propagateAllParentVariables="true" />';
+
+      // when
+      const xml = await write(fieldElem);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
+
+    it('CalledElement#propagateAllParentVariables - false', async function() {
+
+      // given
+      var fieldElem = moddle.create('zeebe:CalledElement', {
+        propagateAllParentVariables: false
+      });
+
+      var expectedXML = '<zeebe:calledElement ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+        'propagateAllParentVariables="false" />';
+
+      // when
+      const xml = await write(fieldElem);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
+
     it('zeebe:userTaskForm', async function() {
 
       // given
