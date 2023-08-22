@@ -240,6 +240,11 @@
           "name": "propagateAllChildVariables",
           "isAttr": true,
           "type": "Boolean"
+        },
+        {
+          "name": "propagateAllParentVariables",
+          "isAttr": true,
+          "type": "Boolean"
         }
       ]
     },
