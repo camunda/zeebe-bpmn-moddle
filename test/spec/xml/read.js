@@ -214,6 +214,67 @@ describe('read', function() {
         });
       });
 
+      describe('with propagateAllParentVariables', function() {
+
+        it('default value', function() {
+
+          // when
+          var bo = moddle.create('zeebe:CalledElement');
+
+          // then
+          expect(bo.get('zeebe:propagateAllParentVariables')).to.be.true;
+        });
+
+
+        it('default value read from BPMN', async function() {
+
+          // given
+          var xml = readFile('test/fixtures/xml/call-activity-zeebe-calledElement.part.bpmn');
+
+          // when
+          const {
+            rootElement: proc
+          } = await moddle.fromXML(xml, 'bpmn:CallActivity');
+
+          const extensionElements = proc.get('extensionElements');
+          const values = extensionElements.get('values');
+          const calledElement = values[0];
+
+          // then
+          expect(calledElement.get('zeebe:propagateAllParentVariables')).to.be.true;
+        });
+
+
+        it('disabled in BPMN', async function() {
+
+          // given
+          var xml = readFile('test/fixtures/xml/call-activity-zeebe-calledElement-propagateAllParentVariables.part.bpmn');
+
+          // when
+          const {
+            rootElement: proc
+          } = await moddle.fromXML(xml, 'bpmn:CallActivity');
+
+          // then
+          expect(proc).to.jsonEqual({
+            $type: 'bpmn:CallActivity',
+            id: 'task-A',
+            name: 'A',
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:CalledElement',
+                  processId: 'child-process-id',
+                  propagateAllParentVariables: false
+                }
+              ]
+            }
+          });
+
+        });
+      });
+
     });
 
 
