@@ -154,8 +154,7 @@ describe('write', function() {
       });
 
       var expectedXML = '<zeebe:calledElement ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'propagateAllParentVariables="true" />';
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" />';
 
       // when
       const xml = await write(fieldElem);
