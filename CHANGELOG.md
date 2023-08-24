@@ -6,6 +6,11 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.0.0
+
+* `FEAT`: support `CalledElement#propagateAllParentVariables` ([#51](https://github.com/camunda/zeebe-bpmn-moddle/pull/51), [#52](https://github.com/camunda/zeebe-bpmn-moddle/pull/52))
+* `FEAT`: support `FormDefinition#formId` ([#49](https://github.com/camunda/zeebe-bpmn-moddle/pull/49))
+
 ## 0.19.0
 
 * `FEAT`: add `zeebe:modelerTemplate` for root elements
