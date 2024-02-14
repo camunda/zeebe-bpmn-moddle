@@ -54,4 +54,10 @@ describe('import -> export roundtrip', function() {
 
 
   it('should keep zeebe:modelerTemplate', validateExport('test/fixtures/xml/rootElement.bpmn'));
+
+
+  describe('userTask', function() {
+
+    it('should keep zeebe:formDefinition properties', validateExport('test/fixtures/xml/userTask-zeebe-formDefinition.bpmn'));
+  });
 });

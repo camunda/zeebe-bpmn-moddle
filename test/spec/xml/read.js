@@ -582,8 +582,63 @@ describe('read', function() {
           });
         });
 
+
+        it('zeebe:externalReference', async function() {
+
+          // given
+          var xml = readFile('test/fixtures/xml/userTask-zeebe-formDefinition-externalReference.part.bpmn');
+
+          // when
+          const {
+            rootElement: proc
+          } = await moddle.fromXML(xml, 'bpmn:UserTask');
+
+          // then
+          expect(proc).to.jsonEqual({
+            $type: 'bpmn:UserTask',
+            id: 'user-task-1',
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:FormDefinition',
+                  externalReference: 'form-1'
+                }
+              ]
+            }
+          });
+        });
       });
 
+    });
+
+
+    describe('zeebe:userTask', function() {
+
+      it('should read', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/userTask-zeebe-userTask.part.bpmn');
+
+        // when
+        const {
+          rootElement: proc
+        } = await moddle.fromXML(xml, 'bpmn:UserTask');
+
+        // then
+        expect(proc).to.jsonEqual({
+          $type: 'bpmn:UserTask',
+          id: 'user-task-1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:UserTask'
+              }
+            ]
+          }
+        });
+      });
     });
 
 
