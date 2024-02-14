@@ -281,6 +281,50 @@ describe('write', function() {
         expect(xml).to.eql(expectedXML);
       });
 
+
+      it('zeebe:externalReference', async function() {
+
+        // given
+        var proc = moddle.create('bpmn:UserTask', {
+          extensionElements: moddle.create('bpmn:ExtensionElements', {
+            values: [
+              moddle.create('zeebe:FormDefinition', {
+                externalReference: 'form-1'
+              })
+            ]
+          })
+        });
+
+        var expectedXML =
+          '<bpmn:userTask xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
+                         'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">' +
+            '<bpmn:extensionElements>' +
+              '<zeebe:formDefinition externalReference="form-1" />' +
+            '</bpmn:extensionElements>' +
+          '</bpmn:userTask>';
+
+        // when
+        const xml = await write(proc);
+
+        // then
+        expect(xml).to.eql(expectedXML);
+      });
+    });
+
+
+    it('zeebe:userTask', async function() {
+
+      // given
+      var userTask = moddle.create('zeebe:UserTask', {});
+
+      var expectedXML = '<zeebe:userTask ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" />';
+
+      // when
+      const xml = await write(userTask);
+
+      // then
+      expect(xml).to.eql(expectedXML);
     });
 
 

@@ -292,8 +292,25 @@
           "name": "formId",
           "type": "String",
           "isAttr": true
+        },
+        {
+          "name": "externalReference",
+          "type": "String",
+          "isAttr": true
         }
       ]
+    },
+    {
+      "name": "UserTask",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:UserTask"
+        ]
+      },
+      "properties": []
     },
     {
       "name": "CalledDecision",
