@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.1.0
+
+* `FEAT`: support `zeebe:UserTask` ([#54](https://github.com/camunda/zeebe-bpmn-moddle/pull/56))
+
 ## 1.0.0
 
 * `FEAT`: support `CalledElement#propagateAllParentVariables` ([#51](https://github.com/camunda/zeebe-bpmn-moddle/pull/51), [#52](https://github.com/camunda/zeebe-bpmn-moddle/pull/52))
