@@ -479,6 +479,58 @@
           "isAttr": true
         }
       ]
+    },
+    {
+      "name": "ExecutionListeners",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:Event",
+          "bpmn:Activity",
+          "bpmn:Process",
+          "bpmn:ExclusiveGateway",
+          "bpmn:InclusiveGateway",
+          "bpmn:ParallelGateway",
+          "bpmn:EventBasedGateway"
+        ]
+      },
+      "properties": [
+        {
+          "name": "listeners",
+          "type": "ExecutionListener",
+          "isMany": true
+        }
+      ]
+    },
+    {
+      "name": "ExecutionListener",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "zeebe:ExecutionListeners"
+        ]
+      },
+      "properties": [
+        {
+          "name": "eventType",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "retries",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isAttr": true
+        }
+      ]
     }
   ]
 }

@@ -489,6 +489,32 @@ describe('write', function() {
       expect(xml).to.eql(expectedXML);
     });
 
+
+    it('zeebe:ExecutionListeners', async function() {
+
+      // given
+      const moddleElement = moddle.create('zeebe:ExecutionListeners', {
+        listeners: [
+          moddle.create('zeebe:ExecutionListener', {
+            eventType: 'start',
+            retries: '3',
+            type: 'sysout'
+          })
+        ]
+      });
+
+      const expectedXML = '<zeebe:executionListeners ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">' +
+        '<zeebe:executionListener eventType="start" retries="3" type="sysout" />' +
+        '</zeebe:executionListeners>';
+
+      // when
+      const xml = await write(moddleElement);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
   });
 
 });
