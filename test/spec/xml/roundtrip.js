@@ -60,4 +60,10 @@ describe('import -> export roundtrip', function() {
 
     it('should keep zeebe:formDefinition properties', validateExport('test/fixtures/xml/userTask-zeebe-formDefinition.bpmn'));
   });
+
+
+  describe('executionListeners', function() {
+
+    it('should keep zeebe:executionListeners', validateExport('test/fixtures/xml/zeebe-execution-listeners.bpmn'));
+  });
 });

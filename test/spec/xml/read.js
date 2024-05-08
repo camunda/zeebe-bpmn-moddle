@@ -886,6 +886,111 @@ describe('read', function() {
 
     });
 
+
+    describe('zeebe:ExecutionListener', function() {
+
+
+      it('on Task', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/task-zeebe-executionListener.part.bpmn');
+
+        // when
+        const {
+          rootElement: task
+        } = await moddle.fromXML(xml, 'bpmn:Task');
+
+        // then
+        expect(task).to.jsonEqual({
+          $type: 'bpmn:Task',
+          id: 'task-1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:ExecutionListeners',
+                listeners: [
+                  {
+                    $type: 'zeebe:ExecutionListener',
+                    eventType: 'start',
+                    retries: '3',
+                    type: 'sysout'
+                  }
+                ]
+              }
+            ]
+          }
+        });
+      });
+
+
+      it('on Event', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/event-zeebe-executionListener.part.bpmn');
+
+        // when
+        const {
+          rootElement: event
+        } = await moddle.fromXML(xml, 'bpmn:EndEvent');
+
+        // then
+        expect(event).to.jsonEqual({
+          $type: 'bpmn:EndEvent',
+          id: 'endEvent-1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:ExecutionListeners',
+                listeners: [
+                  {
+                    $type: 'zeebe:ExecutionListener',
+                    eventType: 'start',
+                    retries: '3',
+                    type: 'sysout'
+                  }
+                ]
+              }
+            ]
+          }
+        });
+      });
+
+
+      it('on Gateway', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/gateway-zeebe-executionListener.part.bpmn');
+
+        // when
+        const {
+          rootElement: gateway
+        } = await moddle.fromXML(xml, 'bpmn:ExclusiveGateway');
+
+        // then
+        expect(gateway).to.jsonEqual({
+          $type: 'bpmn:ExclusiveGateway',
+          id: 'exclusiveGateway-1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:ExecutionListeners',
+                listeners: [
+                  {
+                    $type: 'zeebe:ExecutionListener',
+                    eventType: 'start',
+                    retries: '3',
+                    type: 'sysout'
+                  }
+                ]
+              }
+            ]
+          }
+        });
+      });
+    });
   });
 
 });

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0qh9wc7" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.23.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.0.0">
+  <bpmn:process id="ZeebePropertiesTest" name="Zeebe Properties Test" isExecutable="true">
+    <bpmn:extensionElements>
+      <zeebe:executionListeners>
+        <zeebe:executionListener eventType="end" retries="3" type="sysout" />
+      </zeebe:executionListeners>
+    </bpmn:extensionElements>
+    <bpmn:startEvent id="Event_17qas0b">
+      <bpmn:extensionElements>
+        <zeebe:executionListeners>
+          <zeebe:executionListener eventType="end" retries="3" type="sysout" />
+        </zeebe:executionListeners>
+      </bpmn:extensionElements>
+    </bpmn:startEvent>
+    <bpmn:intermediateThrowEvent id="Event_0eh64r2">
+      <bpmn:extensionElements>
+        <zeebe:executionListeners>
+          <zeebe:executionListener eventType="end" retries="3" type="sysout" />
+        </zeebe:executionListeners>
+      </bpmn:extensionElements>
+    </bpmn:intermediateThrowEvent>
+    <bpmn:endEvent id="Event_1mgtnh6">
+      <bpmn:extensionElements>
+        <zeebe:executionListeners>
+          <zeebe:executionListener eventType="end" retries="3" type="sysout" />
+        </zeebe:executionListeners>
+      </bpmn:extensionElements>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="Gateway_0j5ev99">
+      <bpmn:extensionElements>
+        <zeebe:executionListeners>
+          <zeebe:executionListener eventType="start" retries="3" type="sysout" />
+        </zeebe:executionListeners>
+      </bpmn:extensionElements>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_0ls77qd">
+      <bpmn:extensionElements>
+        <zeebe:executionListeners>
+          <zeebe:executionListener eventType="end" retries="3" type="sysout" />
+        </zeebe:executionListeners>
+      </bpmn:extensionElements>
+    </bpmn:task>
+    <bpmn:subProcess id="Activity_1yf35jc">
+      <bpmn:extensionElements>
+        <zeebe:executionListeners>
+          <zeebe:executionListener eventType="end" retries="3" type="sysout" />
+        </zeebe:executionListeners>
+      </bpmn:extensionElements>
+      <bpmn:startEvent id="Event_06ifkc6">
+        <bpmn:extensionElements>
+          <zeebe:executionListeners>
+            <zeebe:executionListener eventType="end" retries="3" type="sysout" />
+          </zeebe:executionListeners>
+        </bpmn:extensionElements>
+      </bpmn:startEvent>
+    </bpmn:subProcess>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ZeebePropertiesTest">
+      <bpmndi:BPMNShape id="Event_17qas0b_di" bpmnElement="Event_17qas0b">
+        <dc:Bounds x="192" y="82" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0eh64r2_di" bpmnElement="Event_0eh64r2">
+        <dc:Bounds x="192" y="162" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1mgtnh6_di" bpmnElement="Event_1mgtnh6">
+        <dc:Bounds x="192" y="242" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0j5ev99_di" bpmnElement="Gateway_0j5ev99" isMarkerVisible="true">
+        <dc:Bounds x="185" y="315" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ls77qd_di" bpmnElement="Activity_0ls77qd">
+        <dc:Bounds x="160" y="400" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1yf35jc_di" bpmnElement="Activity_1yf35jc" isExpanded="true">
+        <dc:Bounds x="160" y="510" width="350" height="200" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_06ifkc6_di" bpmnElement="Event_06ifkc6">
+        <dc:Bounds x="200" y="592" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
