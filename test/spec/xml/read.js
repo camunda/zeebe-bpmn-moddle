@@ -886,6 +886,43 @@ describe('read', function() {
 
     });
 
+
+    describe('zeebe:ExecutionListener', function() {
+
+
+      it('on Task', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/task-zeebe-executionListener.part.bpmn');
+
+        // when
+        const {
+          rootElement: task
+        } = await moddle.fromXML(xml, 'bpmn:Task');
+
+        // then
+        expect(task).to.jsonEqual({
+          $type: 'bpmn:Task',
+          id: 'task-1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:ExecutionListeners',
+                listeners: [
+                  {
+                    $type: 'zeebe:ExecutionListener',
+                    eventType: 'start',
+                    retries: '3',
+                    type: 'sysout'
+                  }
+                ]
+              }
+            ]
+          }
+        });
+      });
+    });
   });
 
 });
