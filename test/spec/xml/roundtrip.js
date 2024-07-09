@@ -4,7 +4,6 @@ var readFile = require('../../helper').readFile,
     createModdle = require('../../helper').createModdle;
 
 
-
 describe('import -> export roundtrip', function() {
 
   function stripSpaces(xml) {
@@ -43,9 +42,9 @@ describe('import -> export roundtrip', function() {
   }
 
 
-  describe('should keep zeebe attributes', function() {
+  describe('Zeebe properties', function() {
 
-    it('Service Task:FormData', validateExport('test/fixtures/xml/simple.bpmn'));
+    it('should keep Zeebe properties', validateExport('test/fixtures/xml/simple.bpmn'));
 
   });
 
@@ -56,14 +55,24 @@ describe('import -> export roundtrip', function() {
   it('should keep zeebe:modelerTemplate', validateExport('test/fixtures/xml/rootElement.bpmn'));
 
 
-  describe('userTask', function() {
+  describe('zeebe:UserTask', function() {
 
     it('should keep zeebe:formDefinition properties', validateExport('test/fixtures/xml/userTask-zeebe-formDefinition.bpmn'));
+
   });
 
 
-  describe('executionListeners', function() {
+  describe('zeebe:ExecutionListeners', function() {
 
     it('should keep zeebe:executionListeners', validateExport('test/fixtures/xml/zeebe-execution-listeners.bpmn'));
+
   });
+
+
+  describe('zeebe:VersionTag', function() {
+
+    it('should keep zeebe:versionTag', validateExport('test/fixtures/xml/zeebe-versionTag.bpmn'));
+
+  });
+
 });

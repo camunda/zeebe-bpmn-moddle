@@ -531,6 +531,24 @@
           "isAttr": true
         }
       ]
+    },
+    {
+      "name": "VersionTag",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:Process"
+        ]
+      },
+      "properties": [
+        {
+          "name": "value",
+          "type": "String",
+          "isAttr": true
+        }
+      ]
     }
   ]
 }

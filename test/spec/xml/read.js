@@ -889,7 +889,6 @@ describe('read', function() {
 
     describe('zeebe:ExecutionListener', function() {
 
-
       it('on Task', async function() {
 
         // given
@@ -990,7 +989,40 @@ describe('read', function() {
           }
         });
       });
+
     });
+
+
+    describe('zeebe:VersionTag', function() {
+
+      it('on Process', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/zeebe-versionTag.part.bpmn');
+
+        // when
+        const {
+          rootElement: task
+        } = await moddle.fromXML(xml, 'bpmn:Process');
+
+        // then
+        expect(task).to.jsonEqual({
+          $type: 'bpmn:Process',
+          id: 'process-1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:VersionTag',
+                value: 'v1.0.0'
+              }
+            ]
+          }
+        });
+      });
+
+    });
+
   });
 
 });
