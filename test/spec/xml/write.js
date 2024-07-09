@@ -515,6 +515,25 @@ describe('write', function() {
       expect(xml).to.eql(expectedXML);
     });
 
+
+    it('zeebe:VersionTag', async function() {
+
+      // given
+      const moddleElement = moddle.create('zeebe:VersionTag', {
+        value: 'v1.0.0'
+      });
+
+      const expectedXML = '<zeebe:versionTag ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+        'value="v1.0.0" />';
+
+      // when
+      const xml = await write(moddleElement);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
   });
 
 });
