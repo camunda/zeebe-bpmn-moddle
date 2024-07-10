@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.3.0
+
+* `FEAT`: support `zeebe:VersionTag` ([#60](https://github.com/camunda/zeebe-bpmn-moddle/pull/60))
+
 ## 1.2.0
 
 * `FEAT`: support: `zeebe:ExecutionListener` ([#57](https://github.com/camunda/zeebe-bpmn-moddle/pull/57))
