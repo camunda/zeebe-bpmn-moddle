@@ -1,0 +1,8 @@
+<bpmn:callActivity
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
+  id="CallActivity_1">
+  <bpmn:extensionElements>
+    <zeebe:calledElement bindingType="deployment" />
+  </bpmn:extensionElements>
+</bpmn:callActivity>

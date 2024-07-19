@@ -549,6 +549,23 @@
           "isAttr": true
         }
       ]
+    },
+    {
+      "name": "BindingTypeSupported",
+      "isAbstract": true,
+      "extends": [
+        "zeebe:CalledDecision",
+        "zeebe:CalledElement",
+        "zeebe:FormDefinition"
+      ],
+      "properties": [
+        {
+          "name": "bindingType",
+          "isAttr": true,
+          "type": "String",
+          "default": "latest"
+        }
+      ]
     }
   ]
 }
