@@ -75,4 +75,11 @@ describe('import -> export roundtrip', function() {
 
   });
 
+
+  describe('zeebe:BindingTypeSupported', function() {
+
+    it('should keep zeebe:bindingType', validateExport('test/fixtures/xml/zeebe-bindingType.bpmn'));
+
+  });
+
 });

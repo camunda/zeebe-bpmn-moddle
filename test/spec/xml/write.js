@@ -534,6 +534,67 @@ describe('write', function() {
       expect(xml).to.eql(expectedXML);
     });
 
+
+    describe('zeebe:BindingTypeSupported', function() {
+
+      it('on zeebe:CalledDecision', async function() {
+
+        // given
+        const moddleElement = moddle.create('zeebe:CalledDecision', {
+          bindingType: 'deployment'
+        });
+
+        const expectedXML = '<zeebe:calledDecision ' +
+          'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+          'bindingType="deployment" />';
+
+        // when
+        const xml = await write(moddleElement);
+
+        // then
+        expect(xml).to.eql(expectedXML);
+      });
+
+
+      it('on zeebe:CalledElement', async function() {
+
+        // given
+        const moddleElement = moddle.create('zeebe:CalledElement', {
+          bindingType: 'deployment'
+        });
+
+        const expectedXML = '<zeebe:calledElement ' +
+          'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+          'bindingType="deployment" />';
+
+        // when
+        const xml = await write(moddleElement);
+
+        // then
+        expect(xml).to.eql(expectedXML);
+      });
+
+
+      it('on zeebe:FormDefinition', async function() {
+
+        // given
+        const moddleElement = moddle.create('zeebe:FormDefinition', {
+          bindingType: 'deployment'
+        });
+
+        const expectedXML = '<zeebe:formDefinition ' +
+          'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+          'bindingType="deployment" />';
+
+        // when
+        const xml = await write(moddleElement);
+
+        // then
+        expect(xml).to.eql(expectedXML);
+      });
+
+    });
+
   });
 
 });
