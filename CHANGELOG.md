@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.4.0
+
+* `FEAT`: support `zeebe:bindingType` for `zeebe:CalledDecision`, `zeebe:CalledElement` and `zeebe:FormDefinition` ([#61](https://github.com/camunda/zeebe-bpmn-moddle/pull/61))
+
 ## 1.3.0
 
 * `FEAT`: support `zeebe:VersionTag` ([#60](https://github.com/camunda/zeebe-bpmn-moddle/pull/60))
