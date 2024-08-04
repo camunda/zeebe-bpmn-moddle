@@ -372,6 +372,26 @@ describe('write', function() {
     });
 
 
+    it('zeebe:Priority', async function() {
+
+      // given
+      var priority = moddle.create('zeebe:Priority', {
+        value: '100'
+      });
+
+      var expectedXML = '<zeebe:priority ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+        'value="100" />';
+
+      // when
+      const xml = await write(priority);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+
+    });
+
+
     it('zeebe:TaskSchedule', async function() {
 
       // given
