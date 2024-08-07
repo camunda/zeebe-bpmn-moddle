@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.5.0
+
+* `FEAT`: support `zeebe:priority` ([#62](https://github.com/camunda/zeebe-bpmn-moddle/issues/62))
+
 ## 1.4.0
 
 * `FEAT`: support `zeebe:bindingType` for `zeebe:CalledDecision`, `zeebe:CalledElement` and `zeebe:FormDefinition` ([#61](https://github.com/camunda/zeebe-bpmn-moddle/pull/61))
