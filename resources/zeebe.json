@@ -364,7 +364,7 @@
       ]
     },
     {
-      "name": "Priority",
+      "name": "PriorityDefinition",
       "superClass": [
         "Element"
       ],
@@ -375,7 +375,7 @@
       },
       "properties": [
         {
-          "name": "value",
+          "name": "priority",
           "type": "String",
           "isAttr": true
         }

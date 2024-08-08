@@ -707,7 +707,7 @@ describe('read', function() {
     });
 
 
-    describe('zeebe:Priority', function() {
+    describe('zeebe:PriorityDefinition', function() {
 
       it('on UserTask', async function() {
 
@@ -727,8 +727,8 @@ describe('read', function() {
             $type: 'bpmn:ExtensionElements',
             values: [
               {
-                $type: 'zeebe:Priority',
-                value: '75'
+                $type: 'zeebe:PriorityDefinition',
+                priority: '75'
               }
             ]
           }

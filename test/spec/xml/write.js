@@ -372,16 +372,16 @@ describe('write', function() {
     });
 
 
-    it('zeebe:Priority', async function() {
+    it('zeebe:PriorityDefinition', async function() {
 
       // given
-      var priority = moddle.create('zeebe:Priority', {
-        value: '100'
+      var priority = moddle.create('zeebe:PriorityDefinition', {
+        priority: '100'
       });
 
-      var expectedXML = '<zeebe:priority ' +
+      var expectedXML = '<zeebe:priorityDefinition ' +
         'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'value="100" />';
+        'priority="100" />';
 
       // when
       const xml = await write(priority);
