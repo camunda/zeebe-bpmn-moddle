@@ -4,6 +4,6 @@
   xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
 >
   <bpmn:extensionElements>
-    <zeebe:priority value="75" />
+    <zeebe:priorityDefinition priority="75" />
   </bpmn:extensionElements>
 </bpmn:userTask>
