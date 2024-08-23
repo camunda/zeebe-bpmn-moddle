@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.6.0
+
+* `FEAT`: support `zeebe:versionTag` for `zeebe:CalledDecision`, `zeebe:CalledElement` and `zeebe:FormDefinition` ([#65](https://github.com/camunda/zeebe-bpmn-moddle/pull/65))
+
 ## 1.5.1
 
 * `FIX`: rename `zeebe:priority` to `zeebe:priorityDefinition` ([#62](https://github.com/camunda/zeebe-bpmn-moddle/issues/62))
