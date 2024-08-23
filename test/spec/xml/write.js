@@ -557,60 +557,131 @@ describe('write', function() {
 
     describe('zeebe:BindingTypeSupported', function() {
 
-      it('on zeebe:CalledDecision', async function() {
+      describe('zeebe:bindingType', function() {
 
-        // given
-        const moddleElement = moddle.create('zeebe:CalledDecision', {
-          bindingType: 'deployment'
+        it('on zeebe:CalledDecision', async function() {
+
+          // given
+          const moddleElement = moddle.create('zeebe:CalledDecision', {
+            bindingType: 'deployment'
+          });
+
+          const expectedXML = '<zeebe:calledDecision ' +
+            'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+            'bindingType="deployment" />';
+
+          // when
+          const xml = await write(moddleElement);
+
+          // then
+          expect(xml).to.eql(expectedXML);
         });
 
-        const expectedXML = '<zeebe:calledDecision ' +
-          'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-          'bindingType="deployment" />';
 
-        // when
-        const xml = await write(moddleElement);
+        it('on zeebe:CalledElement', async function() {
 
-        // then
-        expect(xml).to.eql(expectedXML);
+          // given
+          const moddleElement = moddle.create('zeebe:CalledElement', {
+            bindingType: 'deployment'
+          });
+
+          const expectedXML = '<zeebe:calledElement ' +
+            'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+            'bindingType="deployment" />';
+
+          // when
+          const xml = await write(moddleElement);
+
+          // then
+          expect(xml).to.eql(expectedXML);
+        });
+
+
+        it('on zeebe:FormDefinition', async function() {
+
+          // given
+          const moddleElement = moddle.create('zeebe:FormDefinition', {
+            bindingType: 'deployment'
+          });
+
+          const expectedXML = '<zeebe:formDefinition ' +
+            'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+            'bindingType="deployment" />';
+
+          // when
+          const xml = await write(moddleElement);
+
+          // then
+          expect(xml).to.eql(expectedXML);
+        });
+
       });
 
 
-      it('on zeebe:CalledElement', async function() {
+      describe('zeebe:versionTag', function() {
 
-        // given
-        const moddleElement = moddle.create('zeebe:CalledElement', {
-          bindingType: 'deployment'
+        it('on zeebe:CalledDecision', async function() {
+
+          // given
+          const moddleElement = moddle.create('zeebe:CalledDecision', {
+            bindingType: 'versionTag',
+            versionTag: 'v1.0.0'
+          });
+
+          const expectedXML = '<zeebe:calledDecision ' +
+            'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+            'bindingType="versionTag" ' +
+            'versionTag="v1.0.0" />';
+
+          // when
+          const xml = await write(moddleElement);
+
+          // then
+          expect(xml).to.eql(expectedXML);
         });
 
-        const expectedXML = '<zeebe:calledElement ' +
-          'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-          'bindingType="deployment" />';
 
-        // when
-        const xml = await write(moddleElement);
+        it('on zeebe:CalledElement', async function() {
 
-        // then
-        expect(xml).to.eql(expectedXML);
-      });
+          // given
+          const moddleElement = moddle.create('zeebe:CalledElement', {
+            bindingType: 'versionTag',
+            versionTag: 'v1.0.0'
+          });
 
+          const expectedXML = '<zeebe:calledElement ' +
+            'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+            'bindingType="versionTag" ' +
+            'versionTag="v1.0.0" />';
 
-      it('on zeebe:FormDefinition', async function() {
+          // when
+          const xml = await write(moddleElement);
 
-        // given
-        const moddleElement = moddle.create('zeebe:FormDefinition', {
-          bindingType: 'deployment'
+          // then
+          expect(xml).to.eql(expectedXML);
         });
 
-        const expectedXML = '<zeebe:formDefinition ' +
-          'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-          'bindingType="deployment" />';
 
-        // when
-        const xml = await write(moddleElement);
+        it('on zeebe:FormDefinition', async function() {
 
-        // then
-        expect(xml).to.eql(expectedXML);
+          // given
+          const moddleElement = moddle.create('zeebe:FormDefinition', {
+            bindingType: 'versionTag',
+            versionTag: 'v1.0.0'
+          });
+
+          const expectedXML = '<zeebe:formDefinition ' +
+            'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+            'bindingType="versionTag" ' +
+            'versionTag="v1.0.0" />';
+
+          // when
+          const xml = await write(moddleElement);
+
+          // then
+          expect(xml).to.eql(expectedXML);
+        });
+
       });
 
     });

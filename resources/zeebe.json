@@ -582,6 +582,11 @@
           "isAttr": true,
           "type": "String",
           "default": "latest"
+        },
+        {
+          "name": "versionTag",
+          "isAttr": true,
+          "type": "String"
         }
       ]
     }
