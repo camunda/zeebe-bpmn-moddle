@@ -1141,6 +1141,94 @@ describe('read', function() {
 
       });
 
+
+      describe('zeebe:versionTag', function() {
+
+        it('on zeebe:CalledDecision', async function() {
+
+          // given
+          var xml = readFile('test/fixtures/xml/calledDecision-versionTag.part.bpmn');
+
+          // when
+          const {
+            rootElement: businessRuleTask
+          } = await moddle.fromXML(xml, 'bpmn:BusinessRuleTask');
+
+          // then
+          expect(businessRuleTask).to.jsonEqual({
+            $type: 'bpmn:BusinessRuleTask',
+            id: 'BusinessRuleTask_1',
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:CalledDecision',
+                  bindingType: 'versionTag',
+                  versionTag: 'v1.0.0'
+                }
+              ]
+            }
+          });
+        });
+
+
+        it('on zeebe:CalledElement', async function() {
+
+          // given
+          var xml = readFile('test/fixtures/xml/calledElement-versionTag.part.bpmn');
+
+          // when
+          const {
+            rootElement: callActivity
+          } = await moddle.fromXML(xml, 'bpmn:CallActivity');
+
+          // then
+          expect(callActivity).to.jsonEqual({
+            $type: 'bpmn:CallActivity',
+            id: 'CallActivity_1',
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:CalledElement',
+                  bindingType: 'versionTag',
+                  versionTag: 'v1.0.0'
+                }
+              ]
+            }
+          });
+        });
+
+
+        it('on zeebe:FormDefinition', async function() {
+
+          // given
+          var xml = readFile('test/fixtures/xml/formDefinition-versionTag.part.bpmn');
+
+          // when
+          const {
+            rootElement: userTask
+          } = await moddle.fromXML(xml, 'bpmn:UserTask');
+
+          // then
+          expect(userTask).to.jsonEqual({
+            $type: 'bpmn:UserTask',
+            id: 'UserTask_1',
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:FormDefinition',
+                  bindingType: 'versionTag',
+                  versionTag: 'v1.0.0'
+                }
+              ]
+            }
+          });
+        });
+
+      });
+
     });
 
   });

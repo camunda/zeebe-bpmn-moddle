@@ -1,0 +1,8 @@
+<bpmn:userTask
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
+  id="UserTask_1">
+  <bpmn:extensionElements>
+    <zeebe:formDefinition bindingType="versionTag" versionTag="v1.0.0" />
+  </bpmn:extensionElements>
+</bpmn:userTask>

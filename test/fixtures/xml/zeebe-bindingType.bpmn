@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.23.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.5.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.26.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.5.0">
   <bpmn:process id="Process_1" isExecutable="true">
     <bpmn:userTask id="UserTask_1">
       <bpmn:extensionElements>
@@ -16,6 +16,21 @@
         <zeebe:calledDecision decisionId="foo" resultVariable="bar" bindingType="deployment" />
       </bpmn:extensionElements>
     </bpmn:businessRuleTask>
+    <bpmn:userTask id="UserTask_2">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formId="foo" bindingType="versionTag" versionTag="v1.0.0" />
+      </bpmn:extensionElements>
+    </bpmn:userTask>
+    <bpmn:callActivity id="CallActivity_2">
+      <bpmn:extensionElements>
+        <zeebe:calledElement processId="foo" propagateAllChildVariables="false" bindingType="versionTag" versionTag="v1.0.0" />
+      </bpmn:extensionElements>
+    </bpmn:callActivity>
+    <bpmn:businessRuleTask id="BusinessRuleTask_2">
+      <bpmn:extensionElements>
+        <zeebe:calledDecision decisionId="foo" resultVariable="bar" bindingType="versionTag" versionTag="v1.0.0" />
+      </bpmn:extensionElements>
+    </bpmn:businessRuleTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
@@ -27,6 +42,15 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BusinessRuleTask_1_di" bpmnElement="BusinessRuleTask_1">
         <dc:Bounds x="480" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0xqg1ue_di" bpmnElement="UserTask_2">
+        <dc:Bounds x="160" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1f2n3l4_di" bpmnElement="CallActivity_2">
+        <dc:Bounds x="320" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1czqz0h_di" bpmnElement="BusinessRuleTask_2">
+        <dc:Bounds x="480" y="190" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
