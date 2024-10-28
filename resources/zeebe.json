@@ -187,9 +187,7 @@
       ],
       "meta": {
         "allowedIn": [
-          "zeebe:ZeebeServiceTask",
-          "bpmn:ReceiveTask",
-          "bpmn:SubProcess"
+          "bpmn:MultiInstanceLoopCharacteristics"
         ]
       },
       "properties": [
