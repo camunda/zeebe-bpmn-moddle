@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.6.1
+
+* `FIX`: fix `allowedIn` for zeebe:LoopCharacteristics ([#66](https://github.com/camunda/zeebe-bpmn-moddle/pull/66))
+
 ## 1.6.0
 
 * `FEAT`: support `zeebe:versionTag` for `zeebe:CalledDecision`, `zeebe:CalledElement` and `zeebe:FormDefinition` ([#65](https://github.com/camunda/zeebe-bpmn-moddle/pull/65))
