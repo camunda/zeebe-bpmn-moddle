@@ -1231,6 +1231,44 @@ describe('read', function() {
 
     });
 
+
+    describe('zeebe:TaskListener', function() {
+
+      it('on UserTask', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/userTask-zeebe-taskListener.part.bpmn');
+
+        // when
+        const {
+          rootElement: task
+        } = await moddle.fromXML(xml, 'bpmn:UserTask');
+
+        // then
+        expect(task).to.jsonEqual({
+          $type: 'bpmn:UserTask',
+          id: 'UserTask',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:TaskListeners',
+                listeners: [
+                  {
+                    $type: 'zeebe:TaskListener',
+                    eventType: 'complete',
+                    retries: '3',
+                    type: 'complete_listener'
+                  }
+                ]
+              }
+            ]
+          }
+        });
+      });
+
+    });
+
   });
 
 });
