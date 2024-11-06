@@ -82,4 +82,11 @@ describe('import -> export roundtrip', function() {
 
   });
 
+
+  describe('zeebe:TaskListeners', function() {
+
+    it('should keep zeebe:taskListeners', validateExport('test/fixtures/xml/zeebe-taskListeners.bpmn'));
+
+  });
+
 });

@@ -549,6 +549,52 @@
       ]
     },
     {
+      "name": "TaskListeners",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:UserTask"
+        ]
+      },
+      "properties": [
+        {
+          "name": "listeners",
+          "type": "TaskListener",
+          "isMany": true
+        }
+      ]
+    },
+    {
+      "name": "TaskListener",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "zeebe:TaskListeners"
+        ]
+      },
+      "properties": [
+        {
+          "name": "eventType",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "retries",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isAttr": true
+        }
+      ]
+    },
+    {
       "name": "VersionTag",
       "superClass": [
         "Element"
