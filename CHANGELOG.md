@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.7.0
+
+* `FEAT`: support `zeebe:TaskListener` for `bpmn:UserTask` ([#67](https://github.com/camunda/zeebe-bpmn-moddle/pull/67))
+
 ## 1.6.1
 
 * `FIX`: fix `allowedIn` for zeebe:LoopCharacteristics ([#66](https://github.com/camunda/zeebe-bpmn-moddle/pull/66))
