@@ -317,6 +317,59 @@ describe('read', function() {
     });
 
 
+    describe('zeebe:linkedResource', function() {
+
+      it('on ServiceTask', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/serviceTask-zeebe-linkedResource.part.bpmn');
+
+        // when
+        const {
+          rootElement: proc
+        } = await moddle.fromXML(xml, 'bpmn:ServiceTask');
+
+        // then
+        expect(proc).to.jsonEqual({
+          $type: 'bpmn:ServiceTask',
+          id: 'collect-money',
+          name: 'Collect Money',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:LinkedResources',
+                values: [
+                  {
+                    $type: 'zeebe:LinkedResource',
+                    resourceId:'=myScript',
+                    resourceType:'RPA',
+                    bindingType:'latest'
+                  },
+                  {
+                    $type: 'zeebe:LinkedResource',
+                    resourceId: '=myScript',
+                    resourceType: 'RPA',
+                    bindingType: 'versionTag',
+                    versionTag: 'v1'
+                  },
+                  {
+                    $type: 'zeebe:LinkedResource',
+                    resourceId: '=myScript',
+                    resourceType: 'RPA',
+                    bindingType: 'deployment',
+                    linkName: 'myScript'
+                  }
+                ]
+              }
+            ]
+          }
+        });
+
+      });
+
+    });
+
     describe('zeebe:ioMapping / zeebe:Input / zeebe:Output', function() {
 
       it('on ServiceTask', async function() {

@@ -299,6 +299,75 @@
       ]
     },
     {
+      "name": "LinkedResource",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:ServiceTask"
+        ]
+      },
+      "properties": [
+        {
+          "name": "resourceId",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "resourceType",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "linkName",
+          "type": "String",
+          "isAttr": true
+        }
+      ]
+    },
+    {
+      "name": "LinkedResources",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:ServiceTask"
+        ]
+      },
+      "properties": [
+        {
+          "name": "values",
+          "type": "LinkedResource",
+          "isMany": true
+        }
+      ]
+    },
+    {
+      "name": "LinkedResource",
+      "superClass": [
+        "Element"
+      ],
+      "properties": [
+        {
+          "name": "resourceId",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "resourceType",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "linkName",
+          "type": "String",
+          "isAttr": true
+        }
+      ]
+    },
+    {
       "name": "UserTask",
       "superClass": [
         "Element"
@@ -618,7 +687,8 @@
       "extends": [
         "zeebe:CalledDecision",
         "zeebe:CalledElement",
-        "zeebe:FormDefinition"
+        "zeebe:FormDefinition",
+        "zeebe:LinkedResource"
       ],
       "properties": [
         {
