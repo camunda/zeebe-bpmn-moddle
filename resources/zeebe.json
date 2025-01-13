@@ -345,29 +345,6 @@
       ]
     },
     {
-      "name": "LinkedResource",
-      "superClass": [
-        "Element"
-      ],
-      "properties": [
-        {
-          "name": "resourceId",
-          "type": "String",
-          "isAttr": true
-        },
-        {
-          "name": "resourceType",
-          "type": "String",
-          "isAttr": true
-        },
-        {
-          "name": "linkName",
-          "type": "String",
-          "isAttr": true
-        }
-      ]
-    },
-    {
       "name": "UserTask",
       "superClass": [
         "Element"
