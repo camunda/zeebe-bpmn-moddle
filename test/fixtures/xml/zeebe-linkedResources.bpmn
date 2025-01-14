@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn:process id="Process_1" isExecutable="true">
+    <bpmn:serviceTask id="collect-money" name="Collect Money">
+      <bpmn:extensionElements>
+        <zeebe:linkedResources>
+          <zeebe:linkedResource 
+            resourceId="=myScript"
+            resourceType="RPA"
+          />
+          <zeebe:linkedResource 
+            resourceId="=myScript"
+            resourceType="RPA"
+            bindingType="versionTag"
+            versionTag="v1"
+          />
+          <zeebe:linkedResource 
+            resourceId="=myScript"
+            resourceType="RPA"
+            linkName="myScript"
+            bindingType="deployment"
+          />
+        </zeebe:linkedResources>
+      </bpmn:extensionElements>
+    </bpmn:serviceTask>
+  </bpmn:process>
+</bpmn:definitions>

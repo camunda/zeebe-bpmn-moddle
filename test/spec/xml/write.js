@@ -682,6 +682,27 @@ describe('write', function() {
           expect(xml).to.eql(expectedXML);
         });
 
+
+        it('on zeebe:LinkedResource', async function() {
+
+          // given
+          const moddleElement = moddle.create('zeebe:LinkedResource', {
+            bindingType: 'versionTag',
+            versionTag: 'v1.0.0'
+          });
+
+          const expectedXML = '<zeebe:linkedResource ' +
+            'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+            'bindingType="versionTag" ' +
+            'versionTag="v1.0.0" />';
+
+          // when
+          const xml = await write(moddleElement);
+
+          // then
+          expect(xml).to.eql(expectedXML);
+        });
+
       });
 
     });
@@ -712,6 +733,42 @@ describe('write', function() {
       expect(xml).to.eql(expectedXML);
     });
 
+
+    it('zeebe:LinkedResource', async function() {
+
+      // given
+      const moddleElement = moddle.create('zeebe:LinkedResource', {
+        resourceId:'=myScript',
+        resourceType:'RPA',
+        linkName:'myScript' });
+
+      const expectedXML = '<zeebe:linkedResource ' +
+        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
+        'resourceId="=myScript" ' +
+        'resourceType="RPA" ' +
+        'linkName="myScript" />';
+
+      // when
+      const xml = await write(moddleElement);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
+
+    it('zeebe:LinkedResources', async function() {
+
+      // given
+      const moddleElement = moddle.create('zeebe:LinkedResources');
+
+      const expectedXML = '<zeebe:linkedResources xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" />';
+
+      // when
+      const xml = await write(moddleElement);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
   });
 
 });

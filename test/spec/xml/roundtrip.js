@@ -89,4 +89,11 @@ describe('import -> export roundtrip', function() {
 
   });
 
+
+  describe('zeebe:LinkedResource', function() {
+
+    it('should keep zeebe:linkedResource', validateExport('test/fixtures/xml/zeebe-linkedResources.bpmn'));
+
+  });
+
 });
