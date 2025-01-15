@@ -6,6 +6,8 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+* `FEAT`: support `zeebe:LinkedResource` for `bpmn:ServiceTask`
+
 ## 1.7.0
 
 * `FEAT`: support `zeebe:TaskListener` for `bpmn:UserTask` ([#67](https://github.com/camunda/zeebe-bpmn-moddle/pull/67))
