@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn:process id="ZeebeAdHocTest" name="Zeebe AdHoc Test" isExecutable="true">
+    <bpmn:adHocSubProcess id="AdHocSubProcess_1">
+      <bpmn:extensionElements>
+        <zeebe:adHoc activeElementsCollection="=activeElements" />
+      </bpmn:extensionElements>
+      <bpmn:task id="Activity_0dggw2z" />
+      <bpmn:task id="Activity_1e1z8gb" />
+    </bpmn:adHocSubProcess>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ZeebeAdHocTest">
+      <bpmndi:BPMNShape id="Activity_09e2hj1_di" bpmnElement="AdHocSubProcess_1" isExpanded="true">
+        <dc:Bounds x="160" y="80" width="350" height="200" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0dggw2z_di" bpmnElement="Activity_0dggw2z">
+        <dc:Bounds x="190" y="130" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1e1z8gb_di" bpmnElement="Activity_1e1z8gb">
+        <dc:Bounds x="360" y="130" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
