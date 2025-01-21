@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.9.0
+
+* `FEAT`: support `zeebe:AdHoc` for `bpmn:AdHocSubprocess` ([#69](https://github.com/camunda/zeebe-bpmn-moddle/pull/69))
+
 ## 1.8.0
 
 * `FEAT`: support `zeebe:LinkedResource` for `bpmn:ServiceTask`
