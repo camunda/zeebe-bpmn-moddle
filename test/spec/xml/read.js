@@ -1322,6 +1322,37 @@ describe('read', function() {
 
     });
 
+
+    describe('zeebe:AdHoc', function() {
+
+      it('on AdHocSubProcess', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/adhoc-sub-process-zeebe-adHoc.bpmn');
+
+        // when
+        const {
+          rootElement: subprocess
+        } = await moddle.fromXML(xml, 'bpmn:AdHocSubProcess');
+
+        // then
+        expect(subprocess).to.jsonEqual({
+          $type: 'bpmn:AdHocSubProcess',
+          id: 'AdHocSubProcess_1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:AdHoc',
+                activeElementsCollection: '=activeElements'
+              }
+            ]
+          }
+        });
+      });
+
+    });
+
   });
 
 });

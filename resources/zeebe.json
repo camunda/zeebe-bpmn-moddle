@@ -680,6 +680,24 @@
           "type": "String"
         }
       ]
+    },
+    {
+      "name": "AdHoc",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:AdHocSubProcess"
+        ]
+      },
+      "properties": [
+        {
+          "name": "activeElementsCollection",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
     }
   ]
 }

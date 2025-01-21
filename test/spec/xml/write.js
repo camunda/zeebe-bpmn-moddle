@@ -769,6 +769,21 @@ describe('write', function() {
       // then
       expect(xml).to.eql(expectedXML);
     });
+
+    it('zeebe:AdHoc', async function() {
+
+      // given
+      const moddleElement = moddle.create('zeebe:AdHoc', { activeElementsCollection: '= some collection' });
+
+      const expectedXML = '<zeebe:adHoc xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" activeElementsCollection="= some collection" />';
+
+      // when
+      const xml = await write(moddleElement);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
   });
 
 });

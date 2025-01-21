@@ -96,4 +96,11 @@ describe('import -> export roundtrip', function() {
 
   });
 
+
+  describe('zeebe:AdHoc', function() {
+
+    it('should keep zeebe:adHoc', validateExport('test/fixtures/xml/zeebe-adHoc.bpmn'));
+
+  });
+
 });
