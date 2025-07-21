@@ -1344,7 +1344,9 @@ describe('read', function() {
             values: [
               {
                 $type: 'zeebe:AdHoc',
-                activeElementsCollection: '=activeElements'
+                activeElementsCollection: '=activeElements',
+                outputCollection: 'results',
+                outputElement: '= result'
               }
             ]
           }
