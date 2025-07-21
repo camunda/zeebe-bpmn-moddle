@@ -773,9 +773,13 @@ describe('write', function() {
     it('zeebe:AdHoc', async function() {
 
       // given
-      const moddleElement = moddle.create('zeebe:AdHoc', { activeElementsCollection: '= some collection' });
+      const moddleElement = moddle.create('zeebe:AdHoc', {
+        activeElementsCollection: '= some collection',
+        outputCollection: 'results',
+        outputElement: '= result'
+      });
 
-      const expectedXML = '<zeebe:adHoc xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" activeElementsCollection="= some collection" />';
+      const expectedXML = '<zeebe:adHoc xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" activeElementsCollection="= some collection" outputCollection="results" outputElement="= result" />';
 
       // when
       const xml = await write(moddleElement);

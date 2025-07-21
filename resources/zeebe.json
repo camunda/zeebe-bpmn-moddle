@@ -696,6 +696,16 @@
           "name": "activeElementsCollection",
           "isAttr": true,
           "type": "String"
+        },
+        {
+          "name": "outputCollection",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "outputElement",
+          "isAttr": true,
+          "type": "String"
         }
       ]
     }
