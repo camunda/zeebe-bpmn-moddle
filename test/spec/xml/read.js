@@ -56,6 +56,161 @@ describe('read', function() {
         });
       });
 
+
+      it('on SendTask', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/sendTask-zeebe-extensions.part.bpmn');
+
+        // when
+        const {
+          rootElement: proc
+        } = await moddle.fromXML(xml, 'bpmn:SendTask');
+
+        // then
+        expect(proc).to.jsonEqual({
+          $type: 'bpmn:SendTask',
+          id: 'collect-money',
+          name: 'Collect Money',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:TaskDefinition',
+                type: 'payment-service',
+                retries: '5'
+              },
+              {
+                $type: 'zeebe:TaskHeaders',
+                values: [
+                  {
+                    $type: 'zeebe:Header',
+                    key: 'method',
+                    value: 'VISA'
+                  }
+                ]
+              }
+            ]
+          }
+        });
+      });
+
+
+      it('on ScriptTask', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/scriptTask-zeebe-extensions.part.bpmn');
+
+        // when
+        const {
+          rootElement: proc
+        } = await moddle.fromXML(xml, 'bpmn:ScriptTask');
+
+        // then
+        expect(proc).to.jsonEqual({
+          $type: 'bpmn:ScriptTask',
+          id: 'collect-money',
+          name: 'Collect Money',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:TaskDefinition',
+                type: 'payment-service',
+                retries: '5'
+              },
+              {
+                $type: 'zeebe:TaskHeaders',
+                values: [
+                  {
+                    $type: 'zeebe:Header',
+                    key: 'method',
+                    value: 'VISA'
+                  }
+                ]
+              }
+            ]
+          }
+        });
+      });
+
+
+      it('on BusinessRuleTask', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/businessRuleTask-zeebe-extensions.part.bpmn');
+
+        // when
+        const {
+          rootElement: proc
+        } = await moddle.fromXML(xml, 'bpmn:BusinessRuleTask');
+
+        // then
+        expect(proc).to.jsonEqual({
+          $type: 'bpmn:BusinessRuleTask',
+          id: 'collect-money',
+          name: 'Collect Money',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:TaskDefinition',
+                type: 'payment-service',
+                retries: '5'
+              },
+              {
+                $type: 'zeebe:TaskHeaders',
+                values: [
+                  {
+                    $type: 'zeebe:Header',
+                    key: 'method',
+                    value: 'VISA'
+                  }
+                ]
+              }
+            ]
+          }
+        });
+      });
+
+
+      it('on AdHocSubProcess', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/adhoc-sub-process-zeebe-extensions.part.bpmn');
+
+        // when
+        const {
+          rootElement: proc
+        } = await moddle.fromXML(xml, 'bpmn:AdHocSubProcess');
+
+        // then
+        expect(proc).to.jsonEqual({
+          $type: 'bpmn:AdHocSubProcess',
+          id: 'AdHocSubProcess_1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:TaskDefinition',
+                type: 'payment-service',
+                retries: '5'
+              },
+              {
+                $type: 'zeebe:TaskHeaders',
+                values: [
+                  {
+                    $type: 'zeebe:Header',
+                    key: 'method',
+                    value: 'VISA'
+                  }
+                ]
+              }
+            ]
+          }
+        });
+      });
+
     });
 
 
@@ -74,6 +229,79 @@ describe('read', function() {
         // then
         expect(proc).to.jsonEqual({
           $type: 'bpmn:ServiceTask',
+          retryCounter: 'text'
+        });
+      });
+
+
+      it('on SendTask', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/sendTask-zeebe-retryCounter.part.bpmn');
+
+        // when
+        const {
+          rootElement: proc
+        } = await moddle.fromXML(xml, 'bpmn:SendTask');
+
+        // then
+        expect(proc).to.jsonEqual({
+          $type: 'bpmn:SendTask',
+          retryCounter: 'text'
+        });
+      });
+
+
+      it('on ScriptTask', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/scriptTask-zeebe-retryCounter.part.bpmn');
+
+        // when
+        const {
+          rootElement: proc
+        } = await moddle.fromXML(xml, 'bpmn:ScriptTask');
+
+        // then
+        expect(proc).to.jsonEqual({
+          $type: 'bpmn:ScriptTask',
+          retryCounter: 'text'
+        });
+      });
+
+
+      it('on BusinessRuleTask', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/businessRuleTask-zeebe-retryCounter.part.bpmn');
+
+        // when
+        const {
+          rootElement: proc
+        } = await moddle.fromXML(xml, 'bpmn:BusinessRuleTask');
+
+        // then
+        expect(proc).to.jsonEqual({
+          $type: 'bpmn:BusinessRuleTask',
+          retryCounter: 'text'
+        });
+      });
+
+
+      it('on AdHocSubProcess', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/adhoc-sub-process-zeebe-retryCounter.part.bpmn');
+
+        // when
+        const {
+          rootElement: proc
+        } = await moddle.fromXML(xml, 'bpmn:AdHocSubProcess');
+
+        // then
+        expect(proc).to.jsonEqual({
+          $type: 'bpmn:AdHocSubProcess',
+          id: 'AdHocSubProcess_1',
           retryCounter: 'text'
         });
       });
@@ -280,7 +508,7 @@ describe('read', function() {
 
     describe('zeebe:loopCharacteristics', function() {
 
-      it('on CallActivity', async function() {
+      it('on ServiceTask', async function() {
 
         // given
         var xml = readFile('test/fixtures/xml/zeebe-service-task/serviceTask-zeebe-loopCharacteristics.part.bpmn');
@@ -295,6 +523,145 @@ describe('read', function() {
           $type: 'bpmn:ServiceTask',
           id: 'task-A',
           name: 'A',
+          loopCharacteristics: {
+            $type: 'bpmn:MultiInstanceLoopCharacteristics',
+            isSequential: true,
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:LoopCharacteristics',
+                  inputCollection: '= items',
+                  inputElement: 'item',
+                  outputCollection: 'results',
+                  outputElement: '= result'
+                }
+              ]
+            }
+          }
+        });
+      });
+
+
+      it('on SendTask', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/sendTask-zeebe-loopCharacteristics.part.bpmn');
+
+        // when
+        const {
+          rootElement: proc
+        } = await moddle.fromXML(xml, 'bpmn:SendTask');
+
+        // then
+        expect(proc).to.jsonEqual({
+          $type: 'bpmn:SendTask',
+          id: 'task-A',
+          name: 'A',
+          loopCharacteristics: {
+            $type: 'bpmn:MultiInstanceLoopCharacteristics',
+            isSequential: true,
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:LoopCharacteristics',
+                  inputCollection: '= items',
+                  inputElement: 'item',
+                  outputCollection: 'results',
+                  outputElement: '= result'
+                }
+              ]
+            }
+          }
+        });
+      });
+
+
+      it('on ScriptTask', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/scriptTask-zeebe-loopCharacteristics.part.bpmn');
+
+        // when
+        const {
+          rootElement: proc
+        } = await moddle.fromXML(xml, 'bpmn:ScriptTask');
+
+        // then
+        expect(proc).to.jsonEqual({
+          $type: 'bpmn:ScriptTask',
+          id: 'task-A',
+          name: 'A',
+          loopCharacteristics: {
+            $type: 'bpmn:MultiInstanceLoopCharacteristics',
+            isSequential: true,
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:LoopCharacteristics',
+                  inputCollection: '= items',
+                  inputElement: 'item',
+                  outputCollection: 'results',
+                  outputElement: '= result'
+                }
+              ]
+            }
+          }
+        });
+      });
+
+
+      it('on BusinessRuleTask', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/businessRuleTask-zeebe-loopCharacteristics.part.bpmn');
+
+        // when
+        const {
+          rootElement: proc
+        } = await moddle.fromXML(xml, 'bpmn:BusinessRuleTask');
+
+        // then
+        expect(proc).to.jsonEqual({
+          $type: 'bpmn:BusinessRuleTask',
+          id: 'task-A',
+          name: 'A',
+          loopCharacteristics: {
+            $type: 'bpmn:MultiInstanceLoopCharacteristics',
+            isSequential: true,
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:LoopCharacteristics',
+                  inputCollection: '= items',
+                  inputElement: 'item',
+                  outputCollection: 'results',
+                  outputElement: '= result'
+                }
+              ]
+            }
+          }
+        });
+      });
+
+
+      it('on AdHocSubProcess', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/adhoc-sub-process-zeebe-loopCharacteristics.part.bpmn');
+
+        // when
+        const {
+          rootElement: proc
+        } = await moddle.fromXML(xml, 'bpmn:AdHocSubProcess');
+
+        // then
+        expect(proc).to.jsonEqual({
+          $type: 'bpmn:AdHocSubProcess',
+          id: 'AdHocSubProcess_1',
           loopCharacteristics: {
             $type: 'bpmn:MultiInstanceLoopCharacteristics',
             isSequential: true,
@@ -513,6 +880,46 @@ describe('read', function() {
           $type: 'bpmn:BusinessRuleTask',
           id: 'collect-money',
           name: 'Collect Money',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:IoMapping',
+                inputParameters: [
+                  {
+                    $type: 'zeebe:Input',
+                    source: 'sourceValue',
+                    target: 'targetValue'
+                  }
+                ],
+                outputParameters: [
+                  {
+                    $type: 'zeebe:Output',
+                    source: 'sourceValue',
+                    target: 'targetValue'
+                  }
+                ]
+              }
+            ]
+          }
+        });
+      });
+
+
+      it('on AdHocSubProcess', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/zeebe-service-task/adhoc-sub-process-zeebe-ioMapping.part.bpmn');
+
+        // when
+        const {
+          rootElement: proc
+        } = await moddle.fromXML(xml, 'bpmn:AdHocSubProcess');
+
+        // then
+        expect(proc).to.jsonEqual({
+          $type: 'bpmn:AdHocSubProcess',
+          id: 'AdHocSubProcess_1',
           extensionElements: {
             $type: 'bpmn:ExtensionElements',
             values: [

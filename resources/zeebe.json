@@ -15,7 +15,8 @@
         "bpmn:ScriptTask",
         "bpmn:SendTask",
         "bpmn:EndEvent",
-        "bpmn:IntermediateThrowEvent"
+        "bpmn:IntermediateThrowEvent",
+        "bpmn:AdHocSubProcess"
       ],
       "properties": [
         {
