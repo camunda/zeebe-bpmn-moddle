@@ -6,13 +6,17 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.11.0
+
+* `FEAT`: support `zeebe:ZeebeServiceTask` properties on `bpmn:AdHocSubProcess` ([#73](https://github.com/camunda/zeebe-bpmn-moddle/pull/72))
+
 ## 1.10.0
 
 * `FEAT`: support `outputCollection` and `outputElement` on `zeebe:AdHoc` ([#72](https://github.com/camunda/zeebe-bpmn-moddle/pull/72))
 
 ## 1.9.0
 
-* `FEAT`: support `zeebe:AdHoc` for `bpmn:AdHocSubprocess` ([#69](https://github.com/camunda/zeebe-bpmn-moddle/pull/69))
+* `FEAT`: support `zeebe:AdHoc` for `bpmn:AdHocSubProcess` ([#69](https://github.com/camunda/zeebe-bpmn-moddle/pull/69))
 
 ## 1.8.0
 

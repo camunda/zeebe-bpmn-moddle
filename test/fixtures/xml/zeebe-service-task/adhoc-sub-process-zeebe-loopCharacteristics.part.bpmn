@@ -1,0 +1,12 @@
+<bpmn:adHocSubProcess 
+  id="AdHocSubProcess_1" 
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">
+  <bpmn:multiInstanceLoopCharacteristics isSequential="true">
+    <bpmn:extensionElements>
+      <zeebe:loopCharacteristics
+          inputCollection="= items" inputElement="item"
+          outputCollection="results" outputElement="= result" />
+    </bpmn:extensionElements>
+  </bpmn:multiInstanceLoopCharacteristics>
+</bpmn:adHocSubProcess>
