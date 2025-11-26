@@ -172,12 +172,20 @@
         {
           "name": "type",
           "type": "String",
-          "isAttr": true
+          "isAttr": true,
+          "feel": "optional",
+          "meta": {
+            "feel": "optional-meta"
+          }
         },
         {
           "name": "retries",
           "type": "String",
-          "isAttr": true
+          "isAttr": true,
+          "feel": "optional",
+          "meta": {
+            "feel": "optional-meta"
+          }
         }
       ]
     },
