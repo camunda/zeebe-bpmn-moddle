@@ -22,7 +22,11 @@
         {
           "name": "retryCounter",
           "type": "String",
-          "isAttr": true
+          "isAttr": true,
+          "feel": "optional",
+          "meta": {
+            "feel": "optional-meta"
+          }
         }
       ]
     },
