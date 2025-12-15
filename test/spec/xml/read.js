@@ -1762,6 +1762,44 @@ describe('read', function() {
 
     });
 
+
+    describe('zeebe:conditionalFilter', function() {
+
+      it('on ConditionalEventDefinition in StartEvent', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/startEvent-zeebe-conditionalFilter.part.bpmn');
+
+        // when
+        const {
+          rootElement: event
+        } = await moddle.fromXML(xml, 'bpmn:StartEvent');
+
+        // then
+        expect(event).to.jsonEqual({
+          $type: 'bpmn:StartEvent',
+          id: 'start',
+          eventDefinitions: [
+            {
+              $type: 'bpmn:ConditionalEventDefinition',
+              id: 'ConditionalEventDefinition_1',
+              extensionElements: {
+                $type: 'bpmn:ExtensionElements',
+                values: [
+                  {
+                    $type: 'zeebe:ConditionalFilter',
+                    variableNames: 'foo,bar',
+                    variableEvents: 'create,update'
+                  }
+                ]
+              }
+            }
+          ]
+        });
+      });
+
+    });
+
   });
 
 });

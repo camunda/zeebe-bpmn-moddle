@@ -770,6 +770,7 @@ describe('write', function() {
       expect(xml).to.eql(expectedXML);
     });
 
+
     it('zeebe:AdHoc', async function() {
 
       // given
@@ -780,6 +781,24 @@ describe('write', function() {
       });
 
       const expectedXML = '<zeebe:adHoc xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" activeElementsCollection="= some collection" outputCollection="results" outputElement="= result" />';
+
+      // when
+      const xml = await write(moddleElement);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
+
+    it('zeebe:ConditionalFilter', async function() {
+
+      // given
+      const moddleElement = moddle.create('zeebe:ConditionalFilter', {
+        variableNames: 'foo,bar',
+        variableEvents: 'create,update'
+      });
+
+      const expectedXML = '<zeebe:conditionalFilter xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" variableNames="foo,bar" variableEvents="create,update" />';
 
       // when
       const xml = await write(moddleElement);

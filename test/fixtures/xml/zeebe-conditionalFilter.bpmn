@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.42.0">
+  <bpmn:process id="ConditionalEvent" name="ConditionalEvent" isExecutable="true">
+    <bpmn:startEvent xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" id="start">
+  <bpmn:conditionalEventDefinition id="ConditionalEventDefinition_1">
+    <bpmn:extensionElements>
+      <zeebe:conditionalFilter variableNames="foo,bar" variableEvents="create,update" />
+    </bpmn:extensionElements>
+  </bpmn:conditionalEventDefinition>
+</bpmn:startEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ConditionalEvent">
+      <bpmndi:BPMNShape id="Event_1tij2fe_di" bpmnElement="start">
+        <dc:Bounds x="132" y="82" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
