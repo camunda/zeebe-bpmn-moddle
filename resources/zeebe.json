@@ -709,6 +709,29 @@
           "type": "String"
         }
       ]
+    },
+    {
+      "name": "ConditionalFilter",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:ConditionalEventDefinition"
+        ]
+      },
+      "properties": [
+        {
+          "name": "variableNames",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "variableEvents",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
     }
   ]
 }

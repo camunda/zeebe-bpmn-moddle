@@ -103,4 +103,11 @@ describe('import -> export roundtrip', function() {
 
   });
 
+
+  describe('zeebe:ConditionalFilter', function() {
+
+    it('should keep zeebe:conditionalFilter', validateExport('test/fixtures/xml/zeebe-conditionalFilter.bpmn'));
+
+  });
+
 });
