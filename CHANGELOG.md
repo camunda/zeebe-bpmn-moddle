@@ -6,9 +6,13 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.12.0
+
+* `FEAT`: support `zeebe:ConditionalFilter` properties on `bpmn:ConditionalEventDefinition` ([#76](https://github.com/camunda/zeebe-bpmn-moddle/pull/76))
+
 ## 1.11.0
 
-* `FEAT`: support `zeebe:ZeebeServiceTask` properties on `bpmn:AdHocSubProcess` ([#73](https://github.com/camunda/zeebe-bpmn-moddle/pull/72))
+* `FEAT`: support `zeebe:ZeebeServiceTask` properties on `bpmn:AdHocSubProcess` ([#73](https://github.com/camunda/zeebe-bpmn-moddle/pull/73))
 
 ## 1.10.0
 
