@@ -32,11 +32,11 @@
   "license": "MIT",
   "devDependencies": {
     "bpmn-moddle": "^7.1.2",
-    "chai": "^4.3.4",
+    "chai": "^6.2.2",
     "eslint": "^8.23.0",
     "eslint-plugin-bpmn-io": "^0.14.1",
     "min-dash": "^3.5.2",
-    "mocha": "^11.1.0",
+    "mocha": "^11.7.5",
     "npm-run-all": "^4.1.2",
     "xsd-schema-validator": "^0.7.0"
   },
