@@ -1,6 +1,6 @@
 'use strict';
 
-var BpmnModdle = require('bpmn-moddle');
+var { BpmnModdle } = require('bpmn-moddle');
 
 var zeebeDescriptor = require('../../resources/zeebe');
 
