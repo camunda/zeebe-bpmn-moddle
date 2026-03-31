@@ -5,6 +5,8 @@ var assign = require('min-dash').assign,
 
 var Helper = require('../../helper');
 
+var toSingleLineXML = Helper.toSingleLineXML;
+
 
 describe('write', function() {
 
@@ -521,15 +523,33 @@ describe('write', function() {
           moddle.create('zeebe:ExecutionListener', {
             eventType: 'start',
             retries: '3',
-            type: 'sysout'
+            type: 'sysout',
+            headers: moddle.create('zeebe:TaskHeaders', {
+              values: [
+                moddle.create('zeebe:Header', {
+                  key: 'aKey',
+                  value: 'aValue'
+                }),
+                moddle.create('zeebe:Header', {
+                  key: 'bKey',
+                  value: 'bValue'
+                })
+              ]
+            })
           })
         ]
       });
 
-      const expectedXML = '<zeebe:executionListeners ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">' +
-        '<zeebe:executionListener eventType="start" retries="3" type="sysout" />' +
-        '</zeebe:executionListeners>';
+      const expectedXML = toSingleLineXML(`
+        <zeebe:executionListeners xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">
+          <zeebe:executionListener eventType="start" retries="3" type="sysout">
+            <zeebe:taskHeaders>
+              <zeebe:header key="aKey" value="aValue" />
+              <zeebe:header key="bKey" value="bValue" />
+            </zeebe:taskHeaders>
+          </zeebe:executionListener>
+        </zeebe:executionListeners>
+      `);
 
       // when
       const xml = await write(moddleElement);

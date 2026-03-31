@@ -1404,7 +1404,22 @@ describe('read', function() {
                     $type: 'zeebe:ExecutionListener',
                     eventType: 'start',
                     retries: '3',
-                    type: 'sysout'
+                    type: 'sysout',
+                    headers: {
+                      $type: 'zeebe:TaskHeaders',
+                      values: [
+                        {
+                          $type: 'zeebe:Header',
+                          key: 'aKey',
+                          value: 'aValue'
+                        },
+                        {
+                          $type: 'zeebe:Header',
+                          key: 'bKey',
+                          value: 'bValue'
+                        }
+                      ]
+                    }
                   }
                 ]
               }

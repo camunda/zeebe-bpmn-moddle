@@ -5,7 +5,12 @@
 >
   <bpmn:extensionElements>
     <zeebe:executionListeners>
-      <zeebe:executionListener eventType="start" retries="3" type="sysout"/>
+      <zeebe:executionListener eventType="start" retries="3" type="sysout">
+        <zeebe:taskHeaders>
+          <zeebe:header key="aKey" value="aValue" />
+          <zeebe:header key="bKey" value="bValue" />
+        </zeebe:taskHeaders>
+      </zeebe:executionListener>
     </zeebe:executionListeners>
   </bpmn:extensionElements>
 </bpmn:task>

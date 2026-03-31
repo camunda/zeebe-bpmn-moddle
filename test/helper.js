@@ -10,6 +10,13 @@ function readFile(filename) {
 module.exports.readFile = readFile;
 
 
+function toSingleLineXML(str) {
+  return str.replace(/\n\s*/g, '');
+}
+
+module.exports.toSingleLineXML = toSingleLineXML;
+
+
 var { BpmnModdle } = require('bpmn-moddle');
 
 var zeebeDescriptor = require('../resources/zeebe');

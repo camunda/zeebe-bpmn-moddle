@@ -124,7 +124,8 @@
       "meta": {
         "allowedIn": [
           "zeebe:ZeebeServiceTask",
-          "bpmn:UserTask"
+          "bpmn:UserTask",
+          "zeebe:ExecutionListener"
         ]
       },
       "properties": [
@@ -592,6 +593,10 @@
           "name": "type",
           "type": "String",
           "isAttr": true
+        },
+        {
+          "name": "headers",
+          "type": "TaskHeaders"
         }
       ]
     },
