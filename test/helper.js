@@ -9,12 +9,27 @@ function readFile(filename) {
 
 module.exports.readFile = readFile;
 
-
-function toSingleLineXML(str) {
+/**
+ * Normalizes whitespace in XML string by removing newlines and leading spaces.
+ *
+ * @example
+ * const result = normalizeXMLWhitespace(`
+ *   <bpmn:process id="Process_1">
+ *     <bpmn:startEvent id="StartEvent_1" />
+ *   </bpmn:process>
+ * `);
+ *
+ * // result === '<bpmn:process id="Process_1"><bpmn:startEvent id="StartEvent_1" /></bpmn:process>'
+ *
+ * @param {string} str
+ *
+ * @returns {string}
+ */
+function normalizeXMLWhitespace(str) {
   return str.replace(/\n\s*/g, '');
 }
 
-module.exports.toSingleLineXML = toSingleLineXML;
+module.exports.normalizeXMLWhitespace = normalizeXMLWhitespace;
 
 
 var { BpmnModdle } = require('bpmn-moddle');

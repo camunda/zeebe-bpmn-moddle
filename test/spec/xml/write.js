@@ -5,7 +5,7 @@ var assign = require('min-dash').assign,
 
 var Helper = require('../../helper');
 
-var toSingleLineXML = Helper.toSingleLineXML;
+var normalizeXMLWhitespace = Helper.normalizeXMLWhitespace;
 
 
 describe('write', function() {
@@ -37,7 +37,7 @@ describe('write', function() {
         retryCounter: 'text'
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <bpmn:serviceTask 
         xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
         xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
@@ -59,7 +59,7 @@ describe('write', function() {
         retryCounter: 'text'
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <bpmn:sendTask 
         xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
         xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
@@ -81,7 +81,7 @@ describe('write', function() {
         retryCounter: 'text'
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <bpmn:businessRuleTask 
         xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
         xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
@@ -103,7 +103,7 @@ describe('write', function() {
         retryCounter: 'text'
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <bpmn:scriptTask 
         xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
         xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
@@ -125,7 +125,7 @@ describe('write', function() {
         propagateAllChildVariables: true
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <zeebe:calledElement 
         xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
         propagateAllChildVariables="true" />
@@ -146,7 +146,7 @@ describe('write', function() {
         propagateAllChildVariables: false
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <zeebe:calledElement 
         xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
         propagateAllChildVariables="false" />
@@ -184,7 +184,7 @@ describe('write', function() {
         propagateAllParentVariables: false
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <zeebe:calledElement 
         xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
         propagateAllParentVariables="false" />
@@ -216,7 +216,7 @@ describe('write', function() {
         })
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <bpmn:process xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">
           <bpmn:extensionElements>
             <zeebe:userTaskForm id="userTaskForm-1">{ components: [ { label: "field", key: "field" } ] }</zeebe:userTaskForm>
@@ -248,7 +248,7 @@ describe('write', function() {
           })
         });
 
-        const expectedXML = toSingleLineXML(`
+        const expectedXML = normalizeXMLWhitespace(`
           <bpmn:userTask xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">
             <bpmn:extensionElements>
               <zeebe:formDefinition formKey="form-1" />
@@ -277,7 +277,7 @@ describe('write', function() {
           })
         });
 
-        const expectedXML = toSingleLineXML(`
+        const expectedXML = normalizeXMLWhitespace(`
           <bpmn:userTask xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">
             <bpmn:extensionElements>
               <zeebe:formDefinition formId="form-1" />
@@ -306,7 +306,7 @@ describe('write', function() {
           })
         });
 
-        const expectedXML = toSingleLineXML(`
+        const expectedXML = normalizeXMLWhitespace(`
           <bpmn:userTask xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">
             <bpmn:extensionElements>
               <zeebe:formDefinition externalReference="form-1" />
@@ -346,7 +346,7 @@ describe('write', function() {
         resultVariable: 'dishVariable'
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <zeebe:calledDecision 
         xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
         decisionId="dishDecision" 
@@ -370,7 +370,7 @@ describe('write', function() {
         candidateUsers: 'myCandidateUser'
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <zeebe:assignmentDefinition 
         xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
         assignee="myAssignee" 
@@ -412,7 +412,7 @@ describe('write', function() {
         followUpDate: '=followUpDate'
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <zeebe:taskSchedule 
         xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
         dueDate="2023-04-20T04:20:00Z" 
@@ -434,7 +434,7 @@ describe('write', function() {
         modelerTemplate: 'foo'
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <bpmn:serviceTask 
         xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
         xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
@@ -456,7 +456,7 @@ describe('write', function() {
         modelerTemplate: 'foo'
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <bpmn:message 
         xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
         xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
@@ -478,7 +478,7 @@ describe('write', function() {
         modelerTemplateVersion: '12'
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <bpmn:serviceTask 
         xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
         xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
@@ -500,7 +500,7 @@ describe('write', function() {
         modelerTemplateIcon: "data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" width='16' height='16'%3E%3C/svg%3E",
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <bpmn:serviceTask 
         xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
         xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
@@ -523,7 +523,7 @@ describe('write', function() {
         resultVariable: 'result'
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <zeebe:script 
         xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
         expression="=today()" 
@@ -563,7 +563,7 @@ describe('write', function() {
         ]
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <zeebe:executionListeners xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">
           <zeebe:executionListener eventType="start" retries="3" type="sysout">
             <zeebe:taskHeaders>
@@ -666,7 +666,7 @@ describe('write', function() {
             versionTag: 'v1.0.0'
           });
 
-          const expectedXML = toSingleLineXML(`
+          const expectedXML = normalizeXMLWhitespace(`
             <zeebe:calledDecision 
             xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
             bindingType="versionTag" 
@@ -689,7 +689,7 @@ describe('write', function() {
             versionTag: 'v1.0.0'
           });
 
-          const expectedXML = toSingleLineXML(`
+          const expectedXML = normalizeXMLWhitespace(`
             <zeebe:calledElement 
             xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
             bindingType="versionTag" 
@@ -712,7 +712,7 @@ describe('write', function() {
             versionTag: 'v1.0.0'
           });
 
-          const expectedXML = toSingleLineXML(`
+          const expectedXML = normalizeXMLWhitespace(`
             <zeebe:formDefinition 
             xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
             bindingType="versionTag" 
@@ -735,7 +735,7 @@ describe('write', function() {
             versionTag: 'v1.0.0'
           });
 
-          const expectedXML = toSingleLineXML(`
+          const expectedXML = normalizeXMLWhitespace(`
             <zeebe:linkedResource 
             xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
             bindingType="versionTag" 
@@ -767,7 +767,7 @@ describe('write', function() {
         ]
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <zeebe:taskListeners xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">
           <zeebe:taskListener eventType="complete" retries="1" type="complete_listener" />
         </zeebe:taskListeners>
@@ -789,7 +789,7 @@ describe('write', function() {
         resourceType:'RPA',
         linkName:'myScript' });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <zeebe:linkedResource 
         xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
         resourceId="=myScript" 
@@ -829,7 +829,7 @@ describe('write', function() {
         outputElement: '= result'
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <zeebe:adHoc 
         xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
         activeElementsCollection="= some collection" 
@@ -853,7 +853,7 @@ describe('write', function() {
         variableEvents: 'create,update'
       });
 
-      const expectedXML = toSingleLineXML(`
+      const expectedXML = normalizeXMLWhitespace(`
         <zeebe:conditionalFilter 
         xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
         variableNames="foo,bar" 
