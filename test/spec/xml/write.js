@@ -550,12 +550,12 @@ describe('write', function() {
             headers: moddle.create('zeebe:TaskHeaders', {
               values: [
                 moddle.create('zeebe:Header', {
-                  key: 'aKey',
-                  value: 'aValue'
+                  key: 'fooKey',
+                  value: 'fooValue'
                 }),
                 moddle.create('zeebe:Header', {
-                  key: 'bKey',
-                  value: 'bValue'
+                  key: 'barKey',
+                  value: 'barValue'
                 })
               ]
             })
@@ -567,8 +567,8 @@ describe('write', function() {
         <zeebe:executionListeners xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">
           <zeebe:executionListener eventType="start" retries="3" type="sysout">
             <zeebe:taskHeaders>
-              <zeebe:header key="aKey" value="aValue" />
-              <zeebe:header key="bKey" value="bValue" />
+              <zeebe:header key="fooKey" value="fooValue" />
+              <zeebe:header key="barKey" value="barValue" />
             </zeebe:taskHeaders>
           </zeebe:executionListener>
         </zeebe:executionListeners>

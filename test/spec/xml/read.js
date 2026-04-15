@@ -1410,13 +1410,13 @@ describe('read', function() {
                       values: [
                         {
                           $type: 'zeebe:Header',
-                          key: 'aKey',
-                          value: 'aValue'
+                          key: 'fooKey',
+                          value: 'fooValue'
                         },
                         {
                           $type: 'zeebe:Header',
-                          key: 'bKey',
-                          value: 'bValue'
+                          key: 'barKey',
+                          value: 'barValue'
                         }
                       ]
                     }

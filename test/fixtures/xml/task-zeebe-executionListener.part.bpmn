@@ -7,8 +7,8 @@
     <zeebe:executionListeners>
       <zeebe:executionListener eventType="start" retries="3" type="sysout">
         <zeebe:taskHeaders>
-          <zeebe:header key="aKey" value="aValue" />
-          <zeebe:header key="bKey" value="bValue" />
+          <zeebe:header key="fooKey" value="fooValue" />
+          <zeebe:header key="barKey" value="barValue" />
         </zeebe:taskHeaders>
       </zeebe:executionListener>
     </zeebe:executionListeners>
