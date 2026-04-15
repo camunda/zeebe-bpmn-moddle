@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.13.0
+
+* `FEAT`: support `TaskHeaders` inside `zeebe:ExecutionListeners` ([#80](https://github.com/camunda/zeebe-bpmn-moddle/pull/80))
+
 ## 1.12.0
 
 * `FEAT`: support `zeebe:ConditionalFilter` properties on `bpmn:ConditionalEventDefinition` ([#76](https://github.com/camunda/zeebe-bpmn-moddle/pull/76))
