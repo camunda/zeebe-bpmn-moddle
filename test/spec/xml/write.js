@@ -37,10 +37,12 @@ describe('write', function() {
         retryCounter: 'text'
       });
 
-      var expectedXML = '<bpmn:serviceTask ' +
-        'xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'zeebe:retryCounter="text" />';
+      const expectedXML = toSingleLineXML(`
+        <bpmn:serviceTask 
+        xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        zeebe:retryCounter="text" />
+      `);
 
       // when
       const xml = await write(fieldElem);
@@ -57,10 +59,12 @@ describe('write', function() {
         retryCounter: 'text'
       });
 
-      var expectedXML = '<bpmn:sendTask ' +
-        'xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'zeebe:retryCounter="text" />';
+      const expectedXML = toSingleLineXML(`
+        <bpmn:sendTask 
+        xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        zeebe:retryCounter="text" />
+      `);
 
       // when
       const xml = await write(fieldElem);
@@ -77,10 +81,12 @@ describe('write', function() {
         retryCounter: 'text'
       });
 
-      var expectedXML = '<bpmn:businessRuleTask ' +
-        'xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'zeebe:retryCounter="text" />';
+      const expectedXML = toSingleLineXML(`
+        <bpmn:businessRuleTask 
+        xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        zeebe:retryCounter="text" />
+      `);
 
       // when
       const xml = await write(fieldElem);
@@ -97,10 +103,12 @@ describe('write', function() {
         retryCounter: 'text'
       });
 
-      var expectedXML = '<bpmn:scriptTask ' +
-        'xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'zeebe:retryCounter="text" />';
+      const expectedXML = toSingleLineXML(`
+        <bpmn:scriptTask 
+        xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        zeebe:retryCounter="text" />
+      `);
 
       // when
       const xml = await write(fieldElem);
@@ -117,9 +125,11 @@ describe('write', function() {
         propagateAllChildVariables: true
       });
 
-      var expectedXML = '<zeebe:calledElement ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'propagateAllChildVariables="true" />';
+      const expectedXML = toSingleLineXML(`
+        <zeebe:calledElement 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        propagateAllChildVariables="true" />
+      `);
 
       // when
       const xml = await write(fieldElem);
@@ -136,9 +146,11 @@ describe('write', function() {
         propagateAllChildVariables: false
       });
 
-      var expectedXML = '<zeebe:calledElement ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'propagateAllChildVariables="false" />';
+      const expectedXML = toSingleLineXML(`
+        <zeebe:calledElement 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        propagateAllChildVariables="false" />
+      `);
 
       // when
       const xml = await write(fieldElem);
@@ -155,8 +167,7 @@ describe('write', function() {
         propagateAllParentVariables: true
       });
 
-      var expectedXML = '<zeebe:calledElement ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" />';
+      const expectedXML = '<zeebe:calledElement xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" />';
 
       // when
       const xml = await write(fieldElem);
@@ -173,9 +184,11 @@ describe('write', function() {
         propagateAllParentVariables: false
       });
 
-      var expectedXML = '<zeebe:calledElement ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'propagateAllParentVariables="false" />';
+      const expectedXML = toSingleLineXML(`
+        <zeebe:calledElement 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        propagateAllParentVariables="false" />
+      `);
 
       // when
       const xml = await write(fieldElem);
@@ -203,18 +216,14 @@ describe('write', function() {
         })
       });
 
-      var expectedXML =
-        '<bpmn:process xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
-                      'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">' +
-          '<bpmn:extensionElements>' +
-            '<zeebe:userTaskForm id="userTaskForm-1">' +
-              '{ components: [ { label: "field", key: "field" } ] }' +
-            '</zeebe:userTaskForm>' +
-            '<zeebe:userTaskForm id="userTaskForm-2">' +
-              '{ components: [ { label: "&lt;field&gt;", key: "field" } ] }' +
-            '</zeebe:userTaskForm>' +
-          '</bpmn:extensionElements>' +
-        '</bpmn:process>';
+      const expectedXML = toSingleLineXML(`
+        <bpmn:process xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">
+          <bpmn:extensionElements>
+            <zeebe:userTaskForm id="userTaskForm-1">{ components: [ { label: "field", key: "field" } ] }</zeebe:userTaskForm>
+            <zeebe:userTaskForm id="userTaskForm-2">{ components: [ { label: "&lt;field&gt;", key: "field" } ] }</zeebe:userTaskForm>
+          </bpmn:extensionElements>
+        </bpmn:process>
+      `);
 
       // when
       const xml = await write(proc);
@@ -239,13 +248,13 @@ describe('write', function() {
           })
         });
 
-        var expectedXML =
-          '<bpmn:userTask xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
-                         'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">' +
-            '<bpmn:extensionElements>' +
-              '<zeebe:formDefinition formKey="form-1" />' +
-            '</bpmn:extensionElements>' +
-          '</bpmn:userTask>';
+        const expectedXML = toSingleLineXML(`
+          <bpmn:userTask xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">
+            <bpmn:extensionElements>
+              <zeebe:formDefinition formKey="form-1" />
+            </bpmn:extensionElements>
+          </bpmn:userTask>
+        `);
 
         // when
         const xml = await write(proc);
@@ -268,13 +277,13 @@ describe('write', function() {
           })
         });
 
-        var expectedXML =
-          '<bpmn:userTask xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
-                         'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">' +
-            '<bpmn:extensionElements>' +
-              '<zeebe:formDefinition formId="form-1" />' +
-            '</bpmn:extensionElements>' +
-          '</bpmn:userTask>';
+        const expectedXML = toSingleLineXML(`
+          <bpmn:userTask xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">
+            <bpmn:extensionElements>
+              <zeebe:formDefinition formId="form-1" />
+            </bpmn:extensionElements>
+          </bpmn:userTask>
+        `);
 
         // when
         const xml = await write(proc);
@@ -297,13 +306,13 @@ describe('write', function() {
           })
         });
 
-        var expectedXML =
-          '<bpmn:userTask xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
-                         'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">' +
-            '<bpmn:extensionElements>' +
-              '<zeebe:formDefinition externalReference="form-1" />' +
-            '</bpmn:extensionElements>' +
-          '</bpmn:userTask>';
+        const expectedXML = toSingleLineXML(`
+          <bpmn:userTask xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">
+            <bpmn:extensionElements>
+              <zeebe:formDefinition externalReference="form-1" />
+            </bpmn:extensionElements>
+          </bpmn:userTask>
+        `);
 
         // when
         const xml = await write(proc);
@@ -319,8 +328,7 @@ describe('write', function() {
       // given
       var userTask = moddle.create('zeebe:UserTask', {});
 
-      var expectedXML = '<zeebe:userTask ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" />';
+      const expectedXML = '<zeebe:userTask xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" />';
 
       // when
       const xml = await write(userTask);
@@ -338,10 +346,12 @@ describe('write', function() {
         resultVariable: 'dishVariable'
       });
 
-      var expectedXML = '<zeebe:calledDecision ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'decisionId="dishDecision" ' +
-        'resultVariable="dishVariable" />';
+      const expectedXML = toSingleLineXML(`
+        <zeebe:calledDecision 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        decisionId="dishDecision" 
+        resultVariable="dishVariable" />
+      `);
 
       // when
       const xml = await write(calledDecision);
@@ -360,11 +370,13 @@ describe('write', function() {
         candidateUsers: 'myCandidateUser'
       });
 
-      var expectedXML = '<zeebe:assignmentDefinition ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'assignee="myAssignee" ' +
-        'candidateGroups="myCandidateGroup" ' +
-        'candidateUsers="myCandidateUser" />';
+      const expectedXML = toSingleLineXML(`
+        <zeebe:assignmentDefinition 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        assignee="myAssignee" 
+        candidateGroups="myCandidateGroup" 
+        candidateUsers="myCandidateUser" />
+      `);
 
       // when
       const xml = await write(assignmentDefinition);
@@ -381,9 +393,7 @@ describe('write', function() {
         priority: '100'
       });
 
-      var expectedXML = '<zeebe:priorityDefinition ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'priority="100" />';
+      const expectedXML = '<zeebe:priorityDefinition xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" priority="100" />';
 
       // when
       const xml = await write(priority);
@@ -402,10 +412,12 @@ describe('write', function() {
         followUpDate: '=followUpDate'
       });
 
-      var expectedXML = '<zeebe:taskSchedule ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'dueDate="2023-04-20T04:20:00Z" ' +
-        'followUpDate="=followUpDate" />';
+      const expectedXML = toSingleLineXML(`
+        <zeebe:taskSchedule 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        dueDate="2023-04-20T04:20:00Z" 
+        followUpDate="=followUpDate" />
+      `);
 
       // when
       const xml = await write(taskSchedule);
@@ -422,10 +434,12 @@ describe('write', function() {
         modelerTemplate: 'foo'
       });
 
-      const expectedXML = '<bpmn:serviceTask ' +
-      'xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
-      'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-      'zeebe:modelerTemplate="foo" />';
+      const expectedXML = toSingleLineXML(`
+        <bpmn:serviceTask 
+        xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        zeebe:modelerTemplate="foo" />
+      `);
 
       // when
       const xml = await write(moddleElement);
@@ -442,10 +456,12 @@ describe('write', function() {
         modelerTemplate: 'foo'
       });
 
-      const expectedXML = '<bpmn:message ' +
-      'xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
-      'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-      'zeebe:modelerTemplate="foo" />';
+      const expectedXML = toSingleLineXML(`
+        <bpmn:message 
+        xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        zeebe:modelerTemplate="foo" />
+      `);
 
       // when
       const xml = await write(moddleElement);
@@ -462,10 +478,12 @@ describe('write', function() {
         modelerTemplateVersion: '12'
       });
 
-      const expectedXML = '<bpmn:serviceTask ' +
-        'xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'zeebe:modelerTemplateVersion="12" />';
+      const expectedXML = toSingleLineXML(`
+        <bpmn:serviceTask 
+        xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        zeebe:modelerTemplateVersion="12" />
+      `);
 
       // when
       const xml = await write(moddleElement);
@@ -482,10 +500,12 @@ describe('write', function() {
         modelerTemplateIcon: "data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" width='16' height='16'%3E%3C/svg%3E",
       });
 
-      const expectedXML = '<bpmn:serviceTask ' +
-        'xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'zeebe:modelerTemplateIcon="data:image/svg+xml,%3Csvg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#39;16&#39; height=&#39;16&#39;%3E%3C/svg%3E" />';
+      const expectedXML = toSingleLineXML(`
+        <bpmn:serviceTask 
+        xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        zeebe:modelerTemplateIcon="data:image/svg+xml,%3Csvg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#39;16&#39; height=&#39;16&#39;%3E%3C/svg%3E" />
+      `);
 
       // when
       const xml = await write(moddleElement);
@@ -503,9 +523,12 @@ describe('write', function() {
         resultVariable: 'result'
       });
 
-      const expectedXML = '<zeebe:script ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'expression="=today()" resultVariable="result" />';
+      const expectedXML = toSingleLineXML(`
+        <zeebe:script 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        expression="=today()" 
+        resultVariable="result" />
+      `);
 
       // when
       const xml = await write(moddleElement);
@@ -566,9 +589,7 @@ describe('write', function() {
         value: 'v1.0.0'
       });
 
-      const expectedXML = '<zeebe:versionTag ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'value="v1.0.0" />';
+      const expectedXML = '<zeebe:versionTag xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" value="v1.0.0" />';
 
       // when
       const xml = await write(moddleElement);
@@ -589,9 +610,7 @@ describe('write', function() {
             bindingType: 'deployment'
           });
 
-          const expectedXML = '<zeebe:calledDecision ' +
-            'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-            'bindingType="deployment" />';
+          const expectedXML = '<zeebe:calledDecision xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" bindingType="deployment" />';
 
           // when
           const xml = await write(moddleElement);
@@ -608,9 +627,7 @@ describe('write', function() {
             bindingType: 'deployment'
           });
 
-          const expectedXML = '<zeebe:calledElement ' +
-            'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-            'bindingType="deployment" />';
+          const expectedXML = '<zeebe:calledElement xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" bindingType="deployment" />';
 
           // when
           const xml = await write(moddleElement);
@@ -627,9 +644,7 @@ describe('write', function() {
             bindingType: 'deployment'
           });
 
-          const expectedXML = '<zeebe:formDefinition ' +
-            'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-            'bindingType="deployment" />';
+          const expectedXML = '<zeebe:formDefinition xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" bindingType="deployment" />';
 
           // when
           const xml = await write(moddleElement);
@@ -651,10 +666,12 @@ describe('write', function() {
             versionTag: 'v1.0.0'
           });
 
-          const expectedXML = '<zeebe:calledDecision ' +
-            'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-            'bindingType="versionTag" ' +
-            'versionTag="v1.0.0" />';
+          const expectedXML = toSingleLineXML(`
+            <zeebe:calledDecision 
+            xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+            bindingType="versionTag" 
+            versionTag="v1.0.0" />
+          `);
 
           // when
           const xml = await write(moddleElement);
@@ -672,10 +689,12 @@ describe('write', function() {
             versionTag: 'v1.0.0'
           });
 
-          const expectedXML = '<zeebe:calledElement ' +
-            'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-            'bindingType="versionTag" ' +
-            'versionTag="v1.0.0" />';
+          const expectedXML = toSingleLineXML(`
+            <zeebe:calledElement 
+            xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+            bindingType="versionTag" 
+            versionTag="v1.0.0" />
+          `);
 
           // when
           const xml = await write(moddleElement);
@@ -693,10 +712,12 @@ describe('write', function() {
             versionTag: 'v1.0.0'
           });
 
-          const expectedXML = '<zeebe:formDefinition ' +
-            'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-            'bindingType="versionTag" ' +
-            'versionTag="v1.0.0" />';
+          const expectedXML = toSingleLineXML(`
+            <zeebe:formDefinition 
+            xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+            bindingType="versionTag" 
+            versionTag="v1.0.0" />
+          `);
 
           // when
           const xml = await write(moddleElement);
@@ -714,10 +735,12 @@ describe('write', function() {
             versionTag: 'v1.0.0'
           });
 
-          const expectedXML = '<zeebe:linkedResource ' +
-            'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-            'bindingType="versionTag" ' +
-            'versionTag="v1.0.0" />';
+          const expectedXML = toSingleLineXML(`
+            <zeebe:linkedResource 
+            xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+            bindingType="versionTag" 
+            versionTag="v1.0.0" />
+          `);
 
           // when
           const xml = await write(moddleElement);
@@ -744,10 +767,11 @@ describe('write', function() {
         ]
       });
 
-      const expectedXML = '<zeebe:taskListeners ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">' +
-        '<zeebe:taskListener eventType="complete" retries="1" type="complete_listener" />' +
-        '</zeebe:taskListeners>';
+      const expectedXML = toSingleLineXML(`
+        <zeebe:taskListeners xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">
+          <zeebe:taskListener eventType="complete" retries="1" type="complete_listener" />
+        </zeebe:taskListeners>
+      `);
 
       // when
       const xml = await write(moddleElement);
@@ -765,11 +789,13 @@ describe('write', function() {
         resourceType:'RPA',
         linkName:'myScript' });
 
-      const expectedXML = '<zeebe:linkedResource ' +
-        'xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" ' +
-        'resourceId="=myScript" ' +
-        'resourceType="RPA" ' +
-        'linkName="myScript" />';
+      const expectedXML = toSingleLineXML(`
+        <zeebe:linkedResource 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        resourceId="=myScript" 
+        resourceType="RPA" 
+        linkName="myScript" />
+      `);
 
       // when
       const xml = await write(moddleElement);
@@ -803,7 +829,13 @@ describe('write', function() {
         outputElement: '= result'
       });
 
-      const expectedXML = '<zeebe:adHoc xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" activeElementsCollection="= some collection" outputCollection="results" outputElement="= result" />';
+      const expectedXML = toSingleLineXML(`
+        <zeebe:adHoc 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        activeElementsCollection="= some collection" 
+        outputCollection="results" 
+        outputElement="= result" />
+      `);
 
       // when
       const xml = await write(moddleElement);
@@ -821,7 +853,12 @@ describe('write', function() {
         variableEvents: 'create,update'
       });
 
-      const expectedXML = '<zeebe:conditionalFilter xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" variableNames="foo,bar" variableEvents="create,update" />';
+      const expectedXML = toSingleLineXML(`
+        <zeebe:conditionalFilter 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        variableNames="foo,bar" 
+        variableEvents="create,update" />
+      `);
 
       // when
       const xml = await write(moddleElement);
