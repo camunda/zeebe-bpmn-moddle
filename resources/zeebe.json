@@ -123,9 +123,9 @@
       ],
       "meta": {
         "allowedIn": [
-          "zeebe:ZeebeServiceTask",
           "bpmn:UserTask",
-          "zeebe:ExecutionListener"
+          "zeebe:ExecutionListener",
+          "zeebe:ZeebeServiceTask"
         ]
       },
       "properties": [
