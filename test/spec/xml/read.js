@@ -1070,6 +1070,64 @@ describe('read', function() {
         });
       });
 
+
+      describe('on StartEvent', function() {
+
+        it('zeebe:formId', async function() {
+
+          // given
+          var xml = readFile('test/fixtures/xml/startEvent-zeebe-formDefinition-formId.part.bpmn');
+
+          // when
+          const {
+            rootElement: event
+          } = await moddle.fromXML(xml, 'bpmn:StartEvent');
+
+          // then
+          expect(event).to.jsonEqual({
+            $type: 'bpmn:StartEvent',
+            id: 'start-event-1',
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:FormDefinition',
+                  formId: 'form-1'
+                }
+              ]
+            }
+          });
+        });
+
+
+        it('zeebe:formKey', async function() {
+
+          // given
+          var xml = readFile('test/fixtures/xml/startEvent-zeebe-formDefinition-formKey.part.bpmn');
+
+          // when
+          const {
+            rootElement: event
+          } = await moddle.fromXML(xml, 'bpmn:StartEvent');
+
+          // then
+          expect(event).to.jsonEqual({
+            $type: 'bpmn:StartEvent',
+            id: 'start-event-1',
+            extensionElements: {
+              $type: 'bpmn:ExtensionElements',
+              values: [
+                {
+                  $type: 'zeebe:FormDefinition',
+                  formKey: 'camunda-forms:bpmn:form-1'
+                }
+              ]
+            }
+          });
+        });
+
+      });
+
     });
 
 

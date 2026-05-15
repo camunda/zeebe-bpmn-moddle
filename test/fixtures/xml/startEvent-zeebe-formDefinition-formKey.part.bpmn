@@ -1,0 +1,9 @@
+<bpmn:startEvent 
+  id="start-event-1" 
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
+>
+  <bpmn:extensionElements>
+    <zeebe:formDefinition formKey="camunda-forms:bpmn:form-1" />
+  </bpmn:extensionElements>
+</bpmn:startEvent>
