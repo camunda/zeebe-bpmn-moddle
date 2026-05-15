@@ -320,6 +320,65 @@ describe('write', function() {
         // then
         expect(xml).to.eql(expectedXML);
       });
+
+
+      it('zeebe:formId on StartEvent', async function() {
+
+        // given
+        var event = moddle.create('bpmn:StartEvent', {
+          extensionElements: moddle.create('bpmn:ExtensionElements', {
+            values: [
+              moddle.create('zeebe:FormDefinition', {
+                formId: 'form-1'
+              })
+            ]
+          })
+        });
+
+        const expectedXML = normalizeXMLWhitespace(`
+          <bpmn:startEvent xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">
+            <bpmn:extensionElements>
+              <zeebe:formDefinition formId="form-1" />
+            </bpmn:extensionElements>
+          </bpmn:startEvent>
+        `);
+
+        // when
+        const xml = await write(event);
+
+        // then
+        expect(xml).to.eql(expectedXML);
+      });
+
+
+      it('zeebe:formKey on StartEvent', async function() {
+
+        // given
+        var event = moddle.create('bpmn:StartEvent', {
+          extensionElements: moddle.create('bpmn:ExtensionElements', {
+            values: [
+              moddle.create('zeebe:FormDefinition', {
+                formKey: 'camunda-forms:bpmn:form-1'
+              })
+            ]
+          })
+        });
+
+        const expectedXML = normalizeXMLWhitespace(`
+          <bpmn:startEvent xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0">
+            <bpmn:extensionElements>
+              <zeebe:formDefinition formKey="camunda-forms:bpmn:form-1" />
+            </bpmn:extensionElements>
+          </bpmn:startEvent>
+        `);
+
+        // when
+        const xml = await write(event);
+
+        // then
+        expect(xml).to.eql(expectedXML);
+      });
+
     });
 
 
