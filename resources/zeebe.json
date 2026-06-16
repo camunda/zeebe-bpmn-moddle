@@ -429,6 +429,25 @@
       ]
     },
     {
+      "name": "JobPriorityDefinition",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:Process",
+          "zeebe:ZeebeServiceTask"
+        ]
+      },
+      "properties": [
+        {
+          "name": "priority",
+          "type": "String",
+          "isAttr": true
+        }
+      ]
+    },
+    {
       "name": "TaskSchedule",
       "superClass": [
         "Element"
