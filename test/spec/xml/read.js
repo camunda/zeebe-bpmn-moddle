@@ -1256,6 +1256,68 @@ describe('read', function() {
     });
 
 
+    describe('zeebe:JobPriorityDefinition', function() {
+
+      it('on Process', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/process-zeebe-jobPriority.part.bpmn');
+
+        // when
+        const {
+          rootElement: process
+        } = await moddle.fromXML(xml, 'bpmn:Process');
+
+        // then
+        expect(process).to.jsonEqual({
+          $type: 'bpmn:Process',
+          id: 'process-1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:JobPriorityDefinition',
+                priority: '50'
+              }
+            ]
+          }
+        });
+      });
+
+
+      it('on ServiceTask', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/serviceTask-zeebe-jobPriority.part.bpmn');
+
+        // when
+        const {
+          rootElement: task
+        } = await moddle.fromXML(xml, 'bpmn:ServiceTask');
+
+        // then
+        expect(task).to.jsonEqual({
+          $type: 'bpmn:ServiceTask',
+          id: 'service-task-1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:TaskDefinition',
+                type: 'worker'
+              },
+              {
+                $type: 'zeebe:JobPriorityDefinition',
+                priority: '90'
+              }
+            ]
+          }
+        });
+      });
+
+    });
+
+
     describe('zeebe:TaskSchedule', function() {
 
       it('on UserTask', async function() {

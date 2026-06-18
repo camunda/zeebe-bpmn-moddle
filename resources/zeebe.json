@@ -738,6 +738,28 @@
           "type": "String"
         }
       ]
+    },
+    {
+      "name": "JobPriorityDefinition",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:Process",
+          "bpmn:ServiceTask",
+          "bpmn:SendTask",
+          "bpmn:BusinessRuleTask",
+          "bpmn:ScriptTask"
+        ]
+      },
+      "properties": [
+        {
+          "name": "priority",
+          "type": "String",
+          "isAttr": true
+        }
+      ]
     }
   ]
 }

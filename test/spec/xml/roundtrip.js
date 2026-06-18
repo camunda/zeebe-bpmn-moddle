@@ -110,4 +110,11 @@ describe('import -> export roundtrip', function() {
 
   });
 
+
+  describe('zeebe:JobPriorityDefinition', function() {
+
+    it('should keep zeebe:jobPriorityDefinition', validateExport('test/fixtures/xml/zeebe-jobPriority.bpmn'));
+
+  });
+
 });
