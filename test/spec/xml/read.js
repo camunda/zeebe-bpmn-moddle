@@ -1462,6 +1462,48 @@ describe('read', function() {
     });
 
 
+    describe('zeebe:ConfigurationSupported', function() {
+
+      it('on Input', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/input-zeebe-modelerConfiguration.part.bpmn');
+
+        // when
+        const {
+          rootElement: input
+        } = await moddle.fromXML(xml, 'zeebe:Input');
+
+        // then
+        expect(input).to.jsonEqual({
+          $type: 'zeebe:Input',
+          modelerConfigurationTemplate: 'io.camunda:slack-connection:1',
+          modelerConfigurationName: 'Slack Production'
+        });
+      });
+
+
+      it('on Property', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/property-zeebe-modelerConfiguration.part.bpmn');
+
+        // when
+        const {
+          rootElement: property
+        } = await moddle.fromXML(xml, 'zeebe:Property');
+
+        // then
+        expect(property).to.jsonEqual({
+          $type: 'zeebe:Property',
+          modelerConfigurationTemplate: 'io.camunda:slack-connection:1',
+          modelerConfigurationName: 'Slack Production'
+        });
+      });
+
+    });
+
+
     describe('zeebe:script', function() {
 
       it('on ScriptTask', async function() {

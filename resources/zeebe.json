@@ -525,6 +525,26 @@
       ]
     },
     {
+      "name": "ConfigurationSupported",
+      "isAbstract": true,
+      "extends": [
+        "zeebe:Input",
+        "zeebe:Property"
+      ],
+      "properties": [
+        {
+          "name": "modelerConfigurationTemplate",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "modelerConfigurationName",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
       "name": "TemplatedRootElement",
       "isAbstract": true,
       "extends": [
