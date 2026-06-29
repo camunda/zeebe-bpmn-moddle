@@ -8,7 +8,7 @@ ___Note:__ Yet to be released changes appear here._
 
 ## 1.16.0
 
-* `FEAT`: add configuration templates / `zeebe:ConfigurationSupported` ([#88](https://github.com/camunda/zeebe-bpmn-moddle/pull/88))
+* `FEAT`: add configuration templates / `zeebe:ConfigurationSupported` ([#89](https://github.com/camunda/zeebe-bpmn-moddle/issues/89), [#88](https://github.com/camunda/zeebe-bpmn-moddle/pull/88))
 
 ## 1.15.0
 
