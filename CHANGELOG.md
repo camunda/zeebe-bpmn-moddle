@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.16.0
+
+* `FEAT`: add configuration templates / `zeebe:ConfigurationSupported` ([#88](https://github.com/camunda/zeebe-bpmn-moddle/pull/88))
+
 ## 1.15.0
 
 * `FEAT`: add `zeebe:JobPriorityDefinition` ([#85](https://github.com/camunda/zeebe-bpmn-moddle/pull/85))
