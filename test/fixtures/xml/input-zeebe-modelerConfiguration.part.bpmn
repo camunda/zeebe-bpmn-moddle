@@ -1,0 +1,3 @@
+<zeebe:input xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
+             zeebe:modelerConfigurationTemplate="io.camunda:slack-connection:1"
+             zeebe:modelerConfigurationName="Slack Production" />

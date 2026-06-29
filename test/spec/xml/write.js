@@ -592,6 +592,46 @@ describe('write', function() {
     });
 
 
+    it('zeebe:modelerConfigurationTemplate on Input', async function() {
+
+      // given
+      const moddleElement = moddle.create('zeebe:Input', {
+        modelerConfigurationTemplate: 'io.camunda:slack-connection:1',
+        modelerConfigurationName: 'Slack Production'
+      });
+
+      const expectedXML = normalizeXMLWhitespace(`
+        <zeebe:input xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" modelerConfigurationTemplate="io.camunda:slack-connection:1" modelerConfigurationName="Slack Production" />
+      `);
+
+      // when
+      const xml = await write(moddleElement);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
+
+    it('zeebe:modelerConfigurationTemplate on Property', async function() {
+
+      // given
+      const moddleElement = moddle.create('zeebe:Property', {
+        modelerConfigurationTemplate: 'io.camunda:slack-connection:1',
+        modelerConfigurationName: 'Slack Production'
+      });
+
+      const expectedXML = normalizeXMLWhitespace(`
+        <zeebe:property xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" modelerConfigurationTemplate="io.camunda:slack-connection:1" modelerConfigurationName="Slack Production" />
+      `);
+
+      // when
+      const xml = await write(moddleElement);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
+
     it('zeebe:script', async function() {
 
       // given
