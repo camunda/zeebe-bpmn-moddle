@@ -6,6 +6,10 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.17.0
+
+* `FEAT`: add `businessId` to `zeebe:CalledElement` for Call Activity Business ID propagation ([#90](https://github.com/camunda/zeebe-bpmn-moddle/pull/90))
+
 ## 1.16.0
 
 * `FEAT`: add configuration templates / `zeebe:ConfigurationSupported` ([#89](https://github.com/camunda/zeebe-bpmn-moddle/issues/89), [#88](https://github.com/camunda/zeebe-bpmn-moddle/pull/88))

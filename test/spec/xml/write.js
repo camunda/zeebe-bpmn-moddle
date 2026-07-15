@@ -198,6 +198,40 @@ describe('write', function() {
     });
 
 
+    it('CalledElement#businessId - value', async function() {
+
+      // given
+      var fieldElem = moddle.create('zeebe:CalledElement', {
+        businessId: '=order.customerId'
+      });
+
+      const expectedXML = '<zeebe:calledElement xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" businessId="=order.customerId" />';
+
+      // when
+      const xml = await write(fieldElem);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
+
+    it('CalledElement#businessId - empty (null override)', async function() {
+
+      // given
+      var fieldElem = moddle.create('zeebe:CalledElement', {
+        businessId: ''
+      });
+
+      const expectedXML = '<zeebe:calledElement xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" businessId="" />';
+
+      // when
+      const xml = await write(fieldElem);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
+
     it('zeebe:userTaskForm', async function() {
 
       // given

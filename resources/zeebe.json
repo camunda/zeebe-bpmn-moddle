@@ -246,6 +246,11 @@
           "isAttr": true,
           "type": "Boolean",
           "default": true
+        },
+        {
+          "name": "businessId",
+          "isAttr": true,
+          "type": "String"
         }
       ]
     },
