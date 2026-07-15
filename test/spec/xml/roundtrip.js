@@ -83,6 +83,13 @@ describe('import -> export roundtrip', function() {
   });
 
 
+  describe('zeebe:CalledElement businessId', function() {
+
+    it('should keep businessId (expression, literal and empty)', validateExport('test/fixtures/xml/zeebe-businessId.bpmn'));
+
+  });
+
+
   describe('zeebe:TaskListeners', function() {
 
     it('should keep zeebe:taskListeners', validateExport('test/fixtures/xml/zeebe-taskListeners.bpmn'));

@@ -503,6 +503,33 @@ describe('read', function() {
         });
       });
 
+
+      it('with businessId', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/calledElement-businessId.part.bpmn');
+
+        // when
+        const {
+          rootElement: callActivity
+        } = await moddle.fromXML(xml, 'bpmn:CallActivity');
+
+        // then
+        expect(callActivity).to.jsonEqual({
+          $type: 'bpmn:CallActivity',
+          id: 'CallActivity_1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:CalledElement',
+                businessId: '=order.customerId'
+              }
+            ]
+          }
+        });
+      });
+
     });
 
 
