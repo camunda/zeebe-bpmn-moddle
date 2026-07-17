@@ -5,7 +5,7 @@
   "scripts": {
     "all": "run-s lint generate-types test",
     "lint": "eslint .",
-    "generate-types": "moddle-generate-types --index types/index.d.ts resources/zeebe.json types/zeebe.d.ts",
+    "generate-types": "moddle-generate-types --index dist/index.d.ts resources/zeebe.json dist/zeebe.d.ts",
     "prepublishOnly": "run-s generate-types",
     "dev": "npm test -- --watch",
     "test": "mocha -r ./test/expect --reporter=spec --recursive test"
@@ -48,8 +48,9 @@
   },
   "files": [
     "resources",
-    "types"
+    "dist"
   ],
+  "types": "dist/index.d.ts",
   "allowScripts": {
     "xsd-schema-validator@0.11.0": true
   }
