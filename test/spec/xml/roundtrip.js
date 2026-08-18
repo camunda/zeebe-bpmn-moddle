@@ -117,4 +117,11 @@ describe('import -> export roundtrip', function() {
 
   });
 
+
+  describe('zeebe:AgentDefinition', function() {
+
+    it('should keep zeebe:agentDefinition', validateExport('test/fixtures/xml/zeebe-agentDefinition.bpmn'));
+
+  });
+
 });

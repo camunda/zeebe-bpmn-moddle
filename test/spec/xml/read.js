@@ -2000,6 +2000,64 @@ describe('read', function() {
 
     });
 
+
+    describe('zeebe:agentDefinition', function() {
+
+      it('on ServiceTask', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/serviceTask-zeebe-agentDefinition.part.bpmn');
+
+        // when
+        const {
+          rootElement: task
+        } = await moddle.fromXML(xml, 'bpmn:ServiceTask');
+
+        // then
+        expect(task).to.jsonEqual({
+          $type: 'bpmn:ServiceTask',
+          id: 'service-task-1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:AgentDefinition',
+                agentType: 'aiAgentTask'
+              }
+            ]
+          }
+        });
+      });
+
+
+      it('on AdHocSubProcess', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/adhoc-sub-process-zeebe-agentDefinition.part.bpmn');
+
+        // when
+        const {
+          rootElement: subprocess
+        } = await moddle.fromXML(xml, 'bpmn:AdHocSubProcess');
+
+        // then
+        expect(subprocess).to.jsonEqual({
+          $type: 'bpmn:AdHocSubProcess',
+          id: 'AdHocSubProcess_1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:AgentDefinition',
+                agentType: 'aiAgentSubProcess'
+              }
+            ]
+          }
+        });
+      });
+
+    });
+
   });
 
 });
