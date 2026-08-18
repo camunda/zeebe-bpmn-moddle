@@ -1018,6 +1018,27 @@ describe('write', function() {
       expect(xml).to.eql(expectedXML);
     });
 
+
+    it('zeebe:AgentDefinition', async function() {
+
+      // given
+      const moddleElement = moddle.create('zeebe:AgentDefinition', {
+        agentType: 'aiAgentTask'
+      });
+
+      const expectedXML = normalizeXMLWhitespace(`
+        <zeebe:agentDefinition 
+        xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" 
+        agentType="aiAgentTask" />
+      `);
+
+      // when
+      const xml = await write(moddleElement);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
   });
 
 });

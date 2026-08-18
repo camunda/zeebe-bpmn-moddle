@@ -782,6 +782,25 @@
           "type": "String"
         }
       ]
+    },
+    {
+      "name": "AgentDefinition",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:ServiceTask",
+          "bpmn:AdHocSubProcess"
+        ]
+      },
+      "properties": [
+        {
+          "name": "agentType",
+          "type": "String",
+          "isAttr": true
+        }
+      ]
     }
   ]
 }
