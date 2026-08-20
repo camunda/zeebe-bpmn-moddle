@@ -9,6 +9,7 @@ ___Note:__ Yet to be released changes appear here._
 ## 1.18.0
 
 * `FEAT`: add `zeebe:agentDefinition` extension element ([#94](https://github.com/camunda/zeebe-bpmn-moddle/pull/94))
+* `FEAT`: add types definitions ([#91](https://github.com/camunda/zeebe-bpmn-moddle/pull/91))
 
 ## 1.17.0
 
