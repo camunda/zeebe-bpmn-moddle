@@ -50,7 +50,10 @@
     "resources",
     "dist"
   ],
-  "types": "dist/index.d.ts",
+  "exports": {
+    "./resources/*": "./resources/*",
+    "./package.json": "./package.json"
+  },
   "allowScripts": {
     "xsd-schema-validator@0.11.0": true
   }
