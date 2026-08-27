@@ -5,7 +5,7 @@
   "scripts": {
     "all": "run-s lint generate-types test",
     "lint": "eslint .",
-    "generate-types": "moddle-generate-types --index dist/index.d.ts resources/zeebe.json dist/zeebe.d.ts",
+    "generate-types": "moddle-generate-types --index dist/types/index.d.ts resources/zeebe.json dist/types/zeebe.d.ts",
     "prepublishOnly": "run-s generate-types",
     "dev": "npm test -- --watch",
     "test": "mocha -r ./test/expect --reporter=spec --recursive test"
@@ -51,6 +51,9 @@
     "dist"
   ],
   "exports": {
+    "./types": {
+      "types": "./dist/types/index.d.ts"
+    },
     "./resources/*": "./resources/*",
     "./package.json": "./package.json"
   },

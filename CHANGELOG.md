@@ -9,7 +9,7 @@ ___Note:__ Yet to be released changes appear here._
 * `CHORE`: add `exports` declaration ([#95](https://github.com/camunda/zeebe-bpmn-moddle/pull/95))
 
 ### Breaking Changes
-
+* Generated types are now exposed via `zeebe-bpmn-moddle/types` instead of the package root ([#95](https://github.com/camunda/zeebe-bpmn-moddle/pull/95))
 * Extensionless imports are no longer supported; import resources via their full path (`zeebe-bpmn-moddle/resources/zeebe.json`) ([#95](https://github.com/camunda/zeebe-bpmn-moddle/pull/95))
 
 ## 1.18.0
