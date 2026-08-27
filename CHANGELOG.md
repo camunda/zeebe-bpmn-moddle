@@ -6,6 +6,9 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+
+## 2.0.0
+
 * `CHORE`: add `exports` declaration ([#95](https://github.com/camunda/zeebe-bpmn-moddle/pull/95))
 
 ### Breaking Changes
