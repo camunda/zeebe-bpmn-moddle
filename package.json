@@ -3,9 +3,10 @@
   "version": "1.18.0",
   "description": "Zeebe moddle extensions for BPMN 2.0",
   "scripts": {
-    "all": "run-s lint generate-types test",
+    "all": "run-s lint generate-types test:types test",
     "lint": "eslint .",
     "generate-types": "moddle-generate-types --index dist/types/index.d.ts resources/zeebe.json dist/types/zeebe.d.ts",
+    "test:types": "tsc --noEmit -p test/types/tsconfig.json",
     "prepublishOnly": "run-s generate-types",
     "dev": "npm test -- --watch",
     "test": "mocha -r ./test/expect --reporter=spec --recursive test"
@@ -34,13 +35,15 @@
   "license": "MIT",
   "devDependencies": {
     "@bpmn-io/moddle-types-generator": "^0.2.1",
-    "bpmn-moddle": "^10.0.0",
+    "bpmn-moddle": "^10.1.0",
     "chai": "^6.2.2",
     "eslint": "^9.39.2",
     "eslint-plugin-bpmn-io": "^2.2.0",
     "min-dash": "^5.0.0",
     "mocha": "^11.7.6",
     "npm-run-all": "^4.1.2",
+    "ts-expect": "^1.3.0",
+    "typescript": "^5.9.3",
     "xsd-schema-validator": "^0.11.0"
   },
   "peerDependencies": {
