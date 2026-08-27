@@ -6,6 +6,12 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+* `CHORE`: add `exports` declaration ([#95](https://github.com/camunda/zeebe-bpmn-moddle/pull/95))
+
+### Breaking Changes
+
+* Extensionless imports are no longer supported; import resources via their full path (`zeebe-bpmn-moddle/resources/zeebe.json`) ([#95](https://github.com/camunda/zeebe-bpmn-moddle/pull/95))
+
 ## 1.18.0
 
 * `FEAT`: add `zeebe:agentDefinition` extension element ([#94](https://github.com/camunda/zeebe-bpmn-moddle/pull/94))
