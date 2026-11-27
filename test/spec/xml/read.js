@@ -1963,6 +1963,125 @@ describe('read', function() {
     });
 
 
+    describe('zeebe:Case', function() {
+
+      it('on Process', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/process-zeebe-case.part.bpmn');
+
+        // when
+        const {
+          rootElement: element
+        } = await moddle.fromXML(xml, 'bpmn:Process');
+
+        // then
+        expect(element).to.jsonEqual({
+          $type: 'bpmn:Process',
+          id: 'process-1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:Case',
+                title: 'loanTitle',
+                caseForm: 'loan-case-details'
+              }
+            ]
+          }
+        });
+      });
+
+    });
+
+
+    describe('zeebe:Stage', function() {
+
+      it('on SubProcess', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/subProcess-zeebe-stage.part.bpmn');
+
+        // when
+        const {
+          rootElement: element
+        } = await moddle.fromXML(xml, 'bpmn:SubProcess');
+
+        // then
+        expect(element).to.jsonEqual({
+          $type: 'bpmn:SubProcess',
+          id: 'sub-process-1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:Stage'
+              }
+            ]
+          }
+        });
+      });
+
+
+      it('on AdHocSubProcess', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/adhoc-sub-process-zeebe-stage.part.bpmn');
+
+        // when
+        const {
+          rootElement: element
+        } = await moddle.fromXML(xml, 'bpmn:AdHocSubProcess');
+
+        // then
+        expect(element).to.jsonEqual({
+          $type: 'bpmn:AdHocSubProcess',
+          id: 'ad-hoc-sub-process-1',
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:Stage'
+              },
+              {
+                $type: 'zeebe:AdHoc',
+                activeElementsCollection: '=["task-1"]'
+              }
+            ]
+          }
+        });
+      });
+
+
+      it('on event SubProcess', async function() {
+
+        // given
+        var xml = readFile('test/fixtures/xml/eventSubProcess-zeebe-stage.part.bpmn');
+
+        // when
+        const {
+          rootElement: element
+        } = await moddle.fromXML(xml, 'bpmn:SubProcess');
+
+        // then
+        expect(element).to.jsonEqual({
+          $type: 'bpmn:SubProcess',
+          id: 'event-sub-process-1',
+          triggeredByEvent: true,
+          extensionElements: {
+            $type: 'bpmn:ExtensionElements',
+            values: [
+              {
+                $type: 'zeebe:Stage'
+              }
+            ]
+          }
+        });
+      });
+
+    });
+
+
     describe('zeebe:conditionalFilter', function() {
 
       it('on ConditionalEventDefinition in StartEvent', async function() {

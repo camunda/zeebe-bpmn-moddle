@@ -6,6 +6,8 @@ All notable changes to [zeebe-bpmn-moddle](https://github.com/camunda/zeebe-bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+* `FEAT`: add `zeebe:Case` marker on `bpmn:Process` and `zeebe:Stage` marker on `bpmn:SubProcess`
+
 
 ## 2.0.0
 

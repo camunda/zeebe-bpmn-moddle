@@ -710,6 +710,40 @@
       ]
     },
     {
+      "name": "Case",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:Process"
+        ]
+      },
+      "properties": [
+        {
+          "name": "title",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "caseForm",
+          "type": "String",
+          "isAttr": true
+        }
+      ]
+    },
+    {
+      "name": "Stage",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:SubProcess"
+        ]
+      }
+    },
+    {
       "name": "BindingTypeSupported",
       "isAbstract": true,
       "extends": [

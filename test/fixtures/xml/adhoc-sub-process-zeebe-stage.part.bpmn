@@ -1,0 +1,10 @@
+<bpmn:adHocSubProcess
+  id="ad-hoc-sub-process-1"
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:zeebe="http://camunda.org/schema/zeebe/1.0"
+>
+  <bpmn:extensionElements>
+    <zeebe:stage />
+    <zeebe:adHoc activeElementsCollection="=[&quot;task-1&quot;]" />
+  </bpmn:extensionElements>
+</bpmn:adHocSubProcess>
