@@ -971,6 +971,39 @@ describe('write', function() {
     });
 
 
+    it('zeebe:Case', async function() {
+
+      // given
+      const moddleElement = moddle.create('zeebe:Case', {
+        title: 'loanTitle',
+        caseForm: 'loan-case-details'
+      });
+
+      const expectedXML = '<zeebe:case xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" title="loanTitle" caseForm="loan-case-details" />';
+
+      // when
+      const xml = await write(moddleElement);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
+
+    it('zeebe:Stage', async function() {
+
+      // given
+      const moddleElement = moddle.create('zeebe:Stage');
+
+      const expectedXML = '<zeebe:stage xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" />';
+
+      // when
+      const xml = await write(moddleElement);
+
+      // then
+      expect(xml).to.eql(expectedXML);
+    });
+
+
     it('zeebe:AdHoc', async function() {
 
       // given
